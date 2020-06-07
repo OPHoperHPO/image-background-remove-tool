@@ -1,6 +1,8 @@
+numpy==1.18.2
+scikit_image==0.15.0
 tqdm==4.43.0
 scipy==1.4.1
-wget==3.2
-numpy==1.18.2
-Pillow==7.0.0
-tensorflow==2.1.0
+tensorflow==2.2.0
+torch==1.5.0
+gdown==3.11.1
+Pillow==7.1.2
