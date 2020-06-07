@@ -18,8 +18,8 @@ The program removes the background from photos
 ### 🧷 Dependencies:
 ```	gdown ``` **for setup.py!** \
 ```	tensorflow, torch, Pillow, tqdm, numpy, scipy, scikit_image ``` **for main.py!**
-> Note:  You can choose what to install PyTorch or TensorFlow, based on which model you want to use.
-PyTorch for `u2net`, `u2netp`
+> Note:  You can choose what to install PyTorch or TensorFlow, based on which model you want to use. \
+PyTorch for `u2net`, `u2netp` \
 TensorFlow for `xception_model`, `mobile_net_model` \
 **TensorFlow models are not recommended for use, since these models have much worse quality and lower image processing speed, also these models are designed solely to remove the background from portrait photos and photos with animals.**
 **********************************************************************
@@ -41,7 +41,8 @@ _This setup.sh script loads the trained model._
  * `-o <output_path>` - path to output file or dir.
  * `-m <model_type>` - can be `u2net` or `u2netp` or `xception_model` or `mobile_net_model`. `u2net` is better to use. 
 __DeepLab__ models (`xception_model` or `mobile_net_model`) are __outdated__ 
-and designed to remove the background from PORTRAIT photos or PHOTOS WITH ANIMALS! [More info about models.](https://github.com/OPHoperHPO/image-background-remove-tool/blob/master/docs/MODELS.md)
+and designed to remove the background from PORTRAIT photos or PHOTOS WITH ANIMALS! \
+[More info about models.](https://github.com/OPHoperHPO/image-background-remove-tool/blob/master/docs/MODELS.md)
  > Note:  See example scripts for more information on using the program.
 **********************************************************************
 ### ⏳ TODO:
