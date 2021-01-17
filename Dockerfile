@@ -10,10 +10,10 @@ RUN pip install -r requirements.txt
 
 FROM base as setup
 
-COPY libs .
-COPY tools .
+COPY libs libs
+COPY tools tools
 RUN cd tools && (echo "all" | python setup.py)
-COPY . .
+COPY main.py main.py
 
 # =======================================
 
