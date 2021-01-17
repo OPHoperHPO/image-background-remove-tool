@@ -1,0 +1,11 @@
+.git
+.cache
+.github
+.vscode
+docs
+gui
+input
+models
+out
+tests
+Dockerfile
