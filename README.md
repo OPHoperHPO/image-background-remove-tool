@@ -62,6 +62,9 @@ _This setup.sh script loads the pre-trained model._
 ### 🧰 Running the script:  
  * ```python3 main.py -i <input_path> -o <output_path> -m <model_type> -prep <preprocessing_method> -postp <postprocessing_method>```  
  
+ Or using docker:
+ * ```docker run --rm shkarface/image-background-remove-tool:latest -i <input_path> -o <output_path> -m <model_type> -prep <preprocessing_method> -postp <postprocessing_method>```
+ 
 #### Explanation of args:  
 * `-i <input_path>` - path to input file or dir.
 * `-o <output_path>` - path to output file or dir.
