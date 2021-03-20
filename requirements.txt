@@ -5,7 +5,7 @@ torch==1.5.0
 torchvision==0.2.2.post3
 opencv_contrib_python==4.2.0.34
 scipy==1.4.1
-tensorflow==2.2.1
+tensorflow==2.4.0
 gluoncv==0.7.0
 gdown==3.11.1
 scikit_image==0.15.0
