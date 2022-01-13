@@ -9,5 +9,5 @@ tensorflow==2.2.1
 gluoncv==0.7.0
 gdown==3.11.1
 scikit_image==0.15.0
-Pillow==7.1.2
+Pillow==9.0.0
 mxnet==1.6.0
