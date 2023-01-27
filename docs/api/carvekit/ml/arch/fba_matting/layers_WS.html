@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>carvekit.ml.arch.fba_matting.layers_WS API documentation</title>
+<meta name="description" content="Modified by Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+Source url: https://github.com/MarcoForte/FBA_Matting
+License: MIT License" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>carvekit.ml.arch.fba_matting.layers_WS</code></h1>
+</header>
+<section id="section-intro">
+<p>Modified by Nikita Selin (OPHoperHPO)[<a href="https://github.com/OPHoperHPO].">https://github.com/OPHoperHPO].</a>
+Source url: <a href="https://github.com/MarcoForte/FBA_Matting">https://github.com/MarcoForte/FBA_Matting</a>
+License: MIT License</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Modified by Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+Source url: https://github.com/MarcoForte/FBA_Matting
+License: MIT License
+&#34;&#34;&#34;
+import torch
+import torch.nn as nn
+from torch.nn import functional as F
+
+
+class Conv2d(nn.Conv2d):
+    def __init__(
+        self,
+        in_channels,
+        out_channels,
+        kernel_size,
+        stride=1,
+        padding=0,
+        dilation=1,
+        groups=1,
+        bias=True,
+    ):
+        super(Conv2d, self).__init__(
+            in_channels,
+            out_channels,
+            kernel_size,
+            stride,
+            padding,
+            dilation,
+            groups,
+            bias,
+        )
+
+    def forward(self, x):
+        # return super(Conv2d, self).forward(x)
+        weight = self.weight
+        weight_mean = (
+            weight.mean(dim=1, keepdim=True)
+            .mean(dim=2, keepdim=True)
+            .mean(dim=3, keepdim=True)
+        )
+        weight = weight - weight_mean
+        # std = (weight).view(weight.size(0), -1).std(dim=1).view(-1, 1, 1, 1) + 1e-5
+        std = (
+            torch.sqrt(torch.var(weight.view(weight.size(0), -1), dim=1) + 1e-12).view(
+                -1, 1, 1, 1
+            )
+            + 1e-5
+        )
+        weight = weight / std.expand_as(weight)
+        return F.conv2d(
+            x, weight, self.bias, self.stride, self.padding, self.dilation, self.groups
+        )
+
+
+def BatchNorm2d(num_features):
+    return nn.GroupNorm(num_channels=num_features, num_groups=32)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.layers_WS.BatchNorm2d"><code class="name flex">
+<span>def <span class="ident">BatchNorm2d</span></span>(<span>num_features)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def BatchNorm2d(num_features):
+    return nn.GroupNorm(num_channels=num_features, num_groups=32)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.layers_WS.Conv2d"><code class="flex name class">
+<span>class <span class="ident">Conv2d</span></span>
+<span>(</span><span>in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Applies a 2D convolution over an input signal composed of several input
+planes.</p>
+<p>In the simplest case, the output value of the layer with input size
+:math:<code>(N, C_{\text{in}}, H, W)</code> and output :math:<code>(N, C_{\text{out}}, H_{\text{out}}, W_{\text{out}})</code>
+can be precisely described as:</p>
+<p>[ \text{out}(N_i, C_{\text{out}<em _text_out="\text{out">j}) = \text{bias}(C</em><em k>j}) +
+\sum</em>^{C_{\text{in}} - 1} \text{weight}(C_{\text{out}<em>j}, k) \star \text{input}(N_i, k) ]
+where :math:<code>\star</code> is the valid 2D <code>cross-correlation</code></em> operator,
+:math:<code>N</code> is a batch size, :math:<code>C</code> denotes a number of channels,
+:math:<code>H</code> is a height of input planes in pixels, and :math:<code>W</code> is
+width in pixels.</p>
+<p>This module supports :ref:<code>TensorFloat32&lt;tf32_on_ampere&gt;</code>.</p>
+<ul>
+<li>
+<p>:attr:<code>stride</code> controls the stride for the cross-correlation, a single
+number or a tuple.</p>
+</li>
+<li>
+<p>:attr:<code>padding</code> controls the amount of padding applied to the input. It
+can be either a string {'valid', 'same'} or a tuple of ints giving the
+amount of implicit padding applied on both sides.</p>
+</li>
+<li>
+<p>:attr:<code>dilation</code> controls the spacing between the kernel points; also
+known as the à trous algorithm. It is harder to describe, but this <code>link</code>_
+has a nice visualization of what :attr:<code>dilation</code> does.</p>
+</li>
+<li>
+<p>:attr:<code>groups</code> controls the connections between inputs and outputs.
+:attr:<code>in_channels</code> and :attr:<code>out_channels</code> must both be divisible by
+:attr:<code>groups</code>. For example,</p>
+<ul>
+<li>At groups=1, all inputs are convolved to all outputs.</li>
+<li>At groups=2, the operation becomes equivalent to having two conv
+layers side by side, each seeing half the input channels
+and producing half the output channels, and both subsequently
+concatenated.</li>
+<li>At groups= :attr:<code>in_channels</code>, each input channel is convolved with
+its own set of filters (of size
+:math:<code>\frac{\text{out\_channels}}{\text{in\_channels}}</code>).</li>
+</ul>
+</li>
+</ul>
+<p>The parameters :attr:<code>kernel_size</code>, :attr:<code>stride</code>, :attr:<code>padding</code>, :attr:<code>dilation</code> can either be:</p>
+<pre><code>- a single &lt;code&gt;int&lt;/code&gt; -- in which case the same value is used for the height and width dimension
+- a &lt;code&gt;tuple&lt;/code&gt; of two ints -- in which case, the first &lt;code&gt;int&lt;/code&gt; is used for the height dimension,
+  and the second &lt;code&gt;int&lt;/code&gt; for the width dimension
+</code></pre>
+<h2 id="note">Note</h2>
+<p>When <code>groups == in_channels</code> and <code>out_channels == K * in_channels</code>,
+where <code>K</code> is a positive integer, this operation is also known as a "depthwise convolution".</p>
+<p>In other words, for an input of size :math:<code>(N, C_{in}, L_{in})</code>,
+a depthwise convolution with a depthwise multiplier <code>K</code> can be performed with the arguments
+:math:<code>(C_\text{in}=C_\text{in}, C_\text{out}=C_\text{in} \times \text{K}, ..., \text{groups}=C_\text{in})</code>.</p>
+<h2 id="note_1">Note</h2>
+<p>In some circumstances when given tensors on a CUDA device and using CuDNN, this operator may select a nondeterministic algorithm to increase performance. If this is undesirable, you can try to make the operation deterministic (potentially at a performance cost) by setting <code>torch.backends.cudnn.deterministic = True</code>. See :doc:<code>/notes/randomness</code> for more information.</p>
+<h2 id="note_2">Note</h2>
+<p><code>padding='valid'</code> is the same as no padding. <code>padding='same'</code> pads
+the input so the output has the shape as the input. However, this mode
+doesn't support any stride values other than 1.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>in_channels</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of channels in the input image</dd>
+<dt><strong><code>out_channels</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of channels produced by the convolution</dd>
+<dt><strong><code>kernel_size</code></strong> :&ensp;<code>int</code> or <code>tuple</code></dt>
+<dd>Size of the convolving kernel</dd>
+<dt><strong><code>stride</code></strong> :&ensp;<code>int</code> or <code>tuple</code>, optional</dt>
+<dd>Stride of the convolution. Default: 1</dd>
+<dt><strong><code>padding</code></strong> :&ensp;<code>int, tuple</code> or <code>str</code>, optional</dt>
+<dd>Padding added to all four sides of
+the input. Default: 0</dd>
+<dt><strong><code>padding_mode</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd><code>'zeros'</code>, <code>'reflect'</code>,
+<code>'replicate'</code> or <code>'circular'</code>. Default: <code>'zeros'</code></dd>
+<dt><strong><code>dilation</code></strong> :&ensp;<code>int</code> or <code>tuple</code>, optional</dt>
+<dd>Spacing between kernel elements. Default: 1</dd>
+<dt><strong><code>groups</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Number of blocked connections from input
+channels to output channels. Default: 1</dd>
+<dt><strong><code>bias</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If <code>True</code>, adds a learnable bias to the
+output. Default: <code>True</code></dd>
+</dl>
+<h2 id="shape">Shape</h2>
+<ul>
+<li>Input: :math:<code>(N, C_{in}, H_{in}, W_{in})</code> or :math:<code>(C_{in}, H_{in}, W_{in})</code></li>
+<li>Output: :math:<code>(N, C_{out}, H_{out}, W_{out})</code> or :math:<code>(C_{out}, H_{out}, W_{out})</code>, where</li>
+</ul>
+<p>[ H_{out} = \left\lfloor\frac{H_{in}
++ 2 \times \text{padding}[0] - \text{dilation}[0]
+\times (\text{kernel_size}[0] - 1) - 1}{\text{stride}[0]} + 1\right\rfloor ]
+[ W_{out} = \left\lfloor\frac{W_{in}
++ 2 \times \text{padding}[1] - \text{dilation}[1]
+\times (\text{kernel_size}[1] - 1) - 1}{\text{stride}[1]} + 1\right\rfloor ]</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>weight</code></strong> :&ensp;<code>Tensor</code></dt>
+<dd>the learnable weights of the module of shape
+:math:<code>(\text{out\_channels}, \frac{\text{in\_channels}}{\text{groups}},</code>
+:math:<code>\text{kernel\_size[0]}, \text{kernel\_size[1]})</code>.
+The values of these weights are sampled from
+:math:<code>\mathcal{U}(-\sqrt{k}, \sqrt{k})</code> where
+:math:<code>k = \frac{groups}{C_\text{in} * \prod_{i=0}^{1}\text{kernel\_size}[i]}</code></dd>
+<dt><strong><code>bias</code></strong> :&ensp;<code>Tensor</code></dt>
+<dd>the learnable bias of the module of shape
+(out_channels). If :attr:<code>bias</code> is <code>True</code>,
+then the values of these weights are
+sampled from :math:<code>\mathcal{U}(-\sqrt{k}, \sqrt{k})</code> where
+:math:<code>k = \frac{groups}{C_\text{in} * \prod_{i=0}^{1}\text{kernel\_size}[i]}</code></dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; # With square kernels and equal stride
+&gt;&gt;&gt; m = nn.Conv2d(16, 33, 3, stride=2)
+&gt;&gt;&gt; # non-square kernels and unequal stride and with padding
+&gt;&gt;&gt; m = nn.Conv2d(16, 33, (3, 5), stride=(2, 1), padding=(4, 2))
+&gt;&gt;&gt; # non-square kernels and unequal stride and with padding and dilation
+&gt;&gt;&gt; m = nn.Conv2d(16, 33, (3, 5), stride=(2, 1), padding=(4, 2), dilation=(3, 1))
+&gt;&gt;&gt; input = torch.randn(20, 16, 50, 100)
+&gt;&gt;&gt; output = m(input)
+</code></pre>
+<p>.. _cross-correlation:
+<a href="https://en.wikipedia.org/wiki/Cross-correlation">https://en.wikipedia.org/wiki/Cross-correlation</a></p>
+<p>.. _link:
+<a href="https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md">https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md</a></p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Conv2d(nn.Conv2d):
+    def __init__(
+        self,
+        in_channels,
+        out_channels,
+        kernel_size,
+        stride=1,
+        padding=0,
+        dilation=1,
+        groups=1,
+        bias=True,
+    ):
+        super(Conv2d, self).__init__(
+            in_channels,
+            out_channels,
+            kernel_size,
+            stride,
+            padding,
+            dilation,
+            groups,
+            bias,
+        )
+
+    def forward(self, x):
+        # return super(Conv2d, self).forward(x)
+        weight = self.weight
+        weight_mean = (
+            weight.mean(dim=1, keepdim=True)
+            .mean(dim=2, keepdim=True)
+            .mean(dim=3, keepdim=True)
+        )
+        weight = weight - weight_mean
+        # std = (weight).view(weight.size(0), -1).std(dim=1).view(-1, 1, 1, 1) + 1e-5
+        std = (
+            torch.sqrt(torch.var(weight.view(weight.size(0), -1), dim=1) + 1e-12).view(
+                -1, 1, 1, 1
+            )
+            + 1e-5
+        )
+        weight = weight / std.expand_as(weight)
+        return F.conv2d(
+            x, weight, self.bias, self.stride, self.padding, self.dilation, self.groups
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.conv.Conv2d</li>
+<li>torch.nn.modules.conv._ConvNd</li>
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.layers_WS.Conv2d.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x):
+    # return super(Conv2d, self).forward(x)
+    weight = self.weight
+    weight_mean = (
+        weight.mean(dim=1, keepdim=True)
+        .mean(dim=2, keepdim=True)
+        .mean(dim=3, keepdim=True)
+    )
+    weight = weight - weight_mean
+    # std = (weight).view(weight.size(0), -1).std(dim=1).view(-1, 1, 1, 1) + 1e-5
+    std = (
+        torch.sqrt(torch.var(weight.view(weight.size(0), -1), dim=1) + 1e-12).view(
+            -1, 1, 1, 1
+        )
+        + 1e-5
+    )
+    weight = weight / std.expand_as(weight)
+    return F.conv2d(
+        x, weight, self.bias, self.stride, self.padding, self.dilation, self.groups
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="carvekit.ml.arch.fba_matting" href="index.html">carvekit.ml.arch.fba_matting</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.fba_matting.layers_WS.BatchNorm2d" href="#carvekit.ml.arch.fba_matting.layers_WS.BatchNorm2d">BatchNorm2d</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="carvekit.ml.arch.fba_matting.layers_WS.Conv2d" href="#carvekit.ml.arch.fba_matting.layers_WS.Conv2d">Conv2d</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.fba_matting.layers_WS.Conv2d.forward" href="#carvekit.ml.arch.fba_matting.layers_WS.Conv2d.forward">forward</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,6 +1,8 @@
 """
 Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+
 Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+
 License: Apache License 2.0
 """
 import PIL.Image
@@ -19,13 +21,13 @@ def composite(
     https://pymatting.github.io/intro.html#alpha-matting math formula.
 
     Args:
-        device: Processing device
-        foreground: Image that will be pasted to background image with following alpha mask.
-        background: Background image
-        alpha: Alpha Image
+        foreground (PIL.Image.Image): Image that will be pasted to background image with following alpha mask.
+        background (PIL.Image.Image): Background image
+        alpha (PIL.Image.Image): Alpha Image
+        device (Literal[cpu, cuda]): Processing device
 
     Returns:
-        Composited image as PIL.Image instance.
+        PIL.Image.Image: Composited image.
     """
 
     foreground = foreground.convert("RGBA")
@@ -58,12 +60,12 @@ def apply_mask(
     Applies mask to foreground.
 
     Args:
-        device: Processing device.
-        image: Image with background.
-        mask: Alpha Channel mask for this image.
+        image (PIL.Image.Image): Image with background.
+        mask (PIL.Image.Image): Alpha Channel mask for this image.
+        device (Literal[cpu, cuda]): Processing device.
 
     Returns:
-        Image without background, where mask was black.
+        PIL.Image.Image: Image without background, where mask was black.
     """
     background = PIL.Image.new("RGBA", image.size, color=(130, 130, 130, 0))
     return composite(image, background, mask, device=device).convert("RGBA")
@@ -77,7 +79,7 @@ def extract_alpha_channel(image: PIL.Image.Image) -> PIL.Image.Image:
         image: RGBA PIL image
 
     Returns:
-        RGBA alpha channel image
+        PIL.Image.Image: RGBA alpha channel image
     """
     alpha = image.split()[-1]
     bg = PIL.Image.new("RGBA", image.size, (0, 0, 0, 255))

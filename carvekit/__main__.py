@@ -16,8 +16,8 @@ from carvekit.utils.fs_utils import save_file
 )
 @click.option("-i", required=True, type=str, help="Path to input file or dir")
 @click.option("-o", default="none", type=str, help="Path to output file or dir")
-@click.option("--pre", default="none", type=str, help="Preprocessing method")
-@click.option("--post", default="fba", type=str, help="Postprocessing method.")
+@click.option("--pre", default="autoscene", type=str, help="Preprocessing method")
+@click.option("--post", default="cascade_fba", type=str, help="Postprocessing method.")
 @click.option("--net", default="tracer_b7", type=str, help="Segmentation Network")
 @click.option(
     "--recursive",
@@ -32,6 +32,12 @@ from carvekit.utils.fs_utils import save_file
     help="Batch Size for list of images to be loaded to RAM",
 )
 @click.option(
+    "--batch_size_pre",
+    default=5,
+    type=int,
+    help="Batch size for list of images to be processed by preprocessing method network",
+)
+@click.option(
     "--batch_size_seg",
     default=5,
     type=int,
@@ -44,6 +50,12 @@ from carvekit.utils.fs_utils import save_file
     help="Batch size for list of images to be processed by matting " "network",
 )
 @click.option(
+    "--batch_size_refine",
+    default=1,
+    type=int,
+    help="Batch size for list of images to be processed by refining network",
+)
+@click.option(
     "--seg_mask_size",
     default=640,
     type=int,
@@ -54,6 +66,12 @@ from carvekit.utils.fs_utils import save_file
     default=2048,
     type=int,
     help="The size of the input image for the matting neural network.",
+)
+@click.option(
+    "--refine_mask_size",
+    default=900,
+    type=int,
+    help="The size of the input image for the refining neural network.",
 )
 @click.option(
     "--trimap_dilation",
@@ -89,10 +107,13 @@ def removebg(
     net: str,
     recursive: bool,
     batch_size: int,
+    batch_size_pre: int,
     batch_size_seg: int,
     batch_size_mat: int,
+    batch_size_refine: int,
     seg_mask_size: int,
     matting_mask_size: int,
+    refine_mask_size: int,
     device: str,
     fp16: bool,
     trimap_dilation: int,
@@ -121,12 +142,15 @@ def removebg(
         device=device,
         batch_size_seg=batch_size_seg,
         batch_size_matting=batch_size_mat,
+        batch_size_refine=batch_size_refine,
         seg_mask_size=seg_mask_size,
         matting_mask_size=matting_mask_size,
+        refine_mask_size=refine_mask_size,
         fp16=fp16,
         trimap_dilation=trimap_dilation,
         trimap_erosion=trimap_erosion,
         trimap_prob_threshold=trimap_prob_threshold,
+        batch_size_pre=batch_size_pre,
     )
 
     interface = init_interface(interface_config)

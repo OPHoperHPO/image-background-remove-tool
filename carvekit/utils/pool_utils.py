@@ -1,39 +1,41 @@
 """
 Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+
 Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+
 License: Apache License 2.0
 """
 from concurrent.futures import ThreadPoolExecutor
-from typing import Any, Iterable
+from typing import Any, Iterable, Callable, Collection, List
 
 
-def thread_pool_processing(func: Any, data: Iterable, workers=18):
+def thread_pool_processing(func: Callable[[Any], Any], data: Iterable, workers=18):
     """
     Passes all iterator data through the given function
 
     Args:
-        workers: Count of workers.
-        func: function to pass data through
-        data: input iterator
+        workers (int, default=18): Count of workers.
+        func (Callable[[Any], Any]): function to pass data through
+        data (Iterable): input iterator
 
     Returns:
-        function return list
+        List[Any]: list of results
 
     """
     with ThreadPoolExecutor(workers) as p:
         return list(p.map(func, data))
 
 
-def batch_generator(iterable, n=1):
+def batch_generator(iterable: Collection, n: int = 1) -> Iterable[Collection]:
     """
     Splits any iterable into n-size packets
 
     Args:
-        iterable: iterator
-        n: size of packets
+        iterable (Collection): iterator
+        n (int, default=1): size of packets
 
     Returns:
-        new n-size packet
+        Iterable[Collection]: new n-size packet
     """
     it = len(iterable)
     for ndx in range(0, it, n):

@@ -32,9 +32,9 @@ class MattingMethod:
         Initializes Matting Method class.
 
         Args:
-            matting_module: Initialized matting neural network class
-            trimap_generator: Initialized trimap generator class
-            device: Processing device used for applying mask to image
+        - `matting_module`: Initialized matting neural network class
+        - `trimap_generator`: Initialized trimap generator class
+        - `device`: Processing device used for applying mask to image
         """
         self.device = device
         self.matting_module = matting_module
@@ -49,11 +49,11 @@ class MattingMethod:
         Passes data through apply_mask function
 
         Args:
-            images: list of images
-            masks: list pf masks
+        - `images`: list of images
+        - `masks`: list pf masks
 
         Returns:
-            list of images
+        list of images
         """
         if len(images) != len(masks):
             raise ValueError("Images and Masks lists should have same length!")

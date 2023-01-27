@@ -23,6 +23,7 @@ from carvekit.ml.wrap.basnet import BASNET
 from carvekit.ml.wrap.fba_matting import FBAMatting
 from carvekit.ml.wrap.deeplab_v3 import DeepLabV3
 from carvekit.ml.wrap.tracer_b7 import TracerUniversalB7
+from carvekit.ml.wrap.scene_classifier import SceneClassifier
 
 
 @pytest.fixture()
@@ -33,6 +34,15 @@ def u2net_model() -> Callable[[bool], U2NET]:
         input_image_size=320,
         batch_size=10,
         load_pretrained=True,
+        fp16=fb16,
+    )
+
+
+@pytest.fixture()
+def scene_classifier_model() -> Callable[[bool], SceneClassifier]:
+    return lambda fb16: SceneClassifier(
+        device="cuda" if torch.cuda.is_available() else "cpu",
+        batch_size=5,
         fp16=fb16,
     )
 

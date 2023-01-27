@@ -14,9 +14,9 @@ class CV2TrimapGenerator:
         Initialize a new CV2TrimapGenerator instance
 
         Args:
-            kernel_size: The size of the offset from the object mask
+            kernel_size (int, default=30): The size of the offset from the object mask
             in pixels when an unknown area is detected in the trimap
-            erosion_iters: The number of iterations of erosion that
+            erosion_iters (int, default=1: The number of iterations of erosion that
             the object's mask will be subjected to before forming an unknown area
         """
         self.kernel_size = kernel_size
@@ -30,11 +30,11 @@ class CV2TrimapGenerator:
         Based on cv2 erosion algorithm.
 
         Args:
-            original_image: Original image
-            mask: Predicted object mask
+            original_image (PIL.Image.Image): Original image
+            mask (PIL.Image.Image): Predicted object mask
 
         Returns:
-            Generated trimap for image.
+            PIL.Image.Image: Generated trimap for image.
         """
         if mask.mode != "L":
             raise ValueError("Input mask has wrong color mode.")

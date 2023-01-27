@@ -1,6 +1,8 @@
 """
 Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+
 Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+
 License: Apache License 2.0
 """
 import pathlib
@@ -29,14 +31,14 @@ class DeepLabV3:
         fp16: bool = False,
     ):
         """
-        Initialize the DeepLabV3 model
+        Initialize the `DeepLabV3` model
 
         Args:
-            device: processing device
-            input_image_size: input image size
-            batch_size: the number of images that the neural network processes in one run
-            load_pretrained: loading pretrained model
-            fp16: use half precision
+            device (Literal[cpu, cuda], default=cpu): processing device
+            input_image_size (): input image size
+            batch_size (int, default=10): the number of images that the neural network processes in one run
+            load_pretrained (bool, default=True): loading pretrained model
+            fp16 (bool, default=False): use half precision
 
         """
         self.device = device
@@ -69,9 +71,7 @@ class DeepLabV3:
         Moves neural network to specified processing device
 
         Args:
-            device (:class:`torch.device`): the desired device.
-        Returns:
-            None
+            device (Literal[cpu, cuda]): the desired device.
 
         """
         self.network.to(device)
@@ -81,10 +81,10 @@ class DeepLabV3:
         Transform input image to suitable data format for neural network
 
         Args:
-            data: input image
+            data (PIL.Image.Image): input image
 
         Returns:
-            input for neural network
+            torch.Tensor: input for neural network
 
         """
         copy = data.copy()
@@ -93,18 +93,18 @@ class DeepLabV3:
 
     @staticmethod
     def data_postprocessing(
-        data: torch.tensor, original_image: PIL.Image.Image
+        data: torch.Tensor, original_image: PIL.Image.Image
     ) -> PIL.Image.Image:
         """
         Transforms output data from neural network to suitable data
         format for using with other components of this framework.
 
         Args:
-            data: output data from neural network
-            original_image: input image which was used for predicted data
+            data (torch.Tensor): output data from neural network
+            original_image (PIL.Image.Image): input image which was used for predicted data
 
         Returns:
-            Segmentation mask as PIL Image instance
+            PIL.Image.Image: Segmentation mask as `PIL Image` instance
 
         """
         return (
@@ -115,13 +115,13 @@ class DeepLabV3:
         self, images: List[Union[str, pathlib.Path, PIL.Image.Image]]
     ) -> List[PIL.Image.Image]:
         """
-        Passes input images though neural network and returns segmentation masks as PIL.Image.Image instances
+        Passes input images though neural network and returns segmentation masks as `PIL.Image.Image` instances
 
         Args:
-            images: input images
+            images (List[Union[str, pathlib.Path, PIL.Image.Image]]): input images
 
         Returns:
-            segmentation masks as for input images, as PIL.Image.Image instances
+            List[PIL.Image.Image]: segmentation masks as for input images, as `PIL.Image.Image` instances
 
         """
         collect_masks = []
@@ -129,10 +129,12 @@ class DeepLabV3:
         with autocast:
             cast_network(self.network, dtype)
             for image_batch in batch_generator(images, self.batch_size):
-                images = thread_pool_processing(
+                converted_images = thread_pool_processing(
                     lambda x: convert_image(load_image(x)), image_batch
                 )
-                batches = thread_pool_processing(self.data_preprocessing, images)
+                batches = thread_pool_processing(
+                    self.data_preprocessing, converted_images
+                )
                 with torch.no_grad():
                     masks = [
                         self.network(i.to(self.device).unsqueeze(0))["out"][0]
@@ -143,8 +145,8 @@ class DeepLabV3:
                     ]
                     del batches
                 masks = thread_pool_processing(
-                    lambda x: self.data_postprocessing(masks[x], images[x]),
-                    range(len(images)),
+                    lambda x: self.data_postprocessing(masks[x], converted_images[x]),
+                    range(len(converted_images)),
                 )
                 collect_masks += masks
         return collect_masks

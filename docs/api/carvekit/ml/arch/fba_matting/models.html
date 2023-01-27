@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>carvekit.ml.arch.fba_matting.models API documentation</title>
+<meta name="description" content="Modified by Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+Source url: https://github.com/MarcoForte/FBA_Matting
+License: MIT License" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>carvekit.ml.arch.fba_matting.models</code></h1>
+</header>
+<section id="section-intro">
+<p>Modified by Nikita Selin (OPHoperHPO)[<a href="https://github.com/OPHoperHPO].">https://github.com/OPHoperHPO].</a>
+Source url: <a href="https://github.com/MarcoForte/FBA_Matting">https://github.com/MarcoForte/FBA_Matting</a>
+License: MIT License</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Modified by Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+Source url: https://github.com/MarcoForte/FBA_Matting
+License: MIT License
+&#34;&#34;&#34;
+import torch
+import torch.nn as nn
+import carvekit.ml.arch.fba_matting.resnet_GN_WS as resnet_GN_WS
+import carvekit.ml.arch.fba_matting.layers_WS as L
+import carvekit.ml.arch.fba_matting.resnet_bn as resnet_bn
+from functools import partial
+
+
+class FBA(nn.Module):
+    def __init__(self, encoder: str):
+        super(FBA, self).__init__()
+        self.encoder = build_encoder(arch=encoder)
+        self.decoder = fba_decoder(batch_norm=True if &#34;BN&#34; in encoder else False)
+
+    def forward(self, image, two_chan_trimap, image_n, trimap_transformed):
+        resnet_input = torch.cat((image_n, trimap_transformed, two_chan_trimap), 1)
+        conv_out, indices = self.encoder(resnet_input, return_feature_maps=True)
+        return self.decoder(conv_out, image, indices, two_chan_trimap)
+
+
+class ResnetDilatedBN(nn.Module):
+    def __init__(self, orig_resnet, dilate_scale=8):
+        super(ResnetDilatedBN, self).__init__()
+
+        if dilate_scale == 8:
+            orig_resnet.layer3.apply(partial(self._nostride_dilate, dilate=2))
+            orig_resnet.layer4.apply(partial(self._nostride_dilate, dilate=4))
+        elif dilate_scale == 16:
+            orig_resnet.layer4.apply(partial(self._nostride_dilate, dilate=2))
+
+        # take pretrained resnet, except AvgPool and FC
+        self.conv1 = orig_resnet.conv1
+        self.bn1 = orig_resnet.bn1
+        self.relu1 = orig_resnet.relu1
+        self.conv2 = orig_resnet.conv2
+        self.bn2 = orig_resnet.bn2
+        self.relu2 = orig_resnet.relu2
+        self.conv3 = orig_resnet.conv3
+        self.bn3 = orig_resnet.bn3
+        self.relu3 = orig_resnet.relu3
+        self.maxpool = orig_resnet.maxpool
+        self.layer1 = orig_resnet.layer1
+        self.layer2 = orig_resnet.layer2
+        self.layer3 = orig_resnet.layer3
+        self.layer4 = orig_resnet.layer4
+
+    def _nostride_dilate(self, m, dilate):
+        classname = m.__class__.__name__
+        if classname.find(&#34;Conv&#34;) != -1:
+            # the convolution with stride
+            if m.stride == (2, 2):
+                m.stride = (1, 1)
+                if m.kernel_size == (3, 3):
+                    m.dilation = (dilate // 2, dilate // 2)
+                    m.padding = (dilate // 2, dilate // 2)
+            # other convoluions
+            else:
+                if m.kernel_size == (3, 3):
+                    m.dilation = (dilate, dilate)
+                    m.padding = (dilate, dilate)
+
+    def forward(self, x, return_feature_maps=False):
+        conv_out = [x]
+        x = self.relu1(self.bn1(self.conv1(x)))
+        x = self.relu2(self.bn2(self.conv2(x)))
+        x = self.relu3(self.bn3(self.conv3(x)))
+        conv_out.append(x)
+        x, indices = self.maxpool(x)
+        x = self.layer1(x)
+        conv_out.append(x)
+        x = self.layer2(x)
+        conv_out.append(x)
+        x = self.layer3(x)
+        conv_out.append(x)
+        x = self.layer4(x)
+        conv_out.append(x)
+
+        if return_feature_maps:
+            return conv_out, indices
+        return [x]
+
+
+class Resnet(nn.Module):
+    def __init__(self, orig_resnet):
+        super(Resnet, self).__init__()
+
+        # take pretrained resnet, except AvgPool and FC
+        self.conv1 = orig_resnet.conv1
+        self.bn1 = orig_resnet.bn1
+        self.relu1 = orig_resnet.relu1
+        self.conv2 = orig_resnet.conv2
+        self.bn2 = orig_resnet.bn2
+        self.relu2 = orig_resnet.relu2
+        self.conv3 = orig_resnet.conv3
+        self.bn3 = orig_resnet.bn3
+        self.relu3 = orig_resnet.relu3
+        self.maxpool = orig_resnet.maxpool
+        self.layer1 = orig_resnet.layer1
+        self.layer2 = orig_resnet.layer2
+        self.layer3 = orig_resnet.layer3
+        self.layer4 = orig_resnet.layer4
+
+    def forward(self, x, return_feature_maps=False):
+        conv_out = []
+
+        x = self.relu1(self.bn1(self.conv1(x)))
+        x = self.relu2(self.bn2(self.conv2(x)))
+        x = self.relu3(self.bn3(self.conv3(x)))
+        conv_out.append(x)
+        x, indices = self.maxpool(x)
+
+        x = self.layer1(x)
+        conv_out.append(x)
+        x = self.layer2(x)
+        conv_out.append(x)
+        x = self.layer3(x)
+        conv_out.append(x)
+        x = self.layer4(x)
+        conv_out.append(x)
+
+        if return_feature_maps:
+            return conv_out
+        return [x]
+
+
+class ResnetDilated(nn.Module):
+    def __init__(self, orig_resnet, dilate_scale=8):
+        super(ResnetDilated, self).__init__()
+
+        if dilate_scale == 8:
+            orig_resnet.layer3.apply(partial(self._nostride_dilate, dilate=2))
+            orig_resnet.layer4.apply(partial(self._nostride_dilate, dilate=4))
+        elif dilate_scale == 16:
+            orig_resnet.layer4.apply(partial(self._nostride_dilate, dilate=2))
+
+        # take pretrained resnet, except AvgPool and FC
+        self.conv1 = orig_resnet.conv1
+        self.bn1 = orig_resnet.bn1
+        self.relu = orig_resnet.relu
+        self.maxpool = orig_resnet.maxpool
+        self.layer1 = orig_resnet.layer1
+        self.layer2 = orig_resnet.layer2
+        self.layer3 = orig_resnet.layer3
+        self.layer4 = orig_resnet.layer4
+
+    def _nostride_dilate(self, m, dilate):
+        classname = m.__class__.__name__
+        if classname.find(&#34;Conv&#34;) != -1:
+            # the convolution with stride
+            if m.stride == (2, 2):
+                m.stride = (1, 1)
+                if m.kernel_size == (3, 3):
+                    m.dilation = (dilate // 2, dilate // 2)
+                    m.padding = (dilate // 2, dilate // 2)
+            # other convoluions
+            else:
+                if m.kernel_size == (3, 3):
+                    m.dilation = (dilate, dilate)
+                    m.padding = (dilate, dilate)
+
+    def forward(self, x, return_feature_maps=False):
+        conv_out = [x]
+        x = self.relu(self.bn1(self.conv1(x)))
+        conv_out.append(x)
+        x, indices = self.maxpool(x)
+        x = self.layer1(x)
+        conv_out.append(x)
+        x = self.layer2(x)
+        conv_out.append(x)
+        x = self.layer3(x)
+        conv_out.append(x)
+        x = self.layer4(x)
+        conv_out.append(x)
+
+        if return_feature_maps:
+            return conv_out, indices
+        return [x]
+
+
+def norm(dim, bn=False):
+    if bn is False:
+        return nn.GroupNorm(32, dim)
+    else:
+        return nn.BatchNorm2d(dim)
+
+
+def fba_fusion(alpha, img, F, B):
+    F = alpha * img + (1 - alpha**2) * F - alpha * (1 - alpha) * B
+    B = (1 - alpha) * img + (2 * alpha - alpha**2) * B - alpha * (1 - alpha) * F
+
+    F = torch.clamp(F, 0, 1)
+    B = torch.clamp(B, 0, 1)
+    la = 0.1
+    alpha = (alpha * la + torch.sum((img - B) * (F - B), 1, keepdim=True)) / (
+        torch.sum((F - B) * (F - B), 1, keepdim=True) + la
+    )
+    alpha = torch.clamp(alpha, 0, 1)
+    return alpha, F, B
+
+
+class fba_decoder(nn.Module):
+    def __init__(self, batch_norm=False):
+        super(fba_decoder, self).__init__()
+        pool_scales = (1, 2, 3, 6)
+        self.batch_norm = batch_norm
+
+        self.ppm = []
+
+        for scale in pool_scales:
+            self.ppm.append(
+                nn.Sequential(
+                    nn.AdaptiveAvgPool2d(scale),
+                    L.Conv2d(2048, 256, kernel_size=1, bias=True),
+                    norm(256, self.batch_norm),
+                    nn.LeakyReLU(),
+                )
+            )
+        self.ppm = nn.ModuleList(self.ppm)
+
+        self.conv_up1 = nn.Sequential(
+            L.Conv2d(
+                2048 + len(pool_scales) * 256, 256, kernel_size=3, padding=1, bias=True
+            ),
+            norm(256, self.batch_norm),
+            nn.LeakyReLU(),
+            L.Conv2d(256, 256, kernel_size=3, padding=1),
+            norm(256, self.batch_norm),
+            nn.LeakyReLU(),
+        )
+
+        self.conv_up2 = nn.Sequential(
+            L.Conv2d(256 + 256, 256, kernel_size=3, padding=1, bias=True),
+            norm(256, self.batch_norm),
+            nn.LeakyReLU(),
+        )
+        if self.batch_norm:
+            d_up3 = 128
+        else:
+            d_up3 = 64
+        self.conv_up3 = nn.Sequential(
+            L.Conv2d(256 + d_up3, 64, kernel_size=3, padding=1, bias=True),
+            norm(64, self.batch_norm),
+            nn.LeakyReLU(),
+        )
+
+        self.unpool = nn.MaxUnpool2d(2, stride=2)
+
+        self.conv_up4 = nn.Sequential(
+            nn.Conv2d(64 + 3 + 3 + 2, 32, kernel_size=3, padding=1, bias=True),
+            nn.LeakyReLU(),
+            nn.Conv2d(32, 16, kernel_size=3, padding=1, bias=True),
+            nn.LeakyReLU(),
+            nn.Conv2d(16, 7, kernel_size=1, padding=0, bias=True),
+        )
+
+    def forward(self, conv_out, img, indices, two_chan_trimap):
+        conv5 = conv_out[-1]
+
+        input_size = conv5.size()
+        ppm_out = [conv5]
+        for pool_scale in self.ppm:
+            ppm_out.append(
+                nn.functional.interpolate(
+                    pool_scale(conv5),
+                    (input_size[2], input_size[3]),
+                    mode=&#34;bilinear&#34;,
+                    align_corners=False,
+                )
+            )
+        ppm_out = torch.cat(ppm_out, 1)
+        x = self.conv_up1(ppm_out)
+
+        x = torch.nn.functional.interpolate(
+            x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+        )
+
+        x = torch.cat((x, conv_out[-4]), 1)
+
+        x = self.conv_up2(x)
+        x = torch.nn.functional.interpolate(
+            x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+        )
+
+        x = torch.cat((x, conv_out[-5]), 1)
+        x = self.conv_up3(x)
+
+        x = torch.nn.functional.interpolate(
+            x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+        )
+        x = torch.cat((x, conv_out[-6][:, :3], img, two_chan_trimap), 1)
+
+        output = self.conv_up4(x)
+
+        alpha = torch.clamp(output[:, 0][:, None], 0, 1)
+        F = torch.sigmoid(output[:, 1:4])
+        B = torch.sigmoid(output[:, 4:7])
+
+        # FBA Fusion
+        alpha, F, B = fba_fusion(alpha, img, F, B)
+
+        output = torch.cat((alpha, F, B), 1)
+
+        return output
+
+
+def build_encoder(arch=&#34;resnet50_GN&#34;):
+    if arch == &#34;resnet50_GN_WS&#34;:
+        orig_resnet = resnet_GN_WS.__dict__[&#34;l_resnet50&#34;]()
+        net_encoder = ResnetDilated(orig_resnet, dilate_scale=8)
+    elif arch == &#34;resnet50_BN&#34;:
+        orig_resnet = resnet_bn.__dict__[&#34;l_resnet50&#34;]()
+        net_encoder = ResnetDilatedBN(orig_resnet, dilate_scale=8)
+
+    else:
+        raise ValueError(&#34;Architecture undefined!&#34;)
+
+    num_channels = 3 + 6 + 2
+
+    if num_channels &gt; 3:
+        net_encoder_sd = net_encoder.state_dict()
+        conv1_weights = net_encoder_sd[&#34;conv1.weight&#34;]
+
+        c_out, c_in, h, w = conv1_weights.size()
+        conv1_mod = torch.zeros(c_out, num_channels, h, w)
+        conv1_mod[:, :3, :, :] = conv1_weights
+
+        conv1 = net_encoder.conv1
+        conv1.in_channels = num_channels
+        conv1.weight = torch.nn.Parameter(conv1_mod)
+
+        net_encoder.conv1 = conv1
+
+        net_encoder_sd[&#34;conv1.weight&#34;] = conv1_mod
+
+        net_encoder.load_state_dict(net_encoder_sd)
+    return net_encoder</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.models.build_encoder"><code class="name flex">
+<span>def <span class="ident">build_encoder</span></span>(<span>arch='resnet50_GN')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def build_encoder(arch=&#34;resnet50_GN&#34;):
+    if arch == &#34;resnet50_GN_WS&#34;:
+        orig_resnet = resnet_GN_WS.__dict__[&#34;l_resnet50&#34;]()
+        net_encoder = ResnetDilated(orig_resnet, dilate_scale=8)
+    elif arch == &#34;resnet50_BN&#34;:
+        orig_resnet = resnet_bn.__dict__[&#34;l_resnet50&#34;]()
+        net_encoder = ResnetDilatedBN(orig_resnet, dilate_scale=8)
+
+    else:
+        raise ValueError(&#34;Architecture undefined!&#34;)
+
+    num_channels = 3 + 6 + 2
+
+    if num_channels &gt; 3:
+        net_encoder_sd = net_encoder.state_dict()
+        conv1_weights = net_encoder_sd[&#34;conv1.weight&#34;]
+
+        c_out, c_in, h, w = conv1_weights.size()
+        conv1_mod = torch.zeros(c_out, num_channels, h, w)
+        conv1_mod[:, :3, :, :] = conv1_weights
+
+        conv1 = net_encoder.conv1
+        conv1.in_channels = num_channels
+        conv1.weight = torch.nn.Parameter(conv1_mod)
+
+        net_encoder.conv1 = conv1
+
+        net_encoder_sd[&#34;conv1.weight&#34;] = conv1_mod
+
+        net_encoder.load_state_dict(net_encoder_sd)
+    return net_encoder</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.fba_matting.models.fba_fusion"><code class="name flex">
+<span>def <span class="ident">fba_fusion</span></span>(<span>alpha, img, F, B)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fba_fusion(alpha, img, F, B):
+    F = alpha * img + (1 - alpha**2) * F - alpha * (1 - alpha) * B
+    B = (1 - alpha) * img + (2 * alpha - alpha**2) * B - alpha * (1 - alpha) * F
+
+    F = torch.clamp(F, 0, 1)
+    B = torch.clamp(B, 0, 1)
+    la = 0.1
+    alpha = (alpha * la + torch.sum((img - B) * (F - B), 1, keepdim=True)) / (
+        torch.sum((F - B) * (F - B), 1, keepdim=True) + la
+    )
+    alpha = torch.clamp(alpha, 0, 1)
+    return alpha, F, B</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.fba_matting.models.norm"><code class="name flex">
+<span>def <span class="ident">norm</span></span>(<span>dim, bn=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def norm(dim, bn=False):
+    if bn is False:
+        return nn.GroupNorm(32, dim)
+    else:
+        return nn.BatchNorm2d(dim)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.models.FBA"><code class="flex name class">
+<span>class <span class="ident">FBA</span></span>
+<span>(</span><span>encoder: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FBA(nn.Module):
+    def __init__(self, encoder: str):
+        super(FBA, self).__init__()
+        self.encoder = build_encoder(arch=encoder)
+        self.decoder = fba_decoder(batch_norm=True if &#34;BN&#34; in encoder else False)
+
+    def forward(self, image, two_chan_trimap, image_n, trimap_transformed):
+        resnet_input = torch.cat((image_n, trimap_transformed, two_chan_trimap), 1)
+        conv_out, indices = self.encoder(resnet_input, return_feature_maps=True)
+        return self.decoder(conv_out, image, indices, two_chan_trimap)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="carvekit.ml.wrap.fba_matting.FBAMatting" href="../../wrap/fba_matting.html#carvekit.ml.wrap.fba_matting.FBAMatting">FBAMatting</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.models.FBA.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, image, two_chan_trimap, image_n, trimap_transformed) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, image, two_chan_trimap, image_n, trimap_transformed):
+    resnet_input = torch.cat((image_n, trimap_transformed, two_chan_trimap), 1)
+    conv_out, indices = self.encoder(resnet_input, return_feature_maps=True)
+    return self.decoder(conv_out, image, indices, two_chan_trimap)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.fba_matting.models.Resnet"><code class="flex name class">
+<span>class <span class="ident">Resnet</span></span>
+<span>(</span><span>orig_resnet)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Resnet(nn.Module):
+    def __init__(self, orig_resnet):
+        super(Resnet, self).__init__()
+
+        # take pretrained resnet, except AvgPool and FC
+        self.conv1 = orig_resnet.conv1
+        self.bn1 = orig_resnet.bn1
+        self.relu1 = orig_resnet.relu1
+        self.conv2 = orig_resnet.conv2
+        self.bn2 = orig_resnet.bn2
+        self.relu2 = orig_resnet.relu2
+        self.conv3 = orig_resnet.conv3
+        self.bn3 = orig_resnet.bn3
+        self.relu3 = orig_resnet.relu3
+        self.maxpool = orig_resnet.maxpool
+        self.layer1 = orig_resnet.layer1
+        self.layer2 = orig_resnet.layer2
+        self.layer3 = orig_resnet.layer3
+        self.layer4 = orig_resnet.layer4
+
+    def forward(self, x, return_feature_maps=False):
+        conv_out = []
+
+        x = self.relu1(self.bn1(self.conv1(x)))
+        x = self.relu2(self.bn2(self.conv2(x)))
+        x = self.relu3(self.bn3(self.conv3(x)))
+        conv_out.append(x)
+        x, indices = self.maxpool(x)
+
+        x = self.layer1(x)
+        conv_out.append(x)
+        x = self.layer2(x)
+        conv_out.append(x)
+        x = self.layer3(x)
+        conv_out.append(x)
+        x = self.layer4(x)
+        conv_out.append(x)
+
+        if return_feature_maps:
+            return conv_out
+        return [x]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.models.Resnet.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x, return_feature_maps=False) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x, return_feature_maps=False):
+    conv_out = []
+
+    x = self.relu1(self.bn1(self.conv1(x)))
+    x = self.relu2(self.bn2(self.conv2(x)))
+    x = self.relu3(self.bn3(self.conv3(x)))
+    conv_out.append(x)
+    x, indices = self.maxpool(x)
+
+    x = self.layer1(x)
+    conv_out.append(x)
+    x = self.layer2(x)
+    conv_out.append(x)
+    x = self.layer3(x)
+    conv_out.append(x)
+    x = self.layer4(x)
+    conv_out.append(x)
+
+    if return_feature_maps:
+        return conv_out
+    return [x]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.fba_matting.models.ResnetDilated"><code class="flex name class">
+<span>class <span class="ident">ResnetDilated</span></span>
+<span>(</span><span>orig_resnet, dilate_scale=8)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResnetDilated(nn.Module):
+    def __init__(self, orig_resnet, dilate_scale=8):
+        super(ResnetDilated, self).__init__()
+
+        if dilate_scale == 8:
+            orig_resnet.layer3.apply(partial(self._nostride_dilate, dilate=2))
+            orig_resnet.layer4.apply(partial(self._nostride_dilate, dilate=4))
+        elif dilate_scale == 16:
+            orig_resnet.layer4.apply(partial(self._nostride_dilate, dilate=2))
+
+        # take pretrained resnet, except AvgPool and FC
+        self.conv1 = orig_resnet.conv1
+        self.bn1 = orig_resnet.bn1
+        self.relu = orig_resnet.relu
+        self.maxpool = orig_resnet.maxpool
+        self.layer1 = orig_resnet.layer1
+        self.layer2 = orig_resnet.layer2
+        self.layer3 = orig_resnet.layer3
+        self.layer4 = orig_resnet.layer4
+
+    def _nostride_dilate(self, m, dilate):
+        classname = m.__class__.__name__
+        if classname.find(&#34;Conv&#34;) != -1:
+            # the convolution with stride
+            if m.stride == (2, 2):
+                m.stride = (1, 1)
+                if m.kernel_size == (3, 3):
+                    m.dilation = (dilate // 2, dilate // 2)
+                    m.padding = (dilate // 2, dilate // 2)
+            # other convoluions
+            else:
+                if m.kernel_size == (3, 3):
+                    m.dilation = (dilate, dilate)
+                    m.padding = (dilate, dilate)
+
+    def forward(self, x, return_feature_maps=False):
+        conv_out = [x]
+        x = self.relu(self.bn1(self.conv1(x)))
+        conv_out.append(x)
+        x, indices = self.maxpool(x)
+        x = self.layer1(x)
+        conv_out.append(x)
+        x = self.layer2(x)
+        conv_out.append(x)
+        x = self.layer3(x)
+        conv_out.append(x)
+        x = self.layer4(x)
+        conv_out.append(x)
+
+        if return_feature_maps:
+            return conv_out, indices
+        return [x]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.models.ResnetDilated.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x, return_feature_maps=False) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x, return_feature_maps=False):
+    conv_out = [x]
+    x = self.relu(self.bn1(self.conv1(x)))
+    conv_out.append(x)
+    x, indices = self.maxpool(x)
+    x = self.layer1(x)
+    conv_out.append(x)
+    x = self.layer2(x)
+    conv_out.append(x)
+    x = self.layer3(x)
+    conv_out.append(x)
+    x = self.layer4(x)
+    conv_out.append(x)
+
+    if return_feature_maps:
+        return conv_out, indices
+    return [x]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.fba_matting.models.ResnetDilatedBN"><code class="flex name class">
+<span>class <span class="ident">ResnetDilatedBN</span></span>
+<span>(</span><span>orig_resnet, dilate_scale=8)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResnetDilatedBN(nn.Module):
+    def __init__(self, orig_resnet, dilate_scale=8):
+        super(ResnetDilatedBN, self).__init__()
+
+        if dilate_scale == 8:
+            orig_resnet.layer3.apply(partial(self._nostride_dilate, dilate=2))
+            orig_resnet.layer4.apply(partial(self._nostride_dilate, dilate=4))
+        elif dilate_scale == 16:
+            orig_resnet.layer4.apply(partial(self._nostride_dilate, dilate=2))
+
+        # take pretrained resnet, except AvgPool and FC
+        self.conv1 = orig_resnet.conv1
+        self.bn1 = orig_resnet.bn1
+        self.relu1 = orig_resnet.relu1
+        self.conv2 = orig_resnet.conv2
+        self.bn2 = orig_resnet.bn2
+        self.relu2 = orig_resnet.relu2
+        self.conv3 = orig_resnet.conv3
+        self.bn3 = orig_resnet.bn3
+        self.relu3 = orig_resnet.relu3
+        self.maxpool = orig_resnet.maxpool
+        self.layer1 = orig_resnet.layer1
+        self.layer2 = orig_resnet.layer2
+        self.layer3 = orig_resnet.layer3
+        self.layer4 = orig_resnet.layer4
+
+    def _nostride_dilate(self, m, dilate):
+        classname = m.__class__.__name__
+        if classname.find(&#34;Conv&#34;) != -1:
+            # the convolution with stride
+            if m.stride == (2, 2):
+                m.stride = (1, 1)
+                if m.kernel_size == (3, 3):
+                    m.dilation = (dilate // 2, dilate // 2)
+                    m.padding = (dilate // 2, dilate // 2)
+            # other convoluions
+            else:
+                if m.kernel_size == (3, 3):
+                    m.dilation = (dilate, dilate)
+                    m.padding = (dilate, dilate)
+
+    def forward(self, x, return_feature_maps=False):
+        conv_out = [x]
+        x = self.relu1(self.bn1(self.conv1(x)))
+        x = self.relu2(self.bn2(self.conv2(x)))
+        x = self.relu3(self.bn3(self.conv3(x)))
+        conv_out.append(x)
+        x, indices = self.maxpool(x)
+        x = self.layer1(x)
+        conv_out.append(x)
+        x = self.layer2(x)
+        conv_out.append(x)
+        x = self.layer3(x)
+        conv_out.append(x)
+        x = self.layer4(x)
+        conv_out.append(x)
+
+        if return_feature_maps:
+            return conv_out, indices
+        return [x]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.models.ResnetDilatedBN.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x, return_feature_maps=False) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x, return_feature_maps=False):
+    conv_out = [x]
+    x = self.relu1(self.bn1(self.conv1(x)))
+    x = self.relu2(self.bn2(self.conv2(x)))
+    x = self.relu3(self.bn3(self.conv3(x)))
+    conv_out.append(x)
+    x, indices = self.maxpool(x)
+    x = self.layer1(x)
+    conv_out.append(x)
+    x = self.layer2(x)
+    conv_out.append(x)
+    x = self.layer3(x)
+    conv_out.append(x)
+    x = self.layer4(x)
+    conv_out.append(x)
+
+    if return_feature_maps:
+        return conv_out, indices
+    return [x]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.fba_matting.models.fba_decoder"><code class="flex name class">
+<span>class <span class="ident">fba_decoder</span></span>
+<span>(</span><span>batch_norm=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class fba_decoder(nn.Module):
+    def __init__(self, batch_norm=False):
+        super(fba_decoder, self).__init__()
+        pool_scales = (1, 2, 3, 6)
+        self.batch_norm = batch_norm
+
+        self.ppm = []
+
+        for scale in pool_scales:
+            self.ppm.append(
+                nn.Sequential(
+                    nn.AdaptiveAvgPool2d(scale),
+                    L.Conv2d(2048, 256, kernel_size=1, bias=True),
+                    norm(256, self.batch_norm),
+                    nn.LeakyReLU(),
+                )
+            )
+        self.ppm = nn.ModuleList(self.ppm)
+
+        self.conv_up1 = nn.Sequential(
+            L.Conv2d(
+                2048 + len(pool_scales) * 256, 256, kernel_size=3, padding=1, bias=True
+            ),
+            norm(256, self.batch_norm),
+            nn.LeakyReLU(),
+            L.Conv2d(256, 256, kernel_size=3, padding=1),
+            norm(256, self.batch_norm),
+            nn.LeakyReLU(),
+        )
+
+        self.conv_up2 = nn.Sequential(
+            L.Conv2d(256 + 256, 256, kernel_size=3, padding=1, bias=True),
+            norm(256, self.batch_norm),
+            nn.LeakyReLU(),
+        )
+        if self.batch_norm:
+            d_up3 = 128
+        else:
+            d_up3 = 64
+        self.conv_up3 = nn.Sequential(
+            L.Conv2d(256 + d_up3, 64, kernel_size=3, padding=1, bias=True),
+            norm(64, self.batch_norm),
+            nn.LeakyReLU(),
+        )
+
+        self.unpool = nn.MaxUnpool2d(2, stride=2)
+
+        self.conv_up4 = nn.Sequential(
+            nn.Conv2d(64 + 3 + 3 + 2, 32, kernel_size=3, padding=1, bias=True),
+            nn.LeakyReLU(),
+            nn.Conv2d(32, 16, kernel_size=3, padding=1, bias=True),
+            nn.LeakyReLU(),
+            nn.Conv2d(16, 7, kernel_size=1, padding=0, bias=True),
+        )
+
+    def forward(self, conv_out, img, indices, two_chan_trimap):
+        conv5 = conv_out[-1]
+
+        input_size = conv5.size()
+        ppm_out = [conv5]
+        for pool_scale in self.ppm:
+            ppm_out.append(
+                nn.functional.interpolate(
+                    pool_scale(conv5),
+                    (input_size[2], input_size[3]),
+                    mode=&#34;bilinear&#34;,
+                    align_corners=False,
+                )
+            )
+        ppm_out = torch.cat(ppm_out, 1)
+        x = self.conv_up1(ppm_out)
+
+        x = torch.nn.functional.interpolate(
+            x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+        )
+
+        x = torch.cat((x, conv_out[-4]), 1)
+
+        x = self.conv_up2(x)
+        x = torch.nn.functional.interpolate(
+            x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+        )
+
+        x = torch.cat((x, conv_out[-5]), 1)
+        x = self.conv_up3(x)
+
+        x = torch.nn.functional.interpolate(
+            x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+        )
+        x = torch.cat((x, conv_out[-6][:, :3], img, two_chan_trimap), 1)
+
+        output = self.conv_up4(x)
+
+        alpha = torch.clamp(output[:, 0][:, None], 0, 1)
+        F = torch.sigmoid(output[:, 1:4])
+        B = torch.sigmoid(output[:, 4:7])
+
+        # FBA Fusion
+        alpha, F, B = fba_fusion(alpha, img, F, B)
+
+        output = torch.cat((alpha, F, B), 1)
+
+        return output</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.fba_matting.models.fba_decoder.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, conv_out, img, indices, two_chan_trimap) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, conv_out, img, indices, two_chan_trimap):
+    conv5 = conv_out[-1]
+
+    input_size = conv5.size()
+    ppm_out = [conv5]
+    for pool_scale in self.ppm:
+        ppm_out.append(
+            nn.functional.interpolate(
+                pool_scale(conv5),
+                (input_size[2], input_size[3]),
+                mode=&#34;bilinear&#34;,
+                align_corners=False,
+            )
+        )
+    ppm_out = torch.cat(ppm_out, 1)
+    x = self.conv_up1(ppm_out)
+
+    x = torch.nn.functional.interpolate(
+        x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+    )
+
+    x = torch.cat((x, conv_out[-4]), 1)
+
+    x = self.conv_up2(x)
+    x = torch.nn.functional.interpolate(
+        x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+    )
+
+    x = torch.cat((x, conv_out[-5]), 1)
+    x = self.conv_up3(x)
+
+    x = torch.nn.functional.interpolate(
+        x, scale_factor=2, mode=&#34;bilinear&#34;, align_corners=False
+    )
+    x = torch.cat((x, conv_out[-6][:, :3], img, two_chan_trimap), 1)
+
+    output = self.conv_up4(x)
+
+    alpha = torch.clamp(output[:, 0][:, None], 0, 1)
+    F = torch.sigmoid(output[:, 1:4])
+    B = torch.sigmoid(output[:, 4:7])
+
+    # FBA Fusion
+    alpha, F, B = fba_fusion(alpha, img, F, B)
+
+    output = torch.cat((alpha, F, B), 1)
+
+    return output</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="carvekit.ml.arch.fba_matting" href="index.html">carvekit.ml.arch.fba_matting</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.fba_matting.models.build_encoder" href="#carvekit.ml.arch.fba_matting.models.build_encoder">build_encoder</a></code></li>
+<li><code><a title="carvekit.ml.arch.fba_matting.models.fba_fusion" href="#carvekit.ml.arch.fba_matting.models.fba_fusion">fba_fusion</a></code></li>
+<li><code><a title="carvekit.ml.arch.fba_matting.models.norm" href="#carvekit.ml.arch.fba_matting.models.norm">norm</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="carvekit.ml.arch.fba_matting.models.FBA" href="#carvekit.ml.arch.fba_matting.models.FBA">FBA</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.fba_matting.models.FBA.forward" href="#carvekit.ml.arch.fba_matting.models.FBA.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.fba_matting.models.Resnet" href="#carvekit.ml.arch.fba_matting.models.Resnet">Resnet</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.fba_matting.models.Resnet.forward" href="#carvekit.ml.arch.fba_matting.models.Resnet.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.fba_matting.models.ResnetDilated" href="#carvekit.ml.arch.fba_matting.models.ResnetDilated">ResnetDilated</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.fba_matting.models.ResnetDilated.forward" href="#carvekit.ml.arch.fba_matting.models.ResnetDilated.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.fba_matting.models.ResnetDilatedBN" href="#carvekit.ml.arch.fba_matting.models.ResnetDilatedBN">ResnetDilatedBN</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.fba_matting.models.ResnetDilatedBN.forward" href="#carvekit.ml.arch.fba_matting.models.ResnetDilatedBN.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.fba_matting.models.fba_decoder" href="#carvekit.ml.arch.fba_matting.models.fba_decoder">fba_decoder</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.fba_matting.models.fba_decoder.forward" href="#carvekit.ml.arch.fba_matting.models.fba_decoder.forward">forward</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

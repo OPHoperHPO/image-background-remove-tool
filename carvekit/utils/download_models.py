@@ -45,12 +45,25 @@ MODELS_URLS = {
         "revision": "d8a8fd9e7b3fa0d2f1506fe7242966b34381e9c5",
         "filename": "tracer_b7.pth",
     },
-    "tracer_hair.pth": {
-        "repository": "Carve/tracer_b7",
-        "revision": "d8a8fd9e7b3fa0d2f1506fe7242966b34381e9c5",
-        "filename": "tracer_b7.pth",  # TODO don't forget change this link!!
+    "scene_classifier.pth": {
+        "repository": "Carve/scene_classifier",
+        "revision": "71c8e4c771dd5a20ff0c5c9e3c8f1c9cf8082740",
+        "filename": "scene_classifier.pth",
+    },
+    "yolov4_coco_with_classes.pth": {
+        "repository": "Carve/yolov4_coco",
+        "revision": "e3fc9cd22f86e456d2749d1ae148400f2f950fb3",
+        "filename": "yolov4_coco_with_classes.pth",
+    },
+    "cascadepsp.pth": {
+        "repository": "Carve/cascadepsp",
+        "revision": "3ca1e5e432344b1277bc88d1c6d4265c46cff62f",
+        "filename": "cascadepsp.pth",
     },
 }
+"""
+All data needed to build path relative to huggingface.co for model download
+"""
 
 MODELS_CHECKSUMS = {
     "basnet.pth": "e409cb709f4abca87cb11bd44a9ad3f909044a917977ab65244b4c94dd33"
@@ -63,9 +76,15 @@ MODELS_CHECKSUMS = {
     "bea1533fda5ee70a909b934a9bd495b432cef89d629f00a07858a517742476fa8b346de24f7",
     "tracer_b7.pth": "c439c5c12d4d43d5f9be9ec61e68b2e54658a541bccac2577ef5a54fb252b6e8415d41f7e"
     "c2487033d0c02b4dd08367958e4e62091318111c519f93e2632be7b",
-    "tracer_hair.pth": "5c2fb9973fc42fa6208920ffa9ac233cc2ea9f770b24b4a96969d3449aed7ac89e6d37e"
-    "e486a13e63be5499f2df6ccef1109e9e8797d1326207ac89b2f39a7cf",
+    "scene_classifier.pth": "6d8692510abde453b406a1fea557afdea62fd2a2a2677283a3ecc2"
+    "341a4895ee99ed65cedcb79b80775db14c3ffcfc0aad2caec1d85140678852039d2d4e76b4",
+    "yolov4_coco_with_classes.pth": "44b6ec2dd35dc3802bf8c512002f76e00e97bfbc86bc7af6de2fafce229a41b4ca"
+    "12c6f3d7589278c71cd4ddd62df80389b148c19b84fa03216905407a107fff",
+    "cascadepsp.pth": "3f895f5126d80d6f73186f045557ea7c8eab4dfa3d69a995815bb2c03d564573f36c474f04d7bf0022a27829f583a1a793b036adf801cb423e41a4831b830122",
 }
+"""
+Model -> checksum dictionary
+"""
 
 
 def sha512_checksum_calc(file: Path) -> str:
@@ -73,7 +92,7 @@ def sha512_checksum_calc(file: Path) -> str:
     Calculates the SHA512 hash digest of a file on fs
 
     Args:
-        file: Path to the file
+        file (Path): Path to the file
 
     Returns:
         SHA512 hash digest of a file.
@@ -86,6 +105,10 @@ def sha512_checksum_calc(file: Path) -> str:
 
 
 class CachedDownloader:
+    """
+    Metaclass for models downloaders.
+    """
+
     __metaclass__ = ABCMeta
 
     @property
@@ -96,9 +119,24 @@ class CachedDownloader:
     @property
     @abstractmethod
     def fallback_downloader(self) -> Optional["CachedDownloader"]:
+        """
+        Property MAY be overriden in subclasses.
+        Used in case if subclass failed to download model. So preferred downloader SHOULD be placed higher in the hierarchy.
+        Less preferred downloader SHOULD be provided by this property.
+        """
         pass
 
     def download_model(self, file_name: str) -> Path:
+        """
+        Downloads model from the internet and saves it to the cache.
+
+        Behavior:
+            If model is already downloaded it will be loaded from the cache.
+
+            If model is already downloaded, but checksum is invalid, it will be downloaded again.
+
+            If model download failed, fallback downloader will be used.
+        """
         try:
             return self.download_model_base(file_name)
         except BaseException as e:
@@ -116,14 +154,23 @@ class CachedDownloader:
                 raise e
 
     @abstractmethod
-    def download_model_base(self, file_name: str) -> Path:
-        """Download model from any source if not cached. Returns path if cached"""
+    def download_model_base(self, model_name: str) -> Path:
+        """
+        Download model from any source if not cached.
+        Returns:
+            pathlib.Path: Path to the downloaded model.
+        """
 
-    def __call__(self, file_name: str):
-        return self.download_model(file_name)
+    def __call__(self, model_name: str):
+        return self.download_model(model_name)
 
 
 class HuggingFaceCompatibleDownloader(CachedDownloader, ABC):
+    """
+    Downloader for models from HuggingFace Hub.
+    Private models are not supported.
+    """
+
     def __init__(
         self,
         name: str = "Huggingface.co",
@@ -131,7 +178,10 @@ class HuggingFaceCompatibleDownloader(CachedDownloader, ABC):
         fb_downloader: Optional["CachedDownloader"] = None,
     ):
         self.cache_dir = checkpoints_dir
+        """SHOULD be same for all instances to prevent downloading same model multiple times
+        Points to ~/.cache/carvekit/checkpoints"""
         self.base_url = base_url
+        """MUST be a base url with protocol and domain name to huggingface or another, compatible in terms of models downloading API source"""
         self._name = name
         self._fallback_downloader = fb_downloader
 
@@ -143,13 +193,18 @@ class HuggingFaceCompatibleDownloader(CachedDownloader, ABC):
     def name(self):
         return self._name
 
-    def check_for_existence(self, file_name: str) -> Optional[Path]:
-        if file_name not in MODELS_URLS.keys():
+    def check_for_existence(self, model_name: str) -> Optional[Path]:
+        """
+        Checks if model is already downloaded and cached. Verifies file integrity by checksum.
+        Returns:
+            Optional[pathlib.Path]: Path to the cached model if cached.
+        """
+        if model_name not in MODELS_URLS.keys():
             raise FileNotFoundError("Unknown model!")
         path = (
             self.cache_dir
-            / MODELS_URLS[file_name]["repository"].split("/")[1]
-            / file_name
+            / MODELS_URLS[model_name]["repository"].split("/")[1]
+            / model_name
         )
 
         if not path.exists():
@@ -163,18 +218,18 @@ class HuggingFaceCompatibleDownloader(CachedDownloader, ABC):
             return None
         return path
 
-    def download_model_base(self, file_name: str) -> Path:
-        cached_path = self.check_for_existence(file_name)
+    def download_model_base(self, model_name: str) -> Path:
+        cached_path = self.check_for_existence(model_name)
         if cached_path is not None:
             return cached_path
         else:
             cached_path = (
                 self.cache_dir
-                / MODELS_URLS[file_name]["repository"].split("/")[1]
-                / file_name
+                / MODELS_URLS[model_name]["repository"].split("/")[1]
+                / model_name
             )
             cached_path.parent.mkdir(parents=True, exist_ok=True)
-            url = MODELS_URLS[file_name]
+            url = MODELS_URLS[model_name]
             hugging_face_url = f"{self.base_url}/{url['repository']}/resolve/{url['revision']}/{url['filename']}"
 
             try:
@@ -190,10 +245,10 @@ class HuggingFaceCompatibleDownloader(CachedDownloader, ABC):
                             f.write(chunk)
                 else:
                     if r.status_code == 404:
-                        raise FileNotFoundError(f"Model {file_name} not found!")
+                        raise FileNotFoundError(f"Model {model_name} not found!")
                     else:
                         raise ConnectionError(
-                            f"Error {r.status_code} while downloading model {file_name}!"
+                            f"Error {r.status_code} while downloading model {model_name}!"
                         )
             except BaseException as e:
                 if cached_path.exists():

@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>carvekit.ml.arch.yolov4.yolo_layer API documentation</title>
+<meta name="description" content="Modified by Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+Source url: https://github.com/Tianxiaomo/pytorch-YOLOv4
+License: Apache License …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>carvekit.ml.arch.yolov4.yolo_layer</code></h1>
+</header>
+<section id="section-intro">
+<p>Modified by Nikita Selin (OPHoperHPO)[<a href="https://github.com/OPHoperHPO].">https://github.com/OPHoperHPO].</a>
+Source url: <a href="https://github.com/Tianxiaomo/pytorch-YOLOv4">https://github.com/Tianxiaomo/pytorch-YOLOv4</a>
+License: Apache License 2.0</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Modified by Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+Source url: https://github.com/Tianxiaomo/pytorch-YOLOv4
+License: Apache License 2.0
+&#34;&#34;&#34;
+import numpy as np
+import torch
+import torch.nn as nn
+
+
+def yolo_forward(
+    output,
+    conf_thresh,
+    num_classes,
+    anchors,
+    num_anchors,
+    scale_x_y,
+    only_objectness=1,
+    validation=False,
+):
+    # Output would be invalid if it does not satisfy this assert
+    # assert (output.size(1) == (5 + num_classes) * num_anchors)
+
+    # print(output.size())
+
+    # Slice the second dimension (channel) of output into:
+    # [ 2, 2, 1, num_classes, 2, 2, 1, num_classes, 2, 2, 1, num_classes ]
+    # And then into
+    # bxy = [ 6 ] bwh = [ 6 ] det_conf = [ 3 ] cls_conf = [ num_classes * 3 ]
+    batch = output.size(0)
+    H = output.size(2)
+    W = output.size(3)
+
+    bxy_list = []
+    bwh_list = []
+    det_confs_list = []
+    cls_confs_list = []
+
+    for i in range(num_anchors):
+        begin = i * (5 + num_classes)
+        end = (i + 1) * (5 + num_classes)
+
+        bxy_list.append(output[:, begin : begin + 2])
+        bwh_list.append(output[:, begin + 2 : begin + 4])
+        det_confs_list.append(output[:, begin + 4 : begin + 5])
+        cls_confs_list.append(output[:, begin + 5 : end])
+
+    # Shape: [batch, num_anchors * 2, H, W]
+    bxy = torch.cat(bxy_list, dim=1)
+    # Shape: [batch, num_anchors * 2, H, W]
+    bwh = torch.cat(bwh_list, dim=1)
+
+    # Shape: [batch, num_anchors, H, W]
+    det_confs = torch.cat(det_confs_list, dim=1)
+    # Shape: [batch, num_anchors * H * W]
+    det_confs = det_confs.view(batch, num_anchors * H * W)
+
+    # Shape: [batch, num_anchors * num_classes, H, W]
+    cls_confs = torch.cat(cls_confs_list, dim=1)
+    # Shape: [batch, num_anchors, num_classes, H * W]
+    cls_confs = cls_confs.view(batch, num_anchors, num_classes, H * W)
+    # Shape: [batch, num_anchors, num_classes, H * W] --&gt; [batch, num_anchors * H * W, num_classes]
+    cls_confs = cls_confs.permute(0, 1, 3, 2).reshape(
+        batch, num_anchors * H * W, num_classes
+    )
+
+    # Apply sigmoid(), exp() and softmax() to slices
+    #
+    bxy = torch.sigmoid(bxy) * scale_x_y - 0.5 * (scale_x_y - 1)
+    bwh = torch.exp(bwh)
+    det_confs = torch.sigmoid(det_confs)
+    cls_confs = torch.sigmoid(cls_confs)
+
+    # Prepare C-x, C-y, P-w, P-h (None of them are torch related)
+    grid_x = np.expand_dims(
+        np.expand_dims(
+            np.expand_dims(np.linspace(0, W - 1, W), axis=0).repeat(H, 0), axis=0
+        ),
+        axis=0,
+    )
+    grid_y = np.expand_dims(
+        np.expand_dims(
+            np.expand_dims(np.linspace(0, H - 1, H), axis=1).repeat(W, 1), axis=0
+        ),
+        axis=0,
+    )
+    # grid_x = torch.linspace(0, W - 1, W).reshape(1, 1, 1, W).repeat(1, 1, H, 1)
+    # grid_y = torch.linspace(0, H - 1, H).reshape(1, 1, H, 1).repeat(1, 1, 1, W)
+
+    anchor_w = []
+    anchor_h = []
+    for i in range(num_anchors):
+        anchor_w.append(anchors[i * 2])
+        anchor_h.append(anchors[i * 2 + 1])
+
+    device = None
+    cuda_check = output.is_cuda
+    if cuda_check:
+        device = output.get_device()
+
+    bx_list = []
+    by_list = []
+    bw_list = []
+    bh_list = []
+
+    # Apply C-x, C-y, P-w, P-h
+    for i in range(num_anchors):
+        ii = i * 2
+        # Shape: [batch, 1, H, W]
+        bx = bxy[:, ii : ii + 1] + torch.tensor(
+            grid_x, device=device, dtype=torch.float32
+        )  # grid_x.to(device=device, dtype=torch.float32)
+        # Shape: [batch, 1, H, W]
+        by = bxy[:, ii + 1 : ii + 2] + torch.tensor(
+            grid_y, device=device, dtype=torch.float32
+        )  # grid_y.to(device=device, dtype=torch.float32)
+        # Shape: [batch, 1, H, W]
+        bw = bwh[:, ii : ii + 1] * anchor_w[i]
+        # Shape: [batch, 1, H, W]
+        bh = bwh[:, ii + 1 : ii + 2] * anchor_h[i]
+
+        bx_list.append(bx)
+        by_list.append(by)
+        bw_list.append(bw)
+        bh_list.append(bh)
+
+    ########################################
+    #   Figure out bboxes from slices     #
+    ########################################
+
+    # Shape: [batch, num_anchors, H, W]
+    bx = torch.cat(bx_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    by = torch.cat(by_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    bw = torch.cat(bw_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    bh = torch.cat(bh_list, dim=1)
+
+    # Shape: [batch, 2 * num_anchors, H, W]
+    bx_bw = torch.cat((bx, bw), dim=1)
+    # Shape: [batch, 2 * num_anchors, H, W]
+    by_bh = torch.cat((by, bh), dim=1)
+
+    # normalize coordinates to [0, 1]
+    bx_bw /= W
+    by_bh /= H
+
+    # Shape: [batch, num_anchors * H * W, 1]
+    bx = bx_bw[:, :num_anchors].view(batch, num_anchors * H * W, 1)
+    by = by_bh[:, :num_anchors].view(batch, num_anchors * H * W, 1)
+    bw = bx_bw[:, num_anchors:].view(batch, num_anchors * H * W, 1)
+    bh = by_bh[:, num_anchors:].view(batch, num_anchors * H * W, 1)
+
+    bx1 = bx - bw * 0.5
+    by1 = by - bh * 0.5
+    bx2 = bx1 + bw
+    by2 = by1 + bh
+
+    # Shape: [batch, num_anchors * h * w, 4] -&gt; [batch, num_anchors * h * w, 1, 4]
+    boxes = torch.cat((bx1, by1, bx2, by2), dim=2).view(
+        batch, num_anchors * H * W, 1, 4
+    )
+    # boxes = boxes.repeat(1, 1, num_classes, 1)
+
+    # boxes:     [batch, num_anchors * H * W, 1, 4]
+    # cls_confs: [batch, num_anchors * H * W, num_classes]
+    # det_confs: [batch, num_anchors * H * W]
+
+    det_confs = det_confs.view(batch, num_anchors * H * W, 1)
+    confs = cls_confs * det_confs
+
+    # boxes: [batch, num_anchors * H * W, 1, 4]
+    # confs: [batch, num_anchors * H * W, num_classes]
+
+    return boxes, confs
+
+
+def yolo_forward_dynamic(
+    output,
+    conf_thresh,
+    num_classes,
+    anchors,
+    num_anchors,
+    scale_x_y,
+    only_objectness=1,
+    validation=False,
+):
+    # Output would be invalid if it does not satisfy this assert
+    # assert (output.size(1) == (5 + num_classes) * num_anchors)
+
+    # print(output.size())
+
+    # Slice the second dimension (channel) of output into:
+    # [ 2, 2, 1, num_classes, 2, 2, 1, num_classes, 2, 2, 1, num_classes ]
+    # And then into
+    # bxy = [ 6 ] bwh = [ 6 ] det_conf = [ 3 ] cls_conf = [ num_classes * 3 ]
+    # batch = output.size(0)
+    # H = output.size(2)
+    # W = output.size(3)
+
+    bxy_list = []
+    bwh_list = []
+    det_confs_list = []
+    cls_confs_list = []
+
+    for i in range(num_anchors):
+        begin = i * (5 + num_classes)
+        end = (i + 1) * (5 + num_classes)
+
+        bxy_list.append(output[:, begin : begin + 2])
+        bwh_list.append(output[:, begin + 2 : begin + 4])
+        det_confs_list.append(output[:, begin + 4 : begin + 5])
+        cls_confs_list.append(output[:, begin + 5 : end])
+
+    # Shape: [batch, num_anchors * 2, H, W]
+    bxy = torch.cat(bxy_list, dim=1)
+    # Shape: [batch, num_anchors * 2, H, W]
+    bwh = torch.cat(bwh_list, dim=1)
+
+    # Shape: [batch, num_anchors, H, W]
+    det_confs = torch.cat(det_confs_list, dim=1)
+    # Shape: [batch, num_anchors * H * W]
+    det_confs = det_confs.view(
+        output.size(0), num_anchors * output.size(2) * output.size(3)
+    )
+
+    # Shape: [batch, num_anchors * num_classes, H, W]
+    cls_confs = torch.cat(cls_confs_list, dim=1)
+    # Shape: [batch, num_anchors, num_classes, H * W]
+    cls_confs = cls_confs.view(
+        output.size(0), num_anchors, num_classes, output.size(2) * output.size(3)
+    )
+    # Shape: [batch, num_anchors, num_classes, H * W] --&gt; [batch, num_anchors * H * W, num_classes]
+    cls_confs = cls_confs.permute(0, 1, 3, 2).reshape(
+        output.size(0), num_anchors * output.size(2) * output.size(3), num_classes
+    )
+
+    # Apply sigmoid(), exp() and softmax() to slices
+    #
+    bxy = torch.sigmoid(bxy) * scale_x_y - 0.5 * (scale_x_y - 1)
+    bwh = torch.exp(bwh)
+    det_confs = torch.sigmoid(det_confs)
+    cls_confs = torch.sigmoid(cls_confs)
+
+    # Prepare C-x, C-y, P-w, P-h (None of them are torch related)
+    grid_x = np.expand_dims(
+        np.expand_dims(
+            np.expand_dims(
+                np.linspace(0, output.size(3) - 1, output.size(3)), axis=0
+            ).repeat(output.size(2), 0),
+            axis=0,
+        ),
+        axis=0,
+    )
+    grid_y = np.expand_dims(
+        np.expand_dims(
+            np.expand_dims(
+                np.linspace(0, output.size(2) - 1, output.size(2)), axis=1
+            ).repeat(output.size(3), 1),
+            axis=0,
+        ),
+        axis=0,
+    )
+    # grid_x = torch.linspace(0, W - 1, W).reshape(1, 1, 1, W).repeat(1, 1, H, 1)
+    # grid_y = torch.linspace(0, H - 1, H).reshape(1, 1, H, 1).repeat(1, 1, 1, W)
+
+    anchor_w = []
+    anchor_h = []
+    for i in range(num_anchors):
+        anchor_w.append(anchors[i * 2])
+        anchor_h.append(anchors[i * 2 + 1])
+
+    device = None
+    cuda_check = output.is_cuda
+    if cuda_check:
+        device = output.get_device()
+
+    bx_list = []
+    by_list = []
+    bw_list = []
+    bh_list = []
+
+    # Apply C-x, C-y, P-w, P-h
+    for i in range(num_anchors):
+        ii = i * 2
+        # Shape: [batch, 1, H, W]
+        bx = bxy[:, ii : ii + 1] + torch.tensor(
+            grid_x, device=device, dtype=torch.float32
+        )  # grid_x.to(device=device, dtype=torch.float32)
+        # Shape: [batch, 1, H, W]
+        by = bxy[:, ii + 1 : ii + 2] + torch.tensor(
+            grid_y, device=device, dtype=torch.float32
+        )  # grid_y.to(device=device, dtype=torch.float32)
+        # Shape: [batch, 1, H, W]
+        bw = bwh[:, ii : ii + 1] * anchor_w[i]
+        # Shape: [batch, 1, H, W]
+        bh = bwh[:, ii + 1 : ii + 2] * anchor_h[i]
+
+        bx_list.append(bx)
+        by_list.append(by)
+        bw_list.append(bw)
+        bh_list.append(bh)
+
+    ########################################
+    #   Figure out bboxes from slices     #
+    ########################################
+
+    # Shape: [batch, num_anchors, H, W]
+    bx = torch.cat(bx_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    by = torch.cat(by_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    bw = torch.cat(bw_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    bh = torch.cat(bh_list, dim=1)
+
+    # Shape: [batch, 2 * num_anchors, H, W]
+    bx_bw = torch.cat((bx, bw), dim=1)
+    # Shape: [batch, 2 * num_anchors, H, W]
+    by_bh = torch.cat((by, bh), dim=1)
+
+    # normalize coordinates to [0, 1]
+    bx_bw /= output.size(3)
+    by_bh /= output.size(2)
+
+    # Shape: [batch, num_anchors * H * W, 1]
+    bx = bx_bw[:, :num_anchors].view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+    by = by_bh[:, :num_anchors].view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+    bw = bx_bw[:, num_anchors:].view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+    bh = by_bh[:, num_anchors:].view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+
+    bx1 = bx - bw * 0.5
+    by1 = by - bh * 0.5
+    bx2 = bx1 + bw
+    by2 = by1 + bh
+
+    # Shape: [batch, num_anchors * h * w, 4] -&gt; [batch, num_anchors * h * w, 1, 4]
+    boxes = torch.cat((bx1, by1, bx2, by2), dim=2).view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1, 4
+    )
+    # boxes = boxes.repeat(1, 1, num_classes, 1)
+
+    # boxes:     [batch, num_anchors * H * W, 1, 4]
+    # cls_confs: [batch, num_anchors * H * W, num_classes]
+    # det_confs: [batch, num_anchors * H * W]
+
+    det_confs = det_confs.view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+    confs = cls_confs * det_confs
+
+    # boxes: [batch, num_anchors * H * W, 1, 4]
+    # confs: [batch, num_anchors * H * W, num_classes]
+
+    return boxes, confs
+
+
+class YoloLayer(nn.Module):
+    &#34;&#34;&#34;Yolo layer
+    model_out: while inference,is post-processing inside or outside the model
+        true:outside
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        anchor_mask=[],
+        num_classes=0,
+        anchors=[],
+        num_anchors=1,
+        stride=32,
+        model_out=False,
+    ):
+        super(YoloLayer, self).__init__()
+        self.anchor_mask = anchor_mask
+        self.num_classes = num_classes
+        self.anchors = anchors
+        self.num_anchors = num_anchors
+        self.anchor_step = len(anchors) // num_anchors
+        self.coord_scale = 1
+        self.noobject_scale = 1
+        self.object_scale = 5
+        self.class_scale = 1
+        self.thresh = 0.6
+        self.stride = stride
+        self.seen = 0
+        self.scale_x_y = 1
+
+        self.model_out = model_out
+
+    def forward(self, output, target=None):
+        if self.training:
+            return output
+        masked_anchors = []
+        for m in self.anchor_mask:
+            masked_anchors += self.anchors[
+                m * self.anchor_step : (m + 1) * self.anchor_step
+            ]
+        masked_anchors = [anchor / self.stride for anchor in masked_anchors]
+
+        return yolo_forward_dynamic(
+            output,
+            self.thresh,
+            self.num_classes,
+            masked_anchors,
+            len(self.anchor_mask),
+            scale_x_y=self.scale_x_y,
+        )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="carvekit.ml.arch.yolov4.yolo_layer.yolo_forward"><code class="name flex">
+<span>def <span class="ident">yolo_forward</span></span>(<span>output, conf_thresh, num_classes, anchors, num_anchors, scale_x_y, only_objectness=1, validation=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def yolo_forward(
+    output,
+    conf_thresh,
+    num_classes,
+    anchors,
+    num_anchors,
+    scale_x_y,
+    only_objectness=1,
+    validation=False,
+):
+    # Output would be invalid if it does not satisfy this assert
+    # assert (output.size(1) == (5 + num_classes) * num_anchors)
+
+    # print(output.size())
+
+    # Slice the second dimension (channel) of output into:
+    # [ 2, 2, 1, num_classes, 2, 2, 1, num_classes, 2, 2, 1, num_classes ]
+    # And then into
+    # bxy = [ 6 ] bwh = [ 6 ] det_conf = [ 3 ] cls_conf = [ num_classes * 3 ]
+    batch = output.size(0)
+    H = output.size(2)
+    W = output.size(3)
+
+    bxy_list = []
+    bwh_list = []
+    det_confs_list = []
+    cls_confs_list = []
+
+    for i in range(num_anchors):
+        begin = i * (5 + num_classes)
+        end = (i + 1) * (5 + num_classes)
+
+        bxy_list.append(output[:, begin : begin + 2])
+        bwh_list.append(output[:, begin + 2 : begin + 4])
+        det_confs_list.append(output[:, begin + 4 : begin + 5])
+        cls_confs_list.append(output[:, begin + 5 : end])
+
+    # Shape: [batch, num_anchors * 2, H, W]
+    bxy = torch.cat(bxy_list, dim=1)
+    # Shape: [batch, num_anchors * 2, H, W]
+    bwh = torch.cat(bwh_list, dim=1)
+
+    # Shape: [batch, num_anchors, H, W]
+    det_confs = torch.cat(det_confs_list, dim=1)
+    # Shape: [batch, num_anchors * H * W]
+    det_confs = det_confs.view(batch, num_anchors * H * W)
+
+    # Shape: [batch, num_anchors * num_classes, H, W]
+    cls_confs = torch.cat(cls_confs_list, dim=1)
+    # Shape: [batch, num_anchors, num_classes, H * W]
+    cls_confs = cls_confs.view(batch, num_anchors, num_classes, H * W)
+    # Shape: [batch, num_anchors, num_classes, H * W] --&gt; [batch, num_anchors * H * W, num_classes]
+    cls_confs = cls_confs.permute(0, 1, 3, 2).reshape(
+        batch, num_anchors * H * W, num_classes
+    )
+
+    # Apply sigmoid(), exp() and softmax() to slices
+    #
+    bxy = torch.sigmoid(bxy) * scale_x_y - 0.5 * (scale_x_y - 1)
+    bwh = torch.exp(bwh)
+    det_confs = torch.sigmoid(det_confs)
+    cls_confs = torch.sigmoid(cls_confs)
+
+    # Prepare C-x, C-y, P-w, P-h (None of them are torch related)
+    grid_x = np.expand_dims(
+        np.expand_dims(
+            np.expand_dims(np.linspace(0, W - 1, W), axis=0).repeat(H, 0), axis=0
+        ),
+        axis=0,
+    )
+    grid_y = np.expand_dims(
+        np.expand_dims(
+            np.expand_dims(np.linspace(0, H - 1, H), axis=1).repeat(W, 1), axis=0
+        ),
+        axis=0,
+    )
+    # grid_x = torch.linspace(0, W - 1, W).reshape(1, 1, 1, W).repeat(1, 1, H, 1)
+    # grid_y = torch.linspace(0, H - 1, H).reshape(1, 1, H, 1).repeat(1, 1, 1, W)
+
+    anchor_w = []
+    anchor_h = []
+    for i in range(num_anchors):
+        anchor_w.append(anchors[i * 2])
+        anchor_h.append(anchors[i * 2 + 1])
+
+    device = None
+    cuda_check = output.is_cuda
+    if cuda_check:
+        device = output.get_device()
+
+    bx_list = []
+    by_list = []
+    bw_list = []
+    bh_list = []
+
+    # Apply C-x, C-y, P-w, P-h
+    for i in range(num_anchors):
+        ii = i * 2
+        # Shape: [batch, 1, H, W]
+        bx = bxy[:, ii : ii + 1] + torch.tensor(
+            grid_x, device=device, dtype=torch.float32
+        )  # grid_x.to(device=device, dtype=torch.float32)
+        # Shape: [batch, 1, H, W]
+        by = bxy[:, ii + 1 : ii + 2] + torch.tensor(
+            grid_y, device=device, dtype=torch.float32
+        )  # grid_y.to(device=device, dtype=torch.float32)
+        # Shape: [batch, 1, H, W]
+        bw = bwh[:, ii : ii + 1] * anchor_w[i]
+        # Shape: [batch, 1, H, W]
+        bh = bwh[:, ii + 1 : ii + 2] * anchor_h[i]
+
+        bx_list.append(bx)
+        by_list.append(by)
+        bw_list.append(bw)
+        bh_list.append(bh)
+
+    ########################################
+    #   Figure out bboxes from slices     #
+    ########################################
+
+    # Shape: [batch, num_anchors, H, W]
+    bx = torch.cat(bx_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    by = torch.cat(by_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    bw = torch.cat(bw_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    bh = torch.cat(bh_list, dim=1)
+
+    # Shape: [batch, 2 * num_anchors, H, W]
+    bx_bw = torch.cat((bx, bw), dim=1)
+    # Shape: [batch, 2 * num_anchors, H, W]
+    by_bh = torch.cat((by, bh), dim=1)
+
+    # normalize coordinates to [0, 1]
+    bx_bw /= W
+    by_bh /= H
+
+    # Shape: [batch, num_anchors * H * W, 1]
+    bx = bx_bw[:, :num_anchors].view(batch, num_anchors * H * W, 1)
+    by = by_bh[:, :num_anchors].view(batch, num_anchors * H * W, 1)
+    bw = bx_bw[:, num_anchors:].view(batch, num_anchors * H * W, 1)
+    bh = by_bh[:, num_anchors:].view(batch, num_anchors * H * W, 1)
+
+    bx1 = bx - bw * 0.5
+    by1 = by - bh * 0.5
+    bx2 = bx1 + bw
+    by2 = by1 + bh
+
+    # Shape: [batch, num_anchors * h * w, 4] -&gt; [batch, num_anchors * h * w, 1, 4]
+    boxes = torch.cat((bx1, by1, bx2, by2), dim=2).view(
+        batch, num_anchors * H * W, 1, 4
+    )
+    # boxes = boxes.repeat(1, 1, num_classes, 1)
+
+    # boxes:     [batch, num_anchors * H * W, 1, 4]
+    # cls_confs: [batch, num_anchors * H * W, num_classes]
+    # det_confs: [batch, num_anchors * H * W]
+
+    det_confs = det_confs.view(batch, num_anchors * H * W, 1)
+    confs = cls_confs * det_confs
+
+    # boxes: [batch, num_anchors * H * W, 1, 4]
+    # confs: [batch, num_anchors * H * W, num_classes]
+
+    return boxes, confs</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.yolov4.yolo_layer.yolo_forward_dynamic"><code class="name flex">
+<span>def <span class="ident">yolo_forward_dynamic</span></span>(<span>output, conf_thresh, num_classes, anchors, num_anchors, scale_x_y, only_objectness=1, validation=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def yolo_forward_dynamic(
+    output,
+    conf_thresh,
+    num_classes,
+    anchors,
+    num_anchors,
+    scale_x_y,
+    only_objectness=1,
+    validation=False,
+):
+    # Output would be invalid if it does not satisfy this assert
+    # assert (output.size(1) == (5 + num_classes) * num_anchors)
+
+    # print(output.size())
+
+    # Slice the second dimension (channel) of output into:
+    # [ 2, 2, 1, num_classes, 2, 2, 1, num_classes, 2, 2, 1, num_classes ]
+    # And then into
+    # bxy = [ 6 ] bwh = [ 6 ] det_conf = [ 3 ] cls_conf = [ num_classes * 3 ]
+    # batch = output.size(0)
+    # H = output.size(2)
+    # W = output.size(3)
+
+    bxy_list = []
+    bwh_list = []
+    det_confs_list = []
+    cls_confs_list = []
+
+    for i in range(num_anchors):
+        begin = i * (5 + num_classes)
+        end = (i + 1) * (5 + num_classes)
+
+        bxy_list.append(output[:, begin : begin + 2])
+        bwh_list.append(output[:, begin + 2 : begin + 4])
+        det_confs_list.append(output[:, begin + 4 : begin + 5])
+        cls_confs_list.append(output[:, begin + 5 : end])
+
+    # Shape: [batch, num_anchors * 2, H, W]
+    bxy = torch.cat(bxy_list, dim=1)
+    # Shape: [batch, num_anchors * 2, H, W]
+    bwh = torch.cat(bwh_list, dim=1)
+
+    # Shape: [batch, num_anchors, H, W]
+    det_confs = torch.cat(det_confs_list, dim=1)
+    # Shape: [batch, num_anchors * H * W]
+    det_confs = det_confs.view(
+        output.size(0), num_anchors * output.size(2) * output.size(3)
+    )
+
+    # Shape: [batch, num_anchors * num_classes, H, W]
+    cls_confs = torch.cat(cls_confs_list, dim=1)
+    # Shape: [batch, num_anchors, num_classes, H * W]
+    cls_confs = cls_confs.view(
+        output.size(0), num_anchors, num_classes, output.size(2) * output.size(3)
+    )
+    # Shape: [batch, num_anchors, num_classes, H * W] --&gt; [batch, num_anchors * H * W, num_classes]
+    cls_confs = cls_confs.permute(0, 1, 3, 2).reshape(
+        output.size(0), num_anchors * output.size(2) * output.size(3), num_classes
+    )
+
+    # Apply sigmoid(), exp() and softmax() to slices
+    #
+    bxy = torch.sigmoid(bxy) * scale_x_y - 0.5 * (scale_x_y - 1)
+    bwh = torch.exp(bwh)
+    det_confs = torch.sigmoid(det_confs)
+    cls_confs = torch.sigmoid(cls_confs)
+
+    # Prepare C-x, C-y, P-w, P-h (None of them are torch related)
+    grid_x = np.expand_dims(
+        np.expand_dims(
+            np.expand_dims(
+                np.linspace(0, output.size(3) - 1, output.size(3)), axis=0
+            ).repeat(output.size(2), 0),
+            axis=0,
+        ),
+        axis=0,
+    )
+    grid_y = np.expand_dims(
+        np.expand_dims(
+            np.expand_dims(
+                np.linspace(0, output.size(2) - 1, output.size(2)), axis=1
+            ).repeat(output.size(3), 1),
+            axis=0,
+        ),
+        axis=0,
+    )
+    # grid_x = torch.linspace(0, W - 1, W).reshape(1, 1, 1, W).repeat(1, 1, H, 1)
+    # grid_y = torch.linspace(0, H - 1, H).reshape(1, 1, H, 1).repeat(1, 1, 1, W)
+
+    anchor_w = []
+    anchor_h = []
+    for i in range(num_anchors):
+        anchor_w.append(anchors[i * 2])
+        anchor_h.append(anchors[i * 2 + 1])
+
+    device = None
+    cuda_check = output.is_cuda
+    if cuda_check:
+        device = output.get_device()
+
+    bx_list = []
+    by_list = []
+    bw_list = []
+    bh_list = []
+
+    # Apply C-x, C-y, P-w, P-h
+    for i in range(num_anchors):
+        ii = i * 2
+        # Shape: [batch, 1, H, W]
+        bx = bxy[:, ii : ii + 1] + torch.tensor(
+            grid_x, device=device, dtype=torch.float32
+        )  # grid_x.to(device=device, dtype=torch.float32)
+        # Shape: [batch, 1, H, W]
+        by = bxy[:, ii + 1 : ii + 2] + torch.tensor(
+            grid_y, device=device, dtype=torch.float32
+        )  # grid_y.to(device=device, dtype=torch.float32)
+        # Shape: [batch, 1, H, W]
+        bw = bwh[:, ii : ii + 1] * anchor_w[i]
+        # Shape: [batch, 1, H, W]
+        bh = bwh[:, ii + 1 : ii + 2] * anchor_h[i]
+
+        bx_list.append(bx)
+        by_list.append(by)
+        bw_list.append(bw)
+        bh_list.append(bh)
+
+    ########################################
+    #   Figure out bboxes from slices     #
+    ########################################
+
+    # Shape: [batch, num_anchors, H, W]
+    bx = torch.cat(bx_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    by = torch.cat(by_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    bw = torch.cat(bw_list, dim=1)
+    # Shape: [batch, num_anchors, H, W]
+    bh = torch.cat(bh_list, dim=1)
+
+    # Shape: [batch, 2 * num_anchors, H, W]
+    bx_bw = torch.cat((bx, bw), dim=1)
+    # Shape: [batch, 2 * num_anchors, H, W]
+    by_bh = torch.cat((by, bh), dim=1)
+
+    # normalize coordinates to [0, 1]
+    bx_bw /= output.size(3)
+    by_bh /= output.size(2)
+
+    # Shape: [batch, num_anchors * H * W, 1]
+    bx = bx_bw[:, :num_anchors].view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+    by = by_bh[:, :num_anchors].view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+    bw = bx_bw[:, num_anchors:].view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+    bh = by_bh[:, num_anchors:].view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+
+    bx1 = bx - bw * 0.5
+    by1 = by - bh * 0.5
+    bx2 = bx1 + bw
+    by2 = by1 + bh
+
+    # Shape: [batch, num_anchors * h * w, 4] -&gt; [batch, num_anchors * h * w, 1, 4]
+    boxes = torch.cat((bx1, by1, bx2, by2), dim=2).view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1, 4
+    )
+    # boxes = boxes.repeat(1, 1, num_classes, 1)
+
+    # boxes:     [batch, num_anchors * H * W, 1, 4]
+    # cls_confs: [batch, num_anchors * H * W, num_classes]
+    # det_confs: [batch, num_anchors * H * W]
+
+    det_confs = det_confs.view(
+        output.size(0), num_anchors * output.size(2) * output.size(3), 1
+    )
+    confs = cls_confs * det_confs
+
+    # boxes: [batch, num_anchors * H * W, 1, 4]
+    # confs: [batch, num_anchors * H * W, num_classes]
+
+    return boxes, confs</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="carvekit.ml.arch.yolov4.yolo_layer.YoloLayer"><code class="flex name class">
+<span>class <span class="ident">YoloLayer</span></span>
+<span>(</span><span>anchor_mask=[], num_classes=0, anchors=[], num_anchors=1, stride=32, model_out=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Yolo layer
+model_out: while inference,is post-processing inside or outside the model
+true:outside</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class YoloLayer(nn.Module):
+    &#34;&#34;&#34;Yolo layer
+    model_out: while inference,is post-processing inside or outside the model
+        true:outside
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        anchor_mask=[],
+        num_classes=0,
+        anchors=[],
+        num_anchors=1,
+        stride=32,
+        model_out=False,
+    ):
+        super(YoloLayer, self).__init__()
+        self.anchor_mask = anchor_mask
+        self.num_classes = num_classes
+        self.anchors = anchors
+        self.num_anchors = num_anchors
+        self.anchor_step = len(anchors) // num_anchors
+        self.coord_scale = 1
+        self.noobject_scale = 1
+        self.object_scale = 5
+        self.class_scale = 1
+        self.thresh = 0.6
+        self.stride = stride
+        self.seen = 0
+        self.scale_x_y = 1
+
+        self.model_out = model_out
+
+    def forward(self, output, target=None):
+        if self.training:
+            return output
+        masked_anchors = []
+        for m in self.anchor_mask:
+            masked_anchors += self.anchors[
+                m * self.anchor_step : (m + 1) * self.anchor_step
+            ]
+        masked_anchors = [anchor / self.stride for anchor in masked_anchors]
+
+        return yolo_forward_dynamic(
+            output,
+            self.thresh,
+            self.num_classes,
+            masked_anchors,
+            len(self.anchor_mask),
+            scale_x_y=self.scale_x_y,
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.yolov4.yolo_layer.YoloLayer.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, output, target=None) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, output, target=None):
+    if self.training:
+        return output
+    masked_anchors = []
+    for m in self.anchor_mask:
+        masked_anchors += self.anchors[
+            m * self.anchor_step : (m + 1) * self.anchor_step
+        ]
+    masked_anchors = [anchor / self.stride for anchor in masked_anchors]
+
+    return yolo_forward_dynamic(
+        output,
+        self.thresh,
+        self.num_classes,
+        masked_anchors,
+        len(self.anchor_mask),
+        scale_x_y=self.scale_x_y,
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="carvekit.ml.arch.yolov4" href="index.html">carvekit.ml.arch.yolov4</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.yolov4.yolo_layer.yolo_forward" href="#carvekit.ml.arch.yolov4.yolo_layer.yolo_forward">yolo_forward</a></code></li>
+<li><code><a title="carvekit.ml.arch.yolov4.yolo_layer.yolo_forward_dynamic" href="#carvekit.ml.arch.yolov4.yolo_layer.yolo_forward_dynamic">yolo_forward_dynamic</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="carvekit.ml.arch.yolov4.yolo_layer.YoloLayer" href="#carvekit.ml.arch.yolov4.yolo_layer.YoloLayer">YoloLayer</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.yolov4.yolo_layer.YoloLayer.forward" href="#carvekit.ml.arch.yolov4.yolo_layer.YoloLayer.forward">forward</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

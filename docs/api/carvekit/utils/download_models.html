@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>carvekit.utils.download_models API documentation</title>
+<meta name="description" content="Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+License: …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>carvekit.utils.download_models</code></h1>
+</header>
+<section id="section-intro">
+<p>Source url: <a href="https://github.com/OPHoperHPO/image-background-remove-tool">https://github.com/OPHoperHPO/image-background-remove-tool</a>
+Author: Nikita Selin (OPHoperHPO)[<a href="https://github.com/OPHoperHPO].">https://github.com/OPHoperHPO].</a>
+License: Apache License 2.0</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+License: Apache License 2.0
+&#34;&#34;&#34;
+import hashlib
+import os
+import warnings
+from abc import ABCMeta, abstractmethod, ABC
+from pathlib import Path
+from typing import Optional
+
+import carvekit
+from carvekit.ml.files import checkpoints_dir
+
+import requests
+import tqdm
+
+requests = requests.Session()
+requests.headers.update({&#34;User-Agent&#34;: f&#34;Carvekit/{carvekit.version}&#34;})
+
+MODELS_URLS = {
+    &#34;basnet.pth&#34;: {
+        &#34;repository&#34;: &#34;Carve/basnet-universal&#34;,
+        &#34;revision&#34;: &#34;870becbdb364fda6d8fdb2c10b072542f8d08701&#34;,
+        &#34;filename&#34;: &#34;basnet.pth&#34;,
+    },
+    &#34;deeplab.pth&#34;: {
+        &#34;repository&#34;: &#34;Carve/deeplabv3-resnet101&#34;,
+        &#34;revision&#34;: &#34;d504005392fc877565afdf58aad0cd524682d2b0&#34;,
+        &#34;filename&#34;: &#34;deeplab.pth&#34;,
+    },
+    &#34;fba_matting.pth&#34;: {
+        &#34;repository&#34;: &#34;Carve/fba&#34;,
+        &#34;revision&#34;: &#34;a5d3457df0fb9c88ea19ed700d409756ca2069d1&#34;,
+        &#34;filename&#34;: &#34;fba_matting.pth&#34;,
+    },
+    &#34;u2net.pth&#34;: {
+        &#34;repository&#34;: &#34;Carve/u2net-universal&#34;,
+        &#34;revision&#34;: &#34;10305d785481cf4b2eee1d447c39cd6e5f43d74b&#34;,
+        &#34;filename&#34;: &#34;full_weights.pth&#34;,
+    },
+    &#34;tracer_b7.pth&#34;: {
+        &#34;repository&#34;: &#34;Carve/tracer_b7&#34;,
+        &#34;revision&#34;: &#34;d8a8fd9e7b3fa0d2f1506fe7242966b34381e9c5&#34;,
+        &#34;filename&#34;: &#34;tracer_b7.pth&#34;,
+    },
+    &#34;scene_classifier.pth&#34;: {
+        &#34;repository&#34;: &#34;Carve/scene_classifier&#34;,
+        &#34;revision&#34;: &#34;71c8e4c771dd5a20ff0c5c9e3c8f1c9cf8082740&#34;,
+        &#34;filename&#34;: &#34;scene_classifier.pth&#34;,
+    },
+    &#34;yolov4_coco_with_classes.pth&#34;: {
+        &#34;repository&#34;: &#34;Carve/yolov4_coco&#34;,
+        &#34;revision&#34;: &#34;e3fc9cd22f86e456d2749d1ae148400f2f950fb3&#34;,
+        &#34;filename&#34;: &#34;yolov4_coco_with_classes.pth&#34;,
+    },
+    &#34;cascadepsp.pth&#34;: {
+        &#34;repository&#34;: &#34;Carve/cascadepsp&#34;,
+        &#34;revision&#34;: &#34;3ca1e5e432344b1277bc88d1c6d4265c46cff62f&#34;,
+        &#34;filename&#34;: &#34;cascadepsp.pth&#34;,
+    },
+}
+&#34;&#34;&#34;
+All data needed to build path relative to huggingface.co for model download
+&#34;&#34;&#34;
+
+MODELS_CHECKSUMS = {
+    &#34;basnet.pth&#34;: &#34;e409cb709f4abca87cb11bd44a9ad3f909044a917977ab65244b4c94dd33&#34;
+    &#34;8b1a37755c4253d7cb54526b7763622a094d7b676d34b5e6886689256754e5a5e6ad&#34;,
+    &#34;deeplab.pth&#34;: &#34;9c5a1795bc8baa267200a44b49ac544a1ba2687d210f63777e4bd715387324469a59b072f8a28&#34;
+    &#34;9cc471c637b367932177e5b312e8ea6351c1763d9ff44b4857c&#34;,
+    &#34;fba_matting.pth&#34;: &#34;890906ec94c1bfd2ad08707a63e4ccb0955d7f5d25e32853950c24c78&#34;
+    &#34;4cbad2e59be277999defc3754905d0f15aa75702cdead3cfe669ff72f08811c52971613&#34;,
+    &#34;u2net.pth&#34;: &#34;16f8125e2fedd8c85db0e001ee15338b4aa2fda77bab8ba70c25e&#34;
+    &#34;bea1533fda5ee70a909b934a9bd495b432cef89d629f00a07858a517742476fa8b346de24f7&#34;,
+    &#34;tracer_b7.pth&#34;: &#34;c439c5c12d4d43d5f9be9ec61e68b2e54658a541bccac2577ef5a54fb252b6e8415d41f7e&#34;
+    &#34;c2487033d0c02b4dd08367958e4e62091318111c519f93e2632be7b&#34;,
+    &#34;scene_classifier.pth&#34;: &#34;6d8692510abde453b406a1fea557afdea62fd2a2a2677283a3ecc2&#34;
+    &#34;341a4895ee99ed65cedcb79b80775db14c3ffcfc0aad2caec1d85140678852039d2d4e76b4&#34;,
+    &#34;yolov4_coco_with_classes.pth&#34;: &#34;44b6ec2dd35dc3802bf8c512002f76e00e97bfbc86bc7af6de2fafce229a41b4ca&#34;
+    &#34;12c6f3d7589278c71cd4ddd62df80389b148c19b84fa03216905407a107fff&#34;,
+    &#34;cascadepsp.pth&#34;: &#34;3f895f5126d80d6f73186f045557ea7c8eab4dfa3d69a995815bb2c03d564573f36c474f04d7bf0022a27829f583a1a793b036adf801cb423e41a4831b830122&#34;,
+}
+&#34;&#34;&#34;
+Model -&gt; checksum dictionary
+&#34;&#34;&#34;
+
+
+def sha512_checksum_calc(file: Path) -&gt; str:
+    &#34;&#34;&#34;
+    Calculates the SHA512 hash digest of a file on fs
+
+    Args:
+        file (Path): Path to the file
+
+    Returns:
+        SHA512 hash digest of a file.
+    &#34;&#34;&#34;
+    dd = hashlib.sha512()
+    with file.open(&#34;rb&#34;) as f:
+        for chunk in iter(lambda: f.read(4096), b&#34;&#34;):
+            dd.update(chunk)
+    return dd.hexdigest()
+
+
+class CachedDownloader:
+    &#34;&#34;&#34;
+    Metaclass for models downloaders.
+    &#34;&#34;&#34;
+
+    __metaclass__ = ABCMeta
+
+    @property
+    @abstractmethod
+    def name(self) -&gt; str:
+        return self.__class__.__name__
+
+    @property
+    @abstractmethod
+    def fallback_downloader(self) -&gt; Optional[&#34;CachedDownloader&#34;]:
+        &#34;&#34;&#34;
+        Property MAY be overriden in subclasses.
+        Used in case if subclass failed to download model. So preferred downloader SHOULD be placed higher in the hierarchy.
+        Less preferred downloader SHOULD be provided by this property.
+        &#34;&#34;&#34;
+        pass
+
+    def download_model(self, file_name: str) -&gt; Path:
+        &#34;&#34;&#34;
+        Downloads model from the internet and saves it to the cache.
+
+        Behavior:
+            If model is already downloaded it will be loaded from the cache.
+
+            If model is already downloaded, but checksum is invalid, it will be downloaded again.
+
+            If model download failed, fallback downloader will be used.
+        &#34;&#34;&#34;
+        try:
+            return self.download_model_base(file_name)
+        except BaseException as e:
+            if self.fallback_downloader is not None:
+                warnings.warn(
+                    f&#34;Failed to download model from {self.name} downloader.&#34;
+                    f&#34; Trying to download from {self.fallback_downloader.name} downloader.&#34;
+                )
+                return self.fallback_downloader.download_model(file_name)
+            else:
+                warnings.warn(
+                    f&#34;Failed to download model from {self.name} downloader.&#34;
+                    f&#34; No fallback downloader available.&#34;
+                )
+                raise e
+
+    @abstractmethod
+    def download_model_base(self, model_name: str) -&gt; Path:
+        &#34;&#34;&#34;
+        Download model from any source if not cached.
+        Returns:
+            pathlib.Path: Path to the downloaded model.
+        &#34;&#34;&#34;
+
+    def __call__(self, model_name: str):
+        return self.download_model(model_name)
+
+
+class HuggingFaceCompatibleDownloader(CachedDownloader, ABC):
+    &#34;&#34;&#34;
+    Downloader for models from HuggingFace Hub.
+    Private models are not supported.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        name: str = &#34;Huggingface.co&#34;,
+        base_url: str = &#34;https://huggingface.co&#34;,
+        fb_downloader: Optional[&#34;CachedDownloader&#34;] = None,
+    ):
+        self.cache_dir = checkpoints_dir
+        &#34;&#34;&#34;SHOULD be same for all instances to prevent downloading same model multiple times
+        Points to ~/.cache/carvekit/checkpoints&#34;&#34;&#34;
+        self.base_url = base_url
+        &#34;&#34;&#34;MUST be a base url with protocol and domain name to huggingface or another, compatible in terms of models downloading API source&#34;&#34;&#34;
+        self._name = name
+        self._fallback_downloader = fb_downloader
+
+    @property
+    def fallback_downloader(self) -&gt; Optional[&#34;CachedDownloader&#34;]:
+        return self._fallback_downloader
+
+    @property
+    def name(self):
+        return self._name
+
+    def check_for_existence(self, model_name: str) -&gt; Optional[Path]:
+        &#34;&#34;&#34;
+        Checks if model is already downloaded and cached. Verifies file integrity by checksum.
+        Returns:
+            Optional[pathlib.Path]: Path to the cached model if cached.
+        &#34;&#34;&#34;
+        if model_name not in MODELS_URLS.keys():
+            raise FileNotFoundError(&#34;Unknown model!&#34;)
+        path = (
+            self.cache_dir
+            / MODELS_URLS[model_name][&#34;repository&#34;].split(&#34;/&#34;)[1]
+            / model_name
+        )
+
+        if not path.exists():
+            return None
+
+        if MODELS_CHECKSUMS[path.name] != sha512_checksum_calc(path):
+            warnings.warn(
+                f&#34;Invalid checksum for model {path.name}. Downloading correct model!&#34;
+            )
+            os.remove(path)
+            return None
+        return path
+
+    def download_model_base(self, model_name: str) -&gt; Path:
+        cached_path = self.check_for_existence(model_name)
+        if cached_path is not None:
+            return cached_path
+        else:
+            cached_path = (
+                self.cache_dir
+                / MODELS_URLS[model_name][&#34;repository&#34;].split(&#34;/&#34;)[1]
+                / model_name
+            )
+            cached_path.parent.mkdir(parents=True, exist_ok=True)
+            url = MODELS_URLS[model_name]
+            hugging_face_url = f&#34;{self.base_url}/{url[&#39;repository&#39;]}/resolve/{url[&#39;revision&#39;]}/{url[&#39;filename&#39;]}&#34;
+
+            try:
+                r = requests.get(hugging_face_url, stream=True, timeout=10)
+                if r.status_code &lt; 400:
+                    with open(cached_path, &#34;wb&#34;) as f:
+                        r.raw.decode_content = True
+                        for chunk in tqdm.tqdm(
+                            r,
+                            desc=&#34;Downloading &#34; + cached_path.name + &#34; model&#34;,
+                            colour=&#34;blue&#34;,
+                        ):
+                            f.write(chunk)
+                else:
+                    if r.status_code == 404:
+                        raise FileNotFoundError(f&#34;Model {model_name} not found!&#34;)
+                    else:
+                        raise ConnectionError(
+                            f&#34;Error {r.status_code} while downloading model {model_name}!&#34;
+                        )
+            except BaseException as e:
+                if cached_path.exists():
+                    os.remove(cached_path)
+                raise ConnectionError(
+                    f&#34;Exception caught when downloading model! &#34;
+                    f&#34;Model name: {cached_path.name}. Exception: {str(e)}.&#34;
+                )
+            return cached_path
+
+
+fallback_downloader: CachedDownloader = HuggingFaceCompatibleDownloader()
+downloader: CachedDownloader = HuggingFaceCompatibleDownloader(
+    base_url=&#34;https://cdn.carve.photos&#34;,
+    fb_downloader=fallback_downloader,
+    name=&#34;Carve CDN&#34;,
+)
+downloader._fallback_downloader = fallback_downloader</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="carvekit.utils.download_models.MODELS_CHECKSUMS"><code class="name">var <span class="ident">MODELS_CHECKSUMS</span></code></dt>
+<dd>
+<div class="desc"><p>Model -&gt; checksum dictionary</p></div>
+</dd>
+<dt id="carvekit.utils.download_models.MODELS_URLS"><code class="name">var <span class="ident">MODELS_URLS</span></code></dt>
+<dd>
+<div class="desc"><p>All data needed to build path relative to huggingface.co for model download</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="carvekit.utils.download_models.sha512_checksum_calc"><code class="name flex">
+<span>def <span class="ident">sha512_checksum_calc</span></span>(<span>file: pathlib.Path) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the SHA512 hash digest of a file on fs</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file</code></strong> :&ensp;<code>Path</code></dt>
+<dd>Path to the file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>SHA512 hash digest of a file.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sha512_checksum_calc(file: Path) -&gt; str:
+    &#34;&#34;&#34;
+    Calculates the SHA512 hash digest of a file on fs
+
+    Args:
+        file (Path): Path to the file
+
+    Returns:
+        SHA512 hash digest of a file.
+    &#34;&#34;&#34;
+    dd = hashlib.sha512()
+    with file.open(&#34;rb&#34;) as f:
+        for chunk in iter(lambda: f.read(4096), b&#34;&#34;):
+            dd.update(chunk)
+    return dd.hexdigest()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="carvekit.utils.download_models.CachedDownloader"><code class="flex name class">
+<span>class <span class="ident">CachedDownloader</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metaclass for models downloaders.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CachedDownloader:
+    &#34;&#34;&#34;
+    Metaclass for models downloaders.
+    &#34;&#34;&#34;
+
+    __metaclass__ = ABCMeta
+
+    @property
+    @abstractmethod
+    def name(self) -&gt; str:
+        return self.__class__.__name__
+
+    @property
+    @abstractmethod
+    def fallback_downloader(self) -&gt; Optional[&#34;CachedDownloader&#34;]:
+        &#34;&#34;&#34;
+        Property MAY be overriden in subclasses.
+        Used in case if subclass failed to download model. So preferred downloader SHOULD be placed higher in the hierarchy.
+        Less preferred downloader SHOULD be provided by this property.
+        &#34;&#34;&#34;
+        pass
+
+    def download_model(self, file_name: str) -&gt; Path:
+        &#34;&#34;&#34;
+        Downloads model from the internet and saves it to the cache.
+
+        Behavior:
+            If model is already downloaded it will be loaded from the cache.
+
+            If model is already downloaded, but checksum is invalid, it will be downloaded again.
+
+            If model download failed, fallback downloader will be used.
+        &#34;&#34;&#34;
+        try:
+            return self.download_model_base(file_name)
+        except BaseException as e:
+            if self.fallback_downloader is not None:
+                warnings.warn(
+                    f&#34;Failed to download model from {self.name} downloader.&#34;
+                    f&#34; Trying to download from {self.fallback_downloader.name} downloader.&#34;
+                )
+                return self.fallback_downloader.download_model(file_name)
+            else:
+                warnings.warn(
+                    f&#34;Failed to download model from {self.name} downloader.&#34;
+                    f&#34; No fallback downloader available.&#34;
+                )
+                raise e
+
+    @abstractmethod
+    def download_model_base(self, model_name: str) -&gt; Path:
+        &#34;&#34;&#34;
+        Download model from any source if not cached.
+        Returns:
+            pathlib.Path: Path to the downloaded model.
+        &#34;&#34;&#34;
+
+    def __call__(self, model_name: str):
+        return self.download_model(model_name)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="carvekit.utils.download_models.HuggingFaceCompatibleDownloader" href="#carvekit.utils.download_models.HuggingFaceCompatibleDownloader">HuggingFaceCompatibleDownloader</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="carvekit.utils.download_models.CachedDownloader.fallback_downloader"><code class="name">var <span class="ident">fallback_downloader</span> : Optional[<a title="carvekit.utils.download_models.CachedDownloader" href="#carvekit.utils.download_models.CachedDownloader">CachedDownloader</a>]</code></dt>
+<dd>
+<div class="desc"><p>Property MAY be overriden in subclasses.
+Used in case if subclass failed to download model. So preferred downloader SHOULD be placed higher in the hierarchy.
+Less preferred downloader SHOULD be provided by this property.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+@abstractmethod
+def fallback_downloader(self) -&gt; Optional[&#34;CachedDownloader&#34;]:
+    &#34;&#34;&#34;
+    Property MAY be overriden in subclasses.
+    Used in case if subclass failed to download model. So preferred downloader SHOULD be placed higher in the hierarchy.
+    Less preferred downloader SHOULD be provided by this property.
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="carvekit.utils.download_models.CachedDownloader.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+@abstractmethod
+def name(self) -&gt; str:
+    return self.__class__.__name__</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.utils.download_models.CachedDownloader.download_model"><code class="name flex">
+<span>def <span class="ident">download_model</span></span>(<span>self, file_name: str) ‑> pathlib.Path</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Downloads model from the internet and saves it to the cache.</p>
+<h2 id="behavior">Behavior</h2>
+<p>If model is already downloaded it will be loaded from the cache.</p>
+<p>If model is already downloaded, but checksum is invalid, it will be downloaded again.</p>
+<p>If model download failed, fallback downloader will be used.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def download_model(self, file_name: str) -&gt; Path:
+    &#34;&#34;&#34;
+    Downloads model from the internet and saves it to the cache.
+
+    Behavior:
+        If model is already downloaded it will be loaded from the cache.
+
+        If model is already downloaded, but checksum is invalid, it will be downloaded again.
+
+        If model download failed, fallback downloader will be used.
+    &#34;&#34;&#34;
+    try:
+        return self.download_model_base(file_name)
+    except BaseException as e:
+        if self.fallback_downloader is not None:
+            warnings.warn(
+                f&#34;Failed to download model from {self.name} downloader.&#34;
+                f&#34; Trying to download from {self.fallback_downloader.name} downloader.&#34;
+            )
+            return self.fallback_downloader.download_model(file_name)
+        else:
+            warnings.warn(
+                f&#34;Failed to download model from {self.name} downloader.&#34;
+                f&#34; No fallback downloader available.&#34;
+            )
+            raise e</code></pre>
+</details>
+</dd>
+<dt id="carvekit.utils.download_models.CachedDownloader.download_model_base"><code class="name flex">
+<span>def <span class="ident">download_model_base</span></span>(<span>self, model_name: str) ‑> pathlib.Path</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Download model from any source if not cached.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>pathlib.Path</code></dt>
+<dd>Path to the downloaded model.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def download_model_base(self, model_name: str) -&gt; Path:
+    &#34;&#34;&#34;
+    Download model from any source if not cached.
+    Returns:
+        pathlib.Path: Path to the downloaded model.
+    &#34;&#34;&#34;</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.utils.download_models.HuggingFaceCompatibleDownloader"><code class="flex name class">
+<span>class <span class="ident">HuggingFaceCompatibleDownloader</span></span>
+<span>(</span><span>name: str = 'Huggingface.co', base_url: str = 'https://huggingface.co', fb_downloader: Optional[ForwardRef('<a title="carvekit.utils.download_models.CachedDownloader" href="#carvekit.utils.download_models.CachedDownloader">CachedDownloader</a>')] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Downloader for models from HuggingFace Hub.
+Private models are not supported.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HuggingFaceCompatibleDownloader(CachedDownloader, ABC):
+    &#34;&#34;&#34;
+    Downloader for models from HuggingFace Hub.
+    Private models are not supported.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        name: str = &#34;Huggingface.co&#34;,
+        base_url: str = &#34;https://huggingface.co&#34;,
+        fb_downloader: Optional[&#34;CachedDownloader&#34;] = None,
+    ):
+        self.cache_dir = checkpoints_dir
+        &#34;&#34;&#34;SHOULD be same for all instances to prevent downloading same model multiple times
+        Points to ~/.cache/carvekit/checkpoints&#34;&#34;&#34;
+        self.base_url = base_url
+        &#34;&#34;&#34;MUST be a base url with protocol and domain name to huggingface or another, compatible in terms of models downloading API source&#34;&#34;&#34;
+        self._name = name
+        self._fallback_downloader = fb_downloader
+
+    @property
+    def fallback_downloader(self) -&gt; Optional[&#34;CachedDownloader&#34;]:
+        return self._fallback_downloader
+
+    @property
+    def name(self):
+        return self._name
+
+    def check_for_existence(self, model_name: str) -&gt; Optional[Path]:
+        &#34;&#34;&#34;
+        Checks if model is already downloaded and cached. Verifies file integrity by checksum.
+        Returns:
+            Optional[pathlib.Path]: Path to the cached model if cached.
+        &#34;&#34;&#34;
+        if model_name not in MODELS_URLS.keys():
+            raise FileNotFoundError(&#34;Unknown model!&#34;)
+        path = (
+            self.cache_dir
+            / MODELS_URLS[model_name][&#34;repository&#34;].split(&#34;/&#34;)[1]
+            / model_name
+        )
+
+        if not path.exists():
+            return None
+
+        if MODELS_CHECKSUMS[path.name] != sha512_checksum_calc(path):
+            warnings.warn(
+                f&#34;Invalid checksum for model {path.name}. Downloading correct model!&#34;
+            )
+            os.remove(path)
+            return None
+        return path
+
+    def download_model_base(self, model_name: str) -&gt; Path:
+        cached_path = self.check_for_existence(model_name)
+        if cached_path is not None:
+            return cached_path
+        else:
+            cached_path = (
+                self.cache_dir
+                / MODELS_URLS[model_name][&#34;repository&#34;].split(&#34;/&#34;)[1]
+                / model_name
+            )
+            cached_path.parent.mkdir(parents=True, exist_ok=True)
+            url = MODELS_URLS[model_name]
+            hugging_face_url = f&#34;{self.base_url}/{url[&#39;repository&#39;]}/resolve/{url[&#39;revision&#39;]}/{url[&#39;filename&#39;]}&#34;
+
+            try:
+                r = requests.get(hugging_face_url, stream=True, timeout=10)
+                if r.status_code &lt; 400:
+                    with open(cached_path, &#34;wb&#34;) as f:
+                        r.raw.decode_content = True
+                        for chunk in tqdm.tqdm(
+                            r,
+                            desc=&#34;Downloading &#34; + cached_path.name + &#34; model&#34;,
+                            colour=&#34;blue&#34;,
+                        ):
+                            f.write(chunk)
+                else:
+                    if r.status_code == 404:
+                        raise FileNotFoundError(f&#34;Model {model_name} not found!&#34;)
+                    else:
+                        raise ConnectionError(
+                            f&#34;Error {r.status_code} while downloading model {model_name}!&#34;
+                        )
+            except BaseException as e:
+                if cached_path.exists():
+                    os.remove(cached_path)
+                raise ConnectionError(
+                    f&#34;Exception caught when downloading model! &#34;
+                    f&#34;Model name: {cached_path.name}. Exception: {str(e)}.&#34;
+                )
+            return cached_path</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="carvekit.utils.download_models.CachedDownloader" href="#carvekit.utils.download_models.CachedDownloader">CachedDownloader</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="carvekit.utils.download_models.HuggingFaceCompatibleDownloader.base_url"><code class="name">var <span class="ident">base_url</span></code></dt>
+<dd>
+<div class="desc"><p>MUST be a base url with protocol and domain name to huggingface or another, compatible in terms of models downloading API source</p></div>
+</dd>
+<dt id="carvekit.utils.download_models.HuggingFaceCompatibleDownloader.cache_dir"><code class="name">var <span class="ident">cache_dir</span></code></dt>
+<dd>
+<div class="desc"><p>SHOULD be same for all instances to prevent downloading same model multiple times
+Points to ~/.cache/carvekit/checkpoints</p></div>
+</dd>
+<dt id="carvekit.utils.download_models.HuggingFaceCompatibleDownloader.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self):
+    return self._name</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.utils.download_models.HuggingFaceCompatibleDownloader.check_for_existence"><code class="name flex">
+<span>def <span class="ident">check_for_existence</span></span>(<span>self, model_name: str) ‑> Optional[pathlib.Path]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if model is already downloaded and cached. Verifies file integrity by checksum.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Optional[pathlib.Path]</code></dt>
+<dd>Path to the cached model if cached.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_for_existence(self, model_name: str) -&gt; Optional[Path]:
+    &#34;&#34;&#34;
+    Checks if model is already downloaded and cached. Verifies file integrity by checksum.
+    Returns:
+        Optional[pathlib.Path]: Path to the cached model if cached.
+    &#34;&#34;&#34;
+    if model_name not in MODELS_URLS.keys():
+        raise FileNotFoundError(&#34;Unknown model!&#34;)
+    path = (
+        self.cache_dir
+        / MODELS_URLS[model_name][&#34;repository&#34;].split(&#34;/&#34;)[1]
+        / model_name
+    )
+
+    if not path.exists():
+        return None
+
+    if MODELS_CHECKSUMS[path.name] != sha512_checksum_calc(path):
+        warnings.warn(
+            f&#34;Invalid checksum for model {path.name}. Downloading correct model!&#34;
+        )
+        os.remove(path)
+        return None
+    return path</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="carvekit.utils.download_models.CachedDownloader" href="#carvekit.utils.download_models.CachedDownloader">CachedDownloader</a></b></code>:
+<ul class="hlist">
+<li><code><a title="carvekit.utils.download_models.CachedDownloader.download_model" href="#carvekit.utils.download_models.CachedDownloader.download_model">download_model</a></code></li>
+<li><code><a title="carvekit.utils.download_models.CachedDownloader.download_model_base" href="#carvekit.utils.download_models.CachedDownloader.download_model_base">download_model_base</a></code></li>
+<li><code><a title="carvekit.utils.download_models.CachedDownloader.fallback_downloader" href="#carvekit.utils.download_models.CachedDownloader.fallback_downloader">fallback_downloader</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="carvekit.utils" href="index.html">carvekit.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="carvekit.utils.download_models.MODELS_CHECKSUMS" href="#carvekit.utils.download_models.MODELS_CHECKSUMS">MODELS_CHECKSUMS</a></code></li>
+<li><code><a title="carvekit.utils.download_models.MODELS_URLS" href="#carvekit.utils.download_models.MODELS_URLS">MODELS_URLS</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="carvekit.utils.download_models.sha512_checksum_calc" href="#carvekit.utils.download_models.sha512_checksum_calc">sha512_checksum_calc</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="carvekit.utils.download_models.CachedDownloader" href="#carvekit.utils.download_models.CachedDownloader">CachedDownloader</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.utils.download_models.CachedDownloader.download_model" href="#carvekit.utils.download_models.CachedDownloader.download_model">download_model</a></code></li>
+<li><code><a title="carvekit.utils.download_models.CachedDownloader.download_model_base" href="#carvekit.utils.download_models.CachedDownloader.download_model_base">download_model_base</a></code></li>
+<li><code><a title="carvekit.utils.download_models.CachedDownloader.fallback_downloader" href="#carvekit.utils.download_models.CachedDownloader.fallback_downloader">fallback_downloader</a></code></li>
+<li><code><a title="carvekit.utils.download_models.CachedDownloader.name" href="#carvekit.utils.download_models.CachedDownloader.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.utils.download_models.HuggingFaceCompatibleDownloader" href="#carvekit.utils.download_models.HuggingFaceCompatibleDownloader">HuggingFaceCompatibleDownloader</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.utils.download_models.HuggingFaceCompatibleDownloader.base_url" href="#carvekit.utils.download_models.HuggingFaceCompatibleDownloader.base_url">base_url</a></code></li>
+<li><code><a title="carvekit.utils.download_models.HuggingFaceCompatibleDownloader.cache_dir" href="#carvekit.utils.download_models.HuggingFaceCompatibleDownloader.cache_dir">cache_dir</a></code></li>
+<li><code><a title="carvekit.utils.download_models.HuggingFaceCompatibleDownloader.check_for_existence" href="#carvekit.utils.download_models.HuggingFaceCompatibleDownloader.check_for_existence">check_for_existence</a></code></li>
+<li><code><a title="carvekit.utils.download_models.HuggingFaceCompatibleDownloader.name" href="#carvekit.utils.download_models.HuggingFaceCompatibleDownloader.name">name</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -43,12 +43,14 @@ class FBAMatting(FBA):
         Initialize the FBAMatting model
 
         Args:
-            device: processing device
-            input_tensor_size: input image size
-            batch_size: the number of images that the neural network processes in one run
-            encoder: neural network encoder head
-            load_pretrained: loading pretrained model
-            fp16: use half precision
+            device (Literal[cpu, cuda], default=cpu): processing device
+            input_tensor_size (Union[List[int], int], default=2048): input image size
+            batch_size (int, default=2): the number of images that the neural network processes in one run
+            encoder (str, default=resnet50_GN_WS): neural network encoder head
+            .. TODO::
+                Add more encoders to documentation as Literal typehint.
+            load_pretrained (bool, default=True): loading pretrained model
+            fp16 (bool, default=False): use half precision
 
         """
         super(FBAMatting, self).__init__(encoder=encoder)
@@ -71,10 +73,10 @@ class FBAMatting(FBA):
         Transform input image to suitable data format for neural network
 
         Args:
-            data: input image
+            data (Union[PIL.Image.Image, np.ndarray]): input image
 
         Returns:
-            input for neural network
+            Tuple[torch.FloatTensor, torch.FloatTensor]: input for neural network
 
         """
         resized = data.copy()
@@ -114,18 +116,18 @@ class FBAMatting(FBA):
 
     @staticmethod
     def data_postprocessing(
-        data: torch.tensor, trimap: PIL.Image.Image
+        data: torch.Tensor, trimap: PIL.Image.Image
     ) -> PIL.Image.Image:
         """
         Transforms output data from neural network to suitable data
         format for using with other components of this framework.
 
         Args:
-            data: output data from neural network
-            trimap: Map with the area we need to refine
+            data (torch.Tensor): output data from neural network
+            trimap (PIL.Image.Image): Map with the area we need to refine
 
         Returns:
-            Segmentation mask as PIL Image instance
+            PIL.Image.Image: Segmentation mask
 
         """
         if trimap.mode != "L":
@@ -149,11 +151,11 @@ class FBAMatting(FBA):
         Passes input images though neural network and returns segmentation masks as PIL.Image.Image instances
 
         Args:
-            images: input images
-            trimaps: Maps with the areas we need to refine
+            images (List[Union[str, pathlib.Path, PIL.Image.Image]]): input images
+            trimaps (List[Union[str, pathlib.Path, PIL.Image.Image]]): Maps with the areas we need to refine
 
         Returns:
-            segmentation masks as for input images, as PIL.Image.Image instances
+            List[PIL.Image.Image]: segmentation masks as for input images
 
         """
 

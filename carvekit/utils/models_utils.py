@@ -1,6 +1,8 @@
 """
 Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+
 Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+
 License: Apache License 2.0
 """
 
@@ -14,7 +16,7 @@ from torch import autocast
 
 class EmptyAutocast(object):
     """
-    Empty class for disable any autocasting.
+    Empty class for any auto-casting disabling.
     """
 
     def __enter__(self):
@@ -34,20 +36,21 @@ def get_precision_autocast(
     Tuple[autocast, Union[torch.dtype, Any]],
 ]:
     """
-    Returns precision and autocast settings for given device and fp16 settings.
+    Returns precision and auto-cast settings for given device and fp16 settings.
+
     Args:
-        device: Device to get precision and autocast settings for.
-        fp16: Whether to use fp16 precision.
-        override_dtype: Override dtype for autocast.
+        device (Literal[cpu, cuda]): Device to get precision and auto-cast settings for.
+        fp16 (bool): Whether to use fp16 precision.
+        override_dtype (bool): Override dtype for auto-cast.
 
     Returns:
-        Autocast object, dtype
+        Union[Tuple[EmptyAutocast, Union[torch.dtype, Any]],Tuple[autocast, Union[torch.dtype, Any]]]: Autocast object, dtype
     """
     dtype = torch.float32
     cache_enabled = None
 
     if device == "cpu" and fp16:
-        warnings.warn('FP16 is not supported on CPU. Using FP32 instead.')
+        warnings.warn("FP16 is not supported on CPU. Using FP32 instead.")
         dtype = torch.float32
 
         # TODO: Implement BFP16 on CPU. There are unexpected slowdowns on cpu on a clean environment.
@@ -58,7 +61,6 @@ def get_precision_autocast(
         # dtype = (
         #     torch.bfloat16
         # )  # Using bfloat16 for CPU, since autocast is not supported for float16
-
 
     if "cuda" in device and fp16:
         dtype = torch.float16
@@ -79,11 +81,12 @@ def get_precision_autocast(
 
 
 def cast_network(network: torch.nn.Module, dtype: torch.dtype):
-    """Cast network to given dtype
+    """
+    Cast network to given dtype
 
     Args:
-        network: Network to be casted
-        dtype: Dtype to cast network to
+        network (torch.nn.Module): Network to be casted
+        dtype (torch.dtype): Dtype to cast network to
     """
     if dtype == torch.float16:
         network.half()
@@ -95,11 +98,12 @@ def cast_network(network: torch.nn.Module, dtype: torch.dtype):
         raise ValueError(f"Unknown dtype {dtype}")
 
 
-def fix_seed(seed=42):
-    """Sets fixed random seed
+def fix_seed(seed: int = 42):
+    """
+    Sets fixed random seed
 
     Args:
-        seed: Random seed to be set
+        seed (int, default=42): Random seed to be set
     """
     random.seed(seed)
     torch.manual_seed(seed)

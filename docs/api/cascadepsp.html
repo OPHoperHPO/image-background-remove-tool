@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>cascadepsp API documentation</title>
+<meta name="description" content="Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+License: …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>cascadepsp</code></h1>
+</header>
+<section id="section-intro">
+<p>Source url: <a href="https://github.com/OPHoperHPO/image-background-remove-tool">https://github.com/OPHoperHPO/image-background-remove-tool</a>
+Author: Nikita Selin (OPHoperHPO)[<a href="https://github.com/OPHoperHPO].">https://github.com/OPHoperHPO].</a>
+License: Apache License 2.0</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+License: Apache License 2.0
+&#34;&#34;&#34;
+import pathlib
+import warnings
+
+import PIL
+import numpy as np
+import torch
+from PIL import Image
+from torchvision import transforms
+from typing import Union, List
+
+from carvekit.ml.arch.cascadepsp.pspnet import RefinementModule
+from carvekit.ml.arch.cascadepsp.utils import (
+    process_im_single_pass,
+    process_high_res_im,
+)
+from carvekit.ml.files.models_loc import cascadepsp_pretrained
+from carvekit.utils.image_utils import convert_image, load_image
+from carvekit.utils.models_utils import get_precision_autocast, cast_network
+from carvekit.utils.pool_utils import batch_generator, thread_pool_processing
+
+__all__ = [&#34;CascadePSP&#34;]
+
+
+class CascadePSP(RefinementModule):
+    &#34;&#34;&#34;
+    CascadePSP to refine the mask from segmentation network
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        device=&#34;cpu&#34;,
+        input_tensor_size: int = 900,
+        batch_size: int = 1,
+        load_pretrained: bool = True,
+        fp16: bool = False,
+        mask_binary_threshold=127,
+        global_step_only=False,
+        processing_accelerate_image_size=2048,
+    ):
+        &#34;&#34;&#34;
+        Initialize the CascadePSP model
+
+        Args:
+            device: processing device
+            input_tensor_size: input image size
+            batch_size: the number of images that the neural network processes in one run
+            load_pretrained: loading pretrained model
+            fp16: use half precision
+            global_step_only: if True, only global step will be used for prediction. See paper for details.
+            mask_binary_threshold: threshold for binary mask, default 70, set to 0 for no threshold
+            processing_accelerate_image_size: thumbnail size for image processing acceleration. Set to 0 to disable
+
+        &#34;&#34;&#34;
+        super().__init__()
+        self.fp16 = fp16
+        self.device = device
+        self.batch_size = batch_size
+        self.mask_binary_threshold = mask_binary_threshold
+        self.global_step_only = global_step_only
+        self.processing_accelerate_image_size = processing_accelerate_image_size
+        self.input_tensor_size = input_tensor_size
+
+        self.to(device)
+        if batch_size &gt; 1:
+            warnings.warn(
+                &#34;Batch size &gt; 1 is experimental feature for CascadePSP.&#34;
+                &#34; Please, don&#39;t use it if you have GPU with small memory!&#34;
+            )
+        if load_pretrained:
+            self.load_state_dict(
+                torch.load(cascadepsp_pretrained(), map_location=self.device)
+            )
+        self.eval()
+
+        self._image_transform = transforms.Compose(
+            [
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+                ),
+            ]
+        )
+
+        self._seg_transform = transforms.Compose(
+            [
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.5], std=[0.5]),
+            ]
+        )
+
+    def data_preprocessing(self, data: Union[PIL.Image.Image]) -&gt; torch.FloatTensor:
+        &#34;&#34;&#34;
+        Transform input image to suitable data format for neural network
+
+        Args:
+            data: input image
+
+        Returns:
+            input for neural network
+
+        &#34;&#34;&#34;
+        preprocessed_data = data.copy()
+        if self.batch_size == 1 and self.processing_accelerate_image_size &gt; 0:
+            # Okay, we have only one image, so
+            # we can use image processing acceleration for accelerate high resolution image processing
+            preprocessed_data.thumbnail(
+                (
+                    self.processing_accelerate_image_size,
+                    self.processing_accelerate_image_size,
+                )
+            )
+        elif self.batch_size == 1:
+            pass  # No need to do anything
+        elif self.batch_size &gt; 1 and self.global_step_only is True:
+            # If we have more than one image and we use only global step,
+            # there aren&#39;t any reason to use image processing acceleration,
+            # because we will use only global step for prediction and anyway it will be resized to input_tensor_size
+            preprocessed_data = preprocessed_data.resize(
+                (self.input_tensor_size, self.input_tensor_size)
+            )
+        elif (
+            self.batch_size &gt; 1
+            and self.global_step_only is False
+            and self.processing_accelerate_image_size &gt; 0
+        ):
+            # If we have more than one image and we use local step,
+            # we can use image processing acceleration for accelerate high resolution image processing
+            # but we need to resize image to processing_accelerate_image_size to stack it with other images
+            preprocessed_data = preprocessed_data.resize(
+                (
+                    self.processing_accelerate_image_size,
+                    self.processing_accelerate_image_size,
+                )
+            )
+        elif (
+            self.batch_size &gt; 1
+            and self.global_step_only is False
+            and not (self.processing_accelerate_image_size &gt; 0)
+        ):
+            raise ValueError(
+                &#34;If you use local step with batch_size &gt; 2, &#34;
+                &#34;you need to set processing_accelerate_image_size &gt; 0,&#34;
+                &#34;since we cannot stack images with different sizes to one batch&#34;
+            )
+        else:  # some extra cases
+            preprocessed_data = preprocessed_data.resize(
+                (
+                    self.processing_accelerate_image_size,
+                    self.processing_accelerate_image_size,
+                )
+            )
+
+        if data.mode == &#34;RGB&#34;:
+            preprocessed_data = self._image_transform(
+                np.array(preprocessed_data)
+            ).unsqueeze(0)
+        elif data.mode == &#34;L&#34;:
+            preprocessed_data = np.array(preprocessed_data)
+            if 0 &lt; self.mask_binary_threshold &lt;= 255:
+                preprocessed_data = (
+                    preprocessed_data &gt; self.mask_binary_threshold
+                ).astype(np.uint8) * 255
+            elif self.mask_binary_threshold &gt; 255 or self.mask_binary_threshold &lt; 0:
+                warnings.warn(
+                    &#34;mask_binary_threshold should be in range [0, 255], &#34;
+                    &#34;but got {}. Disabling mask_binary_threshold!&#34;.format(
+                        self.mask_binary_threshold
+                    )
+                )
+
+            preprocessed_data = self._seg_transform(preprocessed_data).unsqueeze(
+                0
+            )  # [H,W,1]
+
+        return preprocessed_data
+
+    @staticmethod
+    def data_postprocessing(
+        data: torch.Tensor, mask: PIL.Image.Image
+    ) -&gt; PIL.Image.Image:
+        &#34;&#34;&#34;
+        Transforms output data from neural network to suitable data
+        format for using with other components of this framework.
+
+        Args:
+            data: output data from neural network
+            mask: input mask
+
+        Returns:
+            Segmentation mask as PIL Image instance
+
+        &#34;&#34;&#34;
+        refined_mask = (data[0, :, :].cpu().numpy() * 255).astype(&#34;uint8&#34;)
+        return Image.fromarray(refined_mask).convert(&#34;L&#34;).resize(mask.size)
+
+    def safe_forward(self, im, seg, inter_s8=None, inter_s4=None):
+        &#34;&#34;&#34;
+        Slightly pads the input image such that its length is a multiple of 8
+        &#34;&#34;&#34;
+        b, _, ph, pw = seg.shape
+        if (ph % 8 != 0) or (pw % 8 != 0):
+            newH = (ph // 8 + 1) * 8
+            newW = (pw // 8 + 1) * 8
+            p_im = torch.zeros(b, 3, newH, newW, device=im.device)
+            p_seg = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+
+            p_im[:, :, 0:ph, 0:pw] = im
+            p_seg[:, :, 0:ph, 0:pw] = seg
+            im = p_im
+            seg = p_seg
+
+            if inter_s8 is not None:
+                p_inter_s8 = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+                p_inter_s8[:, :, 0:ph, 0:pw] = inter_s8
+                inter_s8 = p_inter_s8
+            if inter_s4 is not None:
+                p_inter_s4 = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+                p_inter_s4[:, :, 0:ph, 0:pw] = inter_s4
+                inter_s4 = p_inter_s4
+
+        images = super().__call__(im, seg, inter_s8, inter_s4)
+        return_im = {}
+
+        for key in [&#34;pred_224&#34;, &#34;pred_28_3&#34;, &#34;pred_56_2&#34;]:
+            return_im[key] = images[key][:, :, 0:ph, 0:pw]
+        del images
+
+        return return_im
+
+    def __call__(
+        self,
+        images: List[Union[str, pathlib.Path, PIL.Image.Image]],
+        masks: List[Union[str, pathlib.Path, PIL.Image.Image]],
+    ) -&gt; List[PIL.Image.Image]:
+        &#34;&#34;&#34;
+        Passes input images though neural network and returns segmentation masks as PIL.Image.Image instances
+
+        Args:
+            images: input images
+            masks: Segmentation masks to refine
+
+        Returns:
+            segmentation masks as for input images, as PIL.Image.Image instances
+
+        &#34;&#34;&#34;
+
+        if len(images) != len(masks):
+            raise ValueError(
+                &#34;Len of specified arrays of images and trimaps should be equal!&#34;
+            )
+
+        collect_masks = []
+        autocast, dtype = get_precision_autocast(device=self.device, fp16=self.fp16)
+        with autocast:
+            cast_network(self, dtype)
+            for idx_batch in batch_generator(range(len(images)), self.batch_size):
+                inpt_images = thread_pool_processing(
+                    lambda x: convert_image(load_image(images[x])), idx_batch
+                )
+
+                inpt_masks = thread_pool_processing(
+                    lambda x: convert_image(load_image(masks[x]), mode=&#34;L&#34;), idx_batch
+                )
+
+                inpt_img_batches = thread_pool_processing(
+                    self.data_preprocessing, inpt_images
+                )
+                inpt_masks_batches = thread_pool_processing(
+                    self.data_preprocessing, inpt_masks
+                )
+                if self.batch_size &gt; 1:  # We need to stack images, if batch_size &gt; 1
+                    inpt_img_batches = torch.vstack(inpt_img_batches)
+                    inpt_masks_batches = torch.vstack(inpt_masks_batches)
+                else:
+                    inpt_img_batches = inpt_img_batches[
+                        0
+                    ]  # Get only one image from list
+                    inpt_masks_batches = inpt_masks_batches[0]
+
+                with torch.no_grad():
+                    inpt_img_batches = inpt_img_batches.to(self.device)
+                    inpt_masks_batches = inpt_masks_batches.to(self.device)
+                    if self.global_step_only:
+                        refined_batches = process_im_single_pass(
+                            self,
+                            inpt_img_batches,
+                            inpt_masks_batches,
+                            self.input_tensor_size,
+                        )
+
+                    else:
+                        refined_batches = process_high_res_im(
+                            self,
+                            inpt_img_batches,
+                            inpt_masks_batches,
+                            self.input_tensor_size,
+                        )
+
+                    refined_masks = refined_batches.cpu()
+                    del (inpt_img_batches, inpt_masks_batches, refined_batches)
+                collect_masks += thread_pool_processing(
+                    lambda x: self.data_postprocessing(refined_masks[x], inpt_masks[x]),
+                    range(len(inpt_masks)),
+                )
+            return collect_masks</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="cascadepsp.CascadePSP"><code class="flex name class">
+<span>class <span class="ident">CascadePSP</span></span>
+<span>(</span><span>device='cpu', input_tensor_size: int = 900, batch_size: int = 1, load_pretrained: bool = True, fp16: bool = False, mask_binary_threshold=127, global_step_only=False, processing_accelerate_image_size=2048)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CascadePSP to refine the mask from segmentation network</p>
+<p>Initialize the CascadePSP model</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>device</code></strong></dt>
+<dd>processing device</dd>
+<dt><strong><code>input_tensor_size</code></strong></dt>
+<dd>input image size</dd>
+<dt><strong><code>batch_size</code></strong></dt>
+<dd>the number of images that the neural network processes in one run</dd>
+<dt><strong><code>load_pretrained</code></strong></dt>
+<dd>loading pretrained model</dd>
+<dt><strong><code>fp16</code></strong></dt>
+<dd>use half precision</dd>
+<dt><strong><code>global_step_only</code></strong></dt>
+<dd>if True, only global step will be used for prediction. See paper for details.</dd>
+<dt><strong><code>mask_binary_threshold</code></strong></dt>
+<dd>threshold for binary mask, default 70, set to 0 for no threshold</dd>
+<dt><strong><code>processing_accelerate_image_size</code></strong></dt>
+<dd>thumbnail size for image processing acceleration. Set to 0 to disable</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CascadePSP(RefinementModule):
+    &#34;&#34;&#34;
+    CascadePSP to refine the mask from segmentation network
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        device=&#34;cpu&#34;,
+        input_tensor_size: int = 900,
+        batch_size: int = 1,
+        load_pretrained: bool = True,
+        fp16: bool = False,
+        mask_binary_threshold=127,
+        global_step_only=False,
+        processing_accelerate_image_size=2048,
+    ):
+        &#34;&#34;&#34;
+        Initialize the CascadePSP model
+
+        Args:
+            device: processing device
+            input_tensor_size: input image size
+            batch_size: the number of images that the neural network processes in one run
+            load_pretrained: loading pretrained model
+            fp16: use half precision
+            global_step_only: if True, only global step will be used for prediction. See paper for details.
+            mask_binary_threshold: threshold for binary mask, default 70, set to 0 for no threshold
+            processing_accelerate_image_size: thumbnail size for image processing acceleration. Set to 0 to disable
+
+        &#34;&#34;&#34;
+        super().__init__()
+        self.fp16 = fp16
+        self.device = device
+        self.batch_size = batch_size
+        self.mask_binary_threshold = mask_binary_threshold
+        self.global_step_only = global_step_only
+        self.processing_accelerate_image_size = processing_accelerate_image_size
+        self.input_tensor_size = input_tensor_size
+
+        self.to(device)
+        if batch_size &gt; 1:
+            warnings.warn(
+                &#34;Batch size &gt; 1 is experimental feature for CascadePSP.&#34;
+                &#34; Please, don&#39;t use it if you have GPU with small memory!&#34;
+            )
+        if load_pretrained:
+            self.load_state_dict(
+                torch.load(cascadepsp_pretrained(), map_location=self.device)
+            )
+        self.eval()
+
+        self._image_transform = transforms.Compose(
+            [
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+                ),
+            ]
+        )
+
+        self._seg_transform = transforms.Compose(
+            [
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.5], std=[0.5]),
+            ]
+        )
+
+    def data_preprocessing(self, data: Union[PIL.Image.Image]) -&gt; torch.FloatTensor:
+        &#34;&#34;&#34;
+        Transform input image to suitable data format for neural network
+
+        Args:
+            data: input image
+
+        Returns:
+            input for neural network
+
+        &#34;&#34;&#34;
+        preprocessed_data = data.copy()
+        if self.batch_size == 1 and self.processing_accelerate_image_size &gt; 0:
+            # Okay, we have only one image, so
+            # we can use image processing acceleration for accelerate high resolution image processing
+            preprocessed_data.thumbnail(
+                (
+                    self.processing_accelerate_image_size,
+                    self.processing_accelerate_image_size,
+                )
+            )
+        elif self.batch_size == 1:
+            pass  # No need to do anything
+        elif self.batch_size &gt; 1 and self.global_step_only is True:
+            # If we have more than one image and we use only global step,
+            # there aren&#39;t any reason to use image processing acceleration,
+            # because we will use only global step for prediction and anyway it will be resized to input_tensor_size
+            preprocessed_data = preprocessed_data.resize(
+                (self.input_tensor_size, self.input_tensor_size)
+            )
+        elif (
+            self.batch_size &gt; 1
+            and self.global_step_only is False
+            and self.processing_accelerate_image_size &gt; 0
+        ):
+            # If we have more than one image and we use local step,
+            # we can use image processing acceleration for accelerate high resolution image processing
+            # but we need to resize image to processing_accelerate_image_size to stack it with other images
+            preprocessed_data = preprocessed_data.resize(
+                (
+                    self.processing_accelerate_image_size,
+                    self.processing_accelerate_image_size,
+                )
+            )
+        elif (
+            self.batch_size &gt; 1
+            and self.global_step_only is False
+            and not (self.processing_accelerate_image_size &gt; 0)
+        ):
+            raise ValueError(
+                &#34;If you use local step with batch_size &gt; 2, &#34;
+                &#34;you need to set processing_accelerate_image_size &gt; 0,&#34;
+                &#34;since we cannot stack images with different sizes to one batch&#34;
+            )
+        else:  # some extra cases
+            preprocessed_data = preprocessed_data.resize(
+                (
+                    self.processing_accelerate_image_size,
+                    self.processing_accelerate_image_size,
+                )
+            )
+
+        if data.mode == &#34;RGB&#34;:
+            preprocessed_data = self._image_transform(
+                np.array(preprocessed_data)
+            ).unsqueeze(0)
+        elif data.mode == &#34;L&#34;:
+            preprocessed_data = np.array(preprocessed_data)
+            if 0 &lt; self.mask_binary_threshold &lt;= 255:
+                preprocessed_data = (
+                    preprocessed_data &gt; self.mask_binary_threshold
+                ).astype(np.uint8) * 255
+            elif self.mask_binary_threshold &gt; 255 or self.mask_binary_threshold &lt; 0:
+                warnings.warn(
+                    &#34;mask_binary_threshold should be in range [0, 255], &#34;
+                    &#34;but got {}. Disabling mask_binary_threshold!&#34;.format(
+                        self.mask_binary_threshold
+                    )
+                )
+
+            preprocessed_data = self._seg_transform(preprocessed_data).unsqueeze(
+                0
+            )  # [H,W,1]
+
+        return preprocessed_data
+
+    @staticmethod
+    def data_postprocessing(
+        data: torch.Tensor, mask: PIL.Image.Image
+    ) -&gt; PIL.Image.Image:
+        &#34;&#34;&#34;
+        Transforms output data from neural network to suitable data
+        format for using with other components of this framework.
+
+        Args:
+            data: output data from neural network
+            mask: input mask
+
+        Returns:
+            Segmentation mask as PIL Image instance
+
+        &#34;&#34;&#34;
+        refined_mask = (data[0, :, :].cpu().numpy() * 255).astype(&#34;uint8&#34;)
+        return Image.fromarray(refined_mask).convert(&#34;L&#34;).resize(mask.size)
+
+    def safe_forward(self, im, seg, inter_s8=None, inter_s4=None):
+        &#34;&#34;&#34;
+        Slightly pads the input image such that its length is a multiple of 8
+        &#34;&#34;&#34;
+        b, _, ph, pw = seg.shape
+        if (ph % 8 != 0) or (pw % 8 != 0):
+            newH = (ph // 8 + 1) * 8
+            newW = (pw // 8 + 1) * 8
+            p_im = torch.zeros(b, 3, newH, newW, device=im.device)
+            p_seg = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+
+            p_im[:, :, 0:ph, 0:pw] = im
+            p_seg[:, :, 0:ph, 0:pw] = seg
+            im = p_im
+            seg = p_seg
+
+            if inter_s8 is not None:
+                p_inter_s8 = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+                p_inter_s8[:, :, 0:ph, 0:pw] = inter_s8
+                inter_s8 = p_inter_s8
+            if inter_s4 is not None:
+                p_inter_s4 = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+                p_inter_s4[:, :, 0:ph, 0:pw] = inter_s4
+                inter_s4 = p_inter_s4
+
+        images = super().__call__(im, seg, inter_s8, inter_s4)
+        return_im = {}
+
+        for key in [&#34;pred_224&#34;, &#34;pred_28_3&#34;, &#34;pred_56_2&#34;]:
+            return_im[key] = images[key][:, :, 0:ph, 0:pw]
+        del images
+
+        return return_im
+
+    def __call__(
+        self,
+        images: List[Union[str, pathlib.Path, PIL.Image.Image]],
+        masks: List[Union[str, pathlib.Path, PIL.Image.Image]],
+    ) -&gt; List[PIL.Image.Image]:
+        &#34;&#34;&#34;
+        Passes input images though neural network and returns segmentation masks as PIL.Image.Image instances
+
+        Args:
+            images: input images
+            masks: Segmentation masks to refine
+
+        Returns:
+            segmentation masks as for input images, as PIL.Image.Image instances
+
+        &#34;&#34;&#34;
+
+        if len(images) != len(masks):
+            raise ValueError(
+                &#34;Len of specified arrays of images and trimaps should be equal!&#34;
+            )
+
+        collect_masks = []
+        autocast, dtype = get_precision_autocast(device=self.device, fp16=self.fp16)
+        with autocast:
+            cast_network(self, dtype)
+            for idx_batch in batch_generator(range(len(images)), self.batch_size):
+                inpt_images = thread_pool_processing(
+                    lambda x: convert_image(load_image(images[x])), idx_batch
+                )
+
+                inpt_masks = thread_pool_processing(
+                    lambda x: convert_image(load_image(masks[x]), mode=&#34;L&#34;), idx_batch
+                )
+
+                inpt_img_batches = thread_pool_processing(
+                    self.data_preprocessing, inpt_images
+                )
+                inpt_masks_batches = thread_pool_processing(
+                    self.data_preprocessing, inpt_masks
+                )
+                if self.batch_size &gt; 1:  # We need to stack images, if batch_size &gt; 1
+                    inpt_img_batches = torch.vstack(inpt_img_batches)
+                    inpt_masks_batches = torch.vstack(inpt_masks_batches)
+                else:
+                    inpt_img_batches = inpt_img_batches[
+                        0
+                    ]  # Get only one image from list
+                    inpt_masks_batches = inpt_masks_batches[0]
+
+                with torch.no_grad():
+                    inpt_img_batches = inpt_img_batches.to(self.device)
+                    inpt_masks_batches = inpt_masks_batches.to(self.device)
+                    if self.global_step_only:
+                        refined_batches = process_im_single_pass(
+                            self,
+                            inpt_img_batches,
+                            inpt_masks_batches,
+                            self.input_tensor_size,
+                        )
+
+                    else:
+                        refined_batches = process_high_res_im(
+                            self,
+                            inpt_img_batches,
+                            inpt_masks_batches,
+                            self.input_tensor_size,
+                        )
+
+                    refined_masks = refined_batches.cpu()
+                    del (inpt_img_batches, inpt_masks_batches, refined_batches)
+                collect_masks += thread_pool_processing(
+                    lambda x: self.data_postprocessing(refined_masks[x], inpt_masks[x]),
+                    range(len(inpt_masks)),
+                )
+            return collect_masks</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="carvekit.ml.arch.cascadepsp.pspnet.RefinementModule" href="carvekit/ml/arch/cascadepsp/pspnet.html#carvekit.ml.arch.cascadepsp.pspnet.RefinementModule">RefinementModule</a></li>
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="cascadepsp.CascadePSP.data_postprocessing"><code class="name flex">
+<span>def <span class="ident">data_postprocessing</span></span>(<span>data: torch.Tensor, mask: PIL.Image.Image) ‑> PIL.Image.Image</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Transforms output data from neural network to suitable data
+format for using with other components of this framework.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>output data from neural network</dd>
+<dt><strong><code>mask</code></strong></dt>
+<dd>input mask</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Segmentation mask as PIL Image instance</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def data_postprocessing(
+    data: torch.Tensor, mask: PIL.Image.Image
+) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;
+    Transforms output data from neural network to suitable data
+    format for using with other components of this framework.
+
+    Args:
+        data: output data from neural network
+        mask: input mask
+
+    Returns:
+        Segmentation mask as PIL Image instance
+
+    &#34;&#34;&#34;
+    refined_mask = (data[0, :, :].cpu().numpy() * 255).astype(&#34;uint8&#34;)
+    return Image.fromarray(refined_mask).convert(&#34;L&#34;).resize(mask.size)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="cascadepsp.CascadePSP.data_preprocessing"><code class="name flex">
+<span>def <span class="ident">data_preprocessing</span></span>(<span>self, data: PIL.Image.Image) ‑> torch.FloatTensor</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Transform input image to suitable data format for neural network</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>input image</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>input for neural network</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def data_preprocessing(self, data: Union[PIL.Image.Image]) -&gt; torch.FloatTensor:
+    &#34;&#34;&#34;
+    Transform input image to suitable data format for neural network
+
+    Args:
+        data: input image
+
+    Returns:
+        input for neural network
+
+    &#34;&#34;&#34;
+    preprocessed_data = data.copy()
+    if self.batch_size == 1 and self.processing_accelerate_image_size &gt; 0:
+        # Okay, we have only one image, so
+        # we can use image processing acceleration for accelerate high resolution image processing
+        preprocessed_data.thumbnail(
+            (
+                self.processing_accelerate_image_size,
+                self.processing_accelerate_image_size,
+            )
+        )
+    elif self.batch_size == 1:
+        pass  # No need to do anything
+    elif self.batch_size &gt; 1 and self.global_step_only is True:
+        # If we have more than one image and we use only global step,
+        # there aren&#39;t any reason to use image processing acceleration,
+        # because we will use only global step for prediction and anyway it will be resized to input_tensor_size
+        preprocessed_data = preprocessed_data.resize(
+            (self.input_tensor_size, self.input_tensor_size)
+        )
+    elif (
+        self.batch_size &gt; 1
+        and self.global_step_only is False
+        and self.processing_accelerate_image_size &gt; 0
+    ):
+        # If we have more than one image and we use local step,
+        # we can use image processing acceleration for accelerate high resolution image processing
+        # but we need to resize image to processing_accelerate_image_size to stack it with other images
+        preprocessed_data = preprocessed_data.resize(
+            (
+                self.processing_accelerate_image_size,
+                self.processing_accelerate_image_size,
+            )
+        )
+    elif (
+        self.batch_size &gt; 1
+        and self.global_step_only is False
+        and not (self.processing_accelerate_image_size &gt; 0)
+    ):
+        raise ValueError(
+            &#34;If you use local step with batch_size &gt; 2, &#34;
+            &#34;you need to set processing_accelerate_image_size &gt; 0,&#34;
+            &#34;since we cannot stack images with different sizes to one batch&#34;
+        )
+    else:  # some extra cases
+        preprocessed_data = preprocessed_data.resize(
+            (
+                self.processing_accelerate_image_size,
+                self.processing_accelerate_image_size,
+            )
+        )
+
+    if data.mode == &#34;RGB&#34;:
+        preprocessed_data = self._image_transform(
+            np.array(preprocessed_data)
+        ).unsqueeze(0)
+    elif data.mode == &#34;L&#34;:
+        preprocessed_data = np.array(preprocessed_data)
+        if 0 &lt; self.mask_binary_threshold &lt;= 255:
+            preprocessed_data = (
+                preprocessed_data &gt; self.mask_binary_threshold
+            ).astype(np.uint8) * 255
+        elif self.mask_binary_threshold &gt; 255 or self.mask_binary_threshold &lt; 0:
+            warnings.warn(
+                &#34;mask_binary_threshold should be in range [0, 255], &#34;
+                &#34;but got {}. Disabling mask_binary_threshold!&#34;.format(
+                    self.mask_binary_threshold
+                )
+            )
+
+        preprocessed_data = self._seg_transform(preprocessed_data).unsqueeze(
+            0
+        )  # [H,W,1]
+
+    return preprocessed_data</code></pre>
+</details>
+</dd>
+<dt id="cascadepsp.CascadePSP.safe_forward"><code class="name flex">
+<span>def <span class="ident">safe_forward</span></span>(<span>self, im, seg, inter_s8=None, inter_s4=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Slightly pads the input image such that its length is a multiple of 8</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def safe_forward(self, im, seg, inter_s8=None, inter_s4=None):
+    &#34;&#34;&#34;
+    Slightly pads the input image such that its length is a multiple of 8
+    &#34;&#34;&#34;
+    b, _, ph, pw = seg.shape
+    if (ph % 8 != 0) or (pw % 8 != 0):
+        newH = (ph // 8 + 1) * 8
+        newW = (pw // 8 + 1) * 8
+        p_im = torch.zeros(b, 3, newH, newW, device=im.device)
+        p_seg = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+
+        p_im[:, :, 0:ph, 0:pw] = im
+        p_seg[:, :, 0:ph, 0:pw] = seg
+        im = p_im
+        seg = p_seg
+
+        if inter_s8 is not None:
+            p_inter_s8 = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+            p_inter_s8[:, :, 0:ph, 0:pw] = inter_s8
+            inter_s8 = p_inter_s8
+        if inter_s4 is not None:
+            p_inter_s4 = torch.zeros(b, 1, newH, newW, device=im.device) - 1
+            p_inter_s4[:, :, 0:ph, 0:pw] = inter_s4
+            inter_s4 = p_inter_s4
+
+    images = super().__call__(im, seg, inter_s8, inter_s4)
+    return_im = {}
+
+    for key in [&#34;pred_224&#34;, &#34;pred_28_3&#34;, &#34;pred_56_2&#34;]:
+        return_im[key] = images[key][:, :, 0:ph, 0:pw]
+    del images
+
+    return return_im</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="carvekit.ml.arch.cascadepsp.pspnet.RefinementModule" href="carvekit/ml/arch/cascadepsp/pspnet.html#carvekit.ml.arch.cascadepsp.pspnet.RefinementModule">RefinementModule</a></b></code>:
+<ul class="hlist">
+<li><code><a title="carvekit.ml.arch.cascadepsp.pspnet.RefinementModule.forward" href="carvekit/ml/arch/cascadepsp/pspnet.html#carvekit.ml.arch.cascadepsp.pspnet.RefinementModule.forward">forward</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="cascadepsp.CascadePSP" href="#cascadepsp.CascadePSP">CascadePSP</a></code></h4>
+<ul class="">
+<li><code><a title="cascadepsp.CascadePSP.data_postprocessing" href="#cascadepsp.CascadePSP.data_postprocessing">data_postprocessing</a></code></li>
+<li><code><a title="cascadepsp.CascadePSP.data_preprocessing" href="#cascadepsp.CascadePSP.data_preprocessing">data_preprocessing</a></code></li>
+<li><code><a title="cascadepsp.CascadePSP.safe_forward" href="#cascadepsp.CascadePSP.safe_forward">safe_forward</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

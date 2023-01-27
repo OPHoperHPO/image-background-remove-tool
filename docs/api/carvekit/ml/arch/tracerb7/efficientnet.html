@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>carvekit.ml.arch.tracerb7.efficientnet API documentation</title>
+<meta name="description" content="Source url: https://github.com/lukemelas/EfficientNet-PyTorch
+Modified by Min Seok Lee, Wooseok Shin, Nikita Selin
+License: Apache License 2.0
+…" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>carvekit.ml.arch.tracerb7.efficientnet</code></h1>
+</header>
+<section id="section-intro">
+<p>Source url: <a href="https://github.com/lukemelas/EfficientNet-PyTorch">https://github.com/lukemelas/EfficientNet-PyTorch</a>
+Modified by Min Seok Lee, Wooseok Shin, Nikita Selin
+License: Apache License 2.0</p>
+<h2 id="changes">Changes</h2>
+<ul>
+<li>Added support for extracting edge features</li>
+<li>Added support for extracting object features at different levels</li>
+<li>Refactored the code</li>
+</ul>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Source url: https://github.com/lukemelas/EfficientNet-PyTorch
+Modified by Min Seok Lee, Wooseok Shin, Nikita Selin
+License: Apache License 2.0
+Changes:
+    - Added support for extracting edge features
+    - Added support for extracting object features at different levels
+    - Refactored the code
+&#34;&#34;&#34;
+from typing import Any, List
+
+import torch
+from torch import nn
+from torch.nn import functional as F
+
+from carvekit.ml.arch.tracerb7.effi_utils import (
+    get_same_padding_conv2d,
+    calculate_output_image_size,
+    MemoryEfficientSwish,
+    drop_connect,
+    round_filters,
+    round_repeats,
+    Swish,
+    create_block_args,
+)
+
+
+class MBConvBlock(nn.Module):
+    &#34;&#34;&#34;Mobile Inverted Residual Bottleneck Block.
+
+    Args:
+        block_args (namedtuple): BlockArgs, defined in utils.py.
+        global_params (namedtuple): GlobalParam, defined in utils.py.
+        image_size (tuple or list): [image_height, image_width].
+
+    References:
+        [1] https://arxiv.org/abs/1704.04861 (MobileNet v1)
+        [2] https://arxiv.org/abs/1801.04381 (MobileNet v2)
+        [3] https://arxiv.org/abs/1905.02244 (MobileNet v3)
+    &#34;&#34;&#34;
+
+    def __init__(self, block_args, global_params, image_size=None):
+        super().__init__()
+        self._block_args = block_args
+        self._bn_mom = (
+            1 - global_params.batch_norm_momentum
+        )  # pytorch&#39;s difference from tensorflow
+        self._bn_eps = global_params.batch_norm_epsilon
+        self.has_se = (self._block_args.se_ratio is not None) and (
+            0 &lt; self._block_args.se_ratio &lt;= 1
+        )
+        self.id_skip = (
+            block_args.id_skip
+        )  # whether to use skip connection and drop connect
+
+        # Expansion phase (Inverted Bottleneck)
+        inp = self._block_args.input_filters  # number of input channels
+        oup = (
+            self._block_args.input_filters * self._block_args.expand_ratio
+        )  # number of output channels
+        if self._block_args.expand_ratio != 1:
+            Conv2d = get_same_padding_conv2d(image_size=image_size)
+            self._expand_conv = Conv2d(
+                in_channels=inp, out_channels=oup, kernel_size=1, bias=False
+            )
+            self._bn0 = nn.BatchNorm2d(
+                num_features=oup, momentum=self._bn_mom, eps=self._bn_eps
+            )
+            # image_size = calculate_output_image_size(image_size, 1) &lt;-- this wouldn&#39;t modify image_size
+
+        # Depthwise convolution phase
+        k = self._block_args.kernel_size
+        s = self._block_args.stride
+        Conv2d = get_same_padding_conv2d(image_size=image_size)
+        self._depthwise_conv = Conv2d(
+            in_channels=oup,
+            out_channels=oup,
+            groups=oup,  # groups makes it depthwise
+            kernel_size=k,
+            stride=s,
+            bias=False,
+        )
+        self._bn1 = nn.BatchNorm2d(
+            num_features=oup, momentum=self._bn_mom, eps=self._bn_eps
+        )
+        image_size = calculate_output_image_size(image_size, s)
+
+        # Squeeze and Excitation layer, if desired
+        if self.has_se:
+            Conv2d = get_same_padding_conv2d(image_size=(1, 1))
+            num_squeezed_channels = max(
+                1, int(self._block_args.input_filters * self._block_args.se_ratio)
+            )
+            self._se_reduce = Conv2d(
+                in_channels=oup, out_channels=num_squeezed_channels, kernel_size=1
+            )
+            self._se_expand = Conv2d(
+                in_channels=num_squeezed_channels, out_channels=oup, kernel_size=1
+            )
+
+        # Pointwise convolution phase
+        final_oup = self._block_args.output_filters
+        Conv2d = get_same_padding_conv2d(image_size=image_size)
+        self._project_conv = Conv2d(
+            in_channels=oup, out_channels=final_oup, kernel_size=1, bias=False
+        )
+        self._bn2 = nn.BatchNorm2d(
+            num_features=final_oup, momentum=self._bn_mom, eps=self._bn_eps
+        )
+        self._swish = MemoryEfficientSwish()
+
+    def forward(self, inputs, drop_connect_rate=None):
+        &#34;&#34;&#34;MBConvBlock&#39;s forward function.
+
+        Args:
+            inputs (tensor): Input tensor.
+            drop_connect_rate (bool): Drop connect rate (float, between 0 and 1).
+
+        Returns:
+            Output of this block after processing.
+        &#34;&#34;&#34;
+
+        # Expansion and Depthwise Convolution
+        x = inputs
+        if self._block_args.expand_ratio != 1:
+            x = self._expand_conv(inputs)
+            x = self._bn0(x)
+            x = self._swish(x)
+
+        x = self._depthwise_conv(x)
+        x = self._bn1(x)
+        x = self._swish(x)
+
+        # Squeeze and Excitation
+        if self.has_se:
+            x_squeezed = F.adaptive_avg_pool2d(x, 1)
+            x_squeezed = self._se_reduce(x_squeezed)
+            x_squeezed = self._swish(x_squeezed)
+            x_squeezed = self._se_expand(x_squeezed)
+            x = torch.sigmoid(x_squeezed) * x
+
+        # Pointwise Convolution
+        x = self._project_conv(x)
+        x = self._bn2(x)
+
+        # Skip connection and drop connect
+        input_filters, output_filters = (
+            self._block_args.input_filters,
+            self._block_args.output_filters,
+        )
+        if (
+            self.id_skip
+            and self._block_args.stride == 1
+            and input_filters == output_filters
+        ):
+            # The combination of skip connection and drop connect brings about stochastic depth.
+            if drop_connect_rate:
+                x = drop_connect(x, p=drop_connect_rate, training=self.training)
+            x = x + inputs  # skip connection
+        return x
+
+    def set_swish(self, memory_efficient=True):
+        &#34;&#34;&#34;Sets swish function as memory efficient (for training) or standard (for export).
+
+        Args:
+            memory_efficient (bool): Whether to use memory-efficient version of swish.
+        &#34;&#34;&#34;
+        self._swish = MemoryEfficientSwish() if memory_efficient else Swish()
+
+
+class EfficientNet(nn.Module):
+    def __init__(self, blocks_args=None, global_params=None):
+        super().__init__()
+        assert isinstance(blocks_args, list), &#34;blocks_args should be a list&#34;
+        assert len(blocks_args) &gt; 0, &#34;block args must be greater than 0&#34;
+        self._global_params = global_params
+        self._blocks_args = blocks_args
+
+        # Batch norm parameters
+        bn_mom = 1 - self._global_params.batch_norm_momentum
+        bn_eps = self._global_params.batch_norm_epsilon
+
+        # Get stem static or dynamic convolution depending on image size
+        image_size = global_params.image_size
+        Conv2d = get_same_padding_conv2d(image_size=image_size)
+
+        # Stem
+        in_channels = 3  # rgb
+        out_channels = round_filters(
+            32, self._global_params
+        )  # number of output channels
+        self._conv_stem = Conv2d(
+            in_channels, out_channels, kernel_size=3, stride=2, bias=False
+        )
+        self._bn0 = nn.BatchNorm2d(
+            num_features=out_channels, momentum=bn_mom, eps=bn_eps
+        )
+        image_size = calculate_output_image_size(image_size, 2)
+
+        # Build blocks
+        self._blocks = nn.ModuleList([])
+        for block_args in self._blocks_args:
+
+            # Update block input and output filters based on depth multiplier.
+            block_args = block_args._replace(
+                input_filters=round_filters(
+                    block_args.input_filters, self._global_params
+                ),
+                output_filters=round_filters(
+                    block_args.output_filters, self._global_params
+                ),
+                num_repeat=round_repeats(block_args.num_repeat, self._global_params),
+            )
+
+            # The first block needs to take care of stride and filter size increase.
+            self._blocks.append(
+                MBConvBlock(block_args, self._global_params, image_size=image_size)
+            )
+            image_size = calculate_output_image_size(image_size, block_args.stride)
+            if block_args.num_repeat &gt; 1:  # modify block_args to keep same output size
+                block_args = block_args._replace(
+                    input_filters=block_args.output_filters, stride=1
+                )
+            for _ in range(block_args.num_repeat - 1):
+                self._blocks.append(
+                    MBConvBlock(block_args, self._global_params, image_size=image_size)
+                )
+                # image_size = calculate_output_image_size(image_size, block_args.stride)  # stride = 1
+
+        self._swish = MemoryEfficientSwish()
+
+    def set_swish(self, memory_efficient=True):
+        &#34;&#34;&#34;Sets swish function as memory efficient (for training) or standard (for export).
+
+        Args:
+            memory_efficient (bool): Whether to use memory-efficient version of swish.
+
+        &#34;&#34;&#34;
+        self._swish = MemoryEfficientSwish() if memory_efficient else Swish()
+        for block in self._blocks:
+            block.set_swish(memory_efficient)
+
+    def extract_endpoints(self, inputs):
+        endpoints = dict()
+
+        # Stem
+        x = self._swish(self._bn0(self._conv_stem(inputs)))
+        prev_x = x
+
+        # Blocks
+        for idx, block in enumerate(self._blocks):
+            drop_connect_rate = self._global_params.drop_connect_rate
+            if drop_connect_rate:
+                drop_connect_rate *= float(idx) / len(
+                    self._blocks
+                )  # scale drop connect_rate
+            x = block(x, drop_connect_rate=drop_connect_rate)
+            if prev_x.size(2) &gt; x.size(2):
+                endpoints[&#34;reduction_{}&#34;.format(len(endpoints) + 1)] = prev_x
+            prev_x = x
+
+        # Head
+        x = self._swish(self._bn1(self._conv_head(x)))
+        endpoints[&#34;reduction_{}&#34;.format(len(endpoints) + 1)] = x
+
+        return endpoints
+
+    def _change_in_channels(self, in_channels):
+        &#34;&#34;&#34;Adjust model&#39;s first convolution layer to in_channels, if in_channels not equals 3.
+
+        Args:
+            in_channels (int): Input data&#39;s channel number.
+        &#34;&#34;&#34;
+        if in_channels != 3:
+            Conv2d = get_same_padding_conv2d(image_size=self._global_params.image_size)
+            out_channels = round_filters(32, self._global_params)
+            self._conv_stem = Conv2d(
+                in_channels, out_channels, kernel_size=3, stride=2, bias=False
+            )
+
+
+class EfficientEncoderB7(EfficientNet):
+    def __init__(self):
+        super().__init__(
+            *create_block_args(
+                width_coefficient=2.0,
+                depth_coefficient=3.1,
+                dropout_rate=0.5,
+                image_size=600,
+            )
+        )
+        self._change_in_channels(3)
+        self.block_idx = [10, 17, 37, 54]
+        self.channels = [48, 80, 224, 640]
+
+    def initial_conv(self, inputs):
+        x = self._swish(self._bn0(self._conv_stem(inputs)))
+        return x
+
+    def get_blocks(self, x, H, W, block_idx):
+        features = []
+        for idx, block in enumerate(self._blocks):
+            drop_connect_rate = self._global_params.drop_connect_rate
+            if drop_connect_rate:
+                drop_connect_rate *= float(idx) / len(
+                    self._blocks
+                )  # scale drop connect_rate
+            x = block(x, drop_connect_rate=drop_connect_rate)
+            if idx == block_idx[0]:
+                features.append(x.clone())
+            if idx == block_idx[1]:
+                features.append(x.clone())
+            if idx == block_idx[2]:
+                features.append(x.clone())
+            if idx == block_idx[3]:
+                features.append(x.clone())
+
+        return features
+
+    def forward(self, inputs: torch.Tensor) -&gt; List[Any]:
+        B, C, H, W = inputs.size()
+        x = self.initial_conv(inputs)  # Prepare input for the backbone
+        return self.get_blocks(
+            x, H, W, block_idx=self.block_idx
+        )  # Get backbone features and edge maps</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7"><code class="flex name class">
+<span>class <span class="ident">EfficientEncoderB7</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EfficientEncoderB7(EfficientNet):
+    def __init__(self):
+        super().__init__(
+            *create_block_args(
+                width_coefficient=2.0,
+                depth_coefficient=3.1,
+                dropout_rate=0.5,
+                image_size=600,
+            )
+        )
+        self._change_in_channels(3)
+        self.block_idx = [10, 17, 37, 54]
+        self.channels = [48, 80, 224, 640]
+
+    def initial_conv(self, inputs):
+        x = self._swish(self._bn0(self._conv_stem(inputs)))
+        return x
+
+    def get_blocks(self, x, H, W, block_idx):
+        features = []
+        for idx, block in enumerate(self._blocks):
+            drop_connect_rate = self._global_params.drop_connect_rate
+            if drop_connect_rate:
+                drop_connect_rate *= float(idx) / len(
+                    self._blocks
+                )  # scale drop connect_rate
+            x = block(x, drop_connect_rate=drop_connect_rate)
+            if idx == block_idx[0]:
+                features.append(x.clone())
+            if idx == block_idx[1]:
+                features.append(x.clone())
+            if idx == block_idx[2]:
+                features.append(x.clone())
+            if idx == block_idx[3]:
+                features.append(x.clone())
+
+        return features
+
+    def forward(self, inputs: torch.Tensor) -&gt; List[Any]:
+        B, C, H, W = inputs.size()
+        x = self.initial_conv(inputs)  # Prepare input for the backbone
+        return self.get_blocks(
+            x, H, W, block_idx=self.block_idx
+        )  # Get backbone features and edge maps</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientNet">EfficientNet</a></li>
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, inputs: torch.Tensor) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, inputs: torch.Tensor) -&gt; List[Any]:
+    B, C, H, W = inputs.size()
+    x = self.initial_conv(inputs)  # Prepare input for the backbone
+    return self.get_blocks(
+        x, H, W, block_idx=self.block_idx
+    )  # Get backbone features and edge maps</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.get_blocks"><code class="name flex">
+<span>def <span class="ident">get_blocks</span></span>(<span>self, x, H, W, block_idx)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_blocks(self, x, H, W, block_idx):
+    features = []
+    for idx, block in enumerate(self._blocks):
+        drop_connect_rate = self._global_params.drop_connect_rate
+        if drop_connect_rate:
+            drop_connect_rate *= float(idx) / len(
+                self._blocks
+            )  # scale drop connect_rate
+        x = block(x, drop_connect_rate=drop_connect_rate)
+        if idx == block_idx[0]:
+            features.append(x.clone())
+        if idx == block_idx[1]:
+            features.append(x.clone())
+        if idx == block_idx[2]:
+            features.append(x.clone())
+        if idx == block_idx[3]:
+            features.append(x.clone())
+
+    return features</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.initial_conv"><code class="name flex">
+<span>def <span class="ident">initial_conv</span></span>(<span>self, inputs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def initial_conv(self, inputs):
+    x = self._swish(self._bn0(self._conv_stem(inputs)))
+    return x</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientNet">EfficientNet</a></b></code>:
+<ul class="hlist">
+<li><code><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet.set_swish" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientNet.set_swish">set_swish</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet"><code class="flex name class">
+<span>class <span class="ident">EfficientNet</span></span>
+<span>(</span><span>blocks_args=None, global_params=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EfficientNet(nn.Module):
+    def __init__(self, blocks_args=None, global_params=None):
+        super().__init__()
+        assert isinstance(blocks_args, list), &#34;blocks_args should be a list&#34;
+        assert len(blocks_args) &gt; 0, &#34;block args must be greater than 0&#34;
+        self._global_params = global_params
+        self._blocks_args = blocks_args
+
+        # Batch norm parameters
+        bn_mom = 1 - self._global_params.batch_norm_momentum
+        bn_eps = self._global_params.batch_norm_epsilon
+
+        # Get stem static or dynamic convolution depending on image size
+        image_size = global_params.image_size
+        Conv2d = get_same_padding_conv2d(image_size=image_size)
+
+        # Stem
+        in_channels = 3  # rgb
+        out_channels = round_filters(
+            32, self._global_params
+        )  # number of output channels
+        self._conv_stem = Conv2d(
+            in_channels, out_channels, kernel_size=3, stride=2, bias=False
+        )
+        self._bn0 = nn.BatchNorm2d(
+            num_features=out_channels, momentum=bn_mom, eps=bn_eps
+        )
+        image_size = calculate_output_image_size(image_size, 2)
+
+        # Build blocks
+        self._blocks = nn.ModuleList([])
+        for block_args in self._blocks_args:
+
+            # Update block input and output filters based on depth multiplier.
+            block_args = block_args._replace(
+                input_filters=round_filters(
+                    block_args.input_filters, self._global_params
+                ),
+                output_filters=round_filters(
+                    block_args.output_filters, self._global_params
+                ),
+                num_repeat=round_repeats(block_args.num_repeat, self._global_params),
+            )
+
+            # The first block needs to take care of stride and filter size increase.
+            self._blocks.append(
+                MBConvBlock(block_args, self._global_params, image_size=image_size)
+            )
+            image_size = calculate_output_image_size(image_size, block_args.stride)
+            if block_args.num_repeat &gt; 1:  # modify block_args to keep same output size
+                block_args = block_args._replace(
+                    input_filters=block_args.output_filters, stride=1
+                )
+            for _ in range(block_args.num_repeat - 1):
+                self._blocks.append(
+                    MBConvBlock(block_args, self._global_params, image_size=image_size)
+                )
+                # image_size = calculate_output_image_size(image_size, block_args.stride)  # stride = 1
+
+        self._swish = MemoryEfficientSwish()
+
+    def set_swish(self, memory_efficient=True):
+        &#34;&#34;&#34;Sets swish function as memory efficient (for training) or standard (for export).
+
+        Args:
+            memory_efficient (bool): Whether to use memory-efficient version of swish.
+
+        &#34;&#34;&#34;
+        self._swish = MemoryEfficientSwish() if memory_efficient else Swish()
+        for block in self._blocks:
+            block.set_swish(memory_efficient)
+
+    def extract_endpoints(self, inputs):
+        endpoints = dict()
+
+        # Stem
+        x = self._swish(self._bn0(self._conv_stem(inputs)))
+        prev_x = x
+
+        # Blocks
+        for idx, block in enumerate(self._blocks):
+            drop_connect_rate = self._global_params.drop_connect_rate
+            if drop_connect_rate:
+                drop_connect_rate *= float(idx) / len(
+                    self._blocks
+                )  # scale drop connect_rate
+            x = block(x, drop_connect_rate=drop_connect_rate)
+            if prev_x.size(2) &gt; x.size(2):
+                endpoints[&#34;reduction_{}&#34;.format(len(endpoints) + 1)] = prev_x
+            prev_x = x
+
+        # Head
+        x = self._swish(self._bn1(self._conv_head(x)))
+        endpoints[&#34;reduction_{}&#34;.format(len(endpoints) + 1)] = x
+
+        return endpoints
+
+    def _change_in_channels(self, in_channels):
+        &#34;&#34;&#34;Adjust model&#39;s first convolution layer to in_channels, if in_channels not equals 3.
+
+        Args:
+            in_channels (int): Input data&#39;s channel number.
+        &#34;&#34;&#34;
+        if in_channels != 3:
+            Conv2d = get_same_padding_conv2d(image_size=self._global_params.image_size)
+            out_channels = round_filters(32, self._global_params)
+            self._conv_stem = Conv2d(
+                in_channels, out_channels, kernel_size=3, stride=2, bias=False
+            )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7">EfficientEncoderB7</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet.extract_endpoints"><code class="name flex">
+<span>def <span class="ident">extract_endpoints</span></span>(<span>self, inputs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_endpoints(self, inputs):
+    endpoints = dict()
+
+    # Stem
+    x = self._swish(self._bn0(self._conv_stem(inputs)))
+    prev_x = x
+
+    # Blocks
+    for idx, block in enumerate(self._blocks):
+        drop_connect_rate = self._global_params.drop_connect_rate
+        if drop_connect_rate:
+            drop_connect_rate *= float(idx) / len(
+                self._blocks
+            )  # scale drop connect_rate
+        x = block(x, drop_connect_rate=drop_connect_rate)
+        if prev_x.size(2) &gt; x.size(2):
+            endpoints[&#34;reduction_{}&#34;.format(len(endpoints) + 1)] = prev_x
+        prev_x = x
+
+    # Head
+    x = self._swish(self._bn1(self._conv_head(x)))
+    endpoints[&#34;reduction_{}&#34;.format(len(endpoints) + 1)] = x
+
+    return endpoints</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet.set_swish"><code class="name flex">
+<span>def <span class="ident">set_swish</span></span>(<span>self, memory_efficient=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets swish function as memory efficient (for training) or standard (for export).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>memory_efficient</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Whether to use memory-efficient version of swish.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_swish(self, memory_efficient=True):
+    &#34;&#34;&#34;Sets swish function as memory efficient (for training) or standard (for export).
+
+    Args:
+        memory_efficient (bool): Whether to use memory-efficient version of swish.
+
+    &#34;&#34;&#34;
+    self._swish = MemoryEfficientSwish() if memory_efficient else Swish()
+    for block in self._blocks:
+        block.set_swish(memory_efficient)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock"><code class="flex name class">
+<span>class <span class="ident">MBConvBlock</span></span>
+<span>(</span><span>block_args, global_params, image_size=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Mobile Inverted Residual Bottleneck Block.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>block_args</code></strong> :&ensp;<code>namedtuple</code></dt>
+<dd>BlockArgs, defined in utils.py.</dd>
+<dt><strong><code>global_params</code></strong> :&ensp;<code>namedtuple</code></dt>
+<dd>GlobalParam, defined in utils.py.</dd>
+<dt><strong><code>image_size</code></strong> :&ensp;<code>tuple</code> or <code>list</code></dt>
+<dd>[image_height, image_width].</dd>
+</dl>
+<h2 id="references">References</h2>
+<p>[1] <a href="https://arxiv.org/abs/1704.04861">https://arxiv.org/abs/1704.04861</a> (MobileNet v1)
+[2] <a href="https://arxiv.org/abs/1801.04381">https://arxiv.org/abs/1801.04381</a> (MobileNet v2)
+[3] <a href="https://arxiv.org/abs/1905.02244">https://arxiv.org/abs/1905.02244</a> (MobileNet v3)</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MBConvBlock(nn.Module):
+    &#34;&#34;&#34;Mobile Inverted Residual Bottleneck Block.
+
+    Args:
+        block_args (namedtuple): BlockArgs, defined in utils.py.
+        global_params (namedtuple): GlobalParam, defined in utils.py.
+        image_size (tuple or list): [image_height, image_width].
+
+    References:
+        [1] https://arxiv.org/abs/1704.04861 (MobileNet v1)
+        [2] https://arxiv.org/abs/1801.04381 (MobileNet v2)
+        [3] https://arxiv.org/abs/1905.02244 (MobileNet v3)
+    &#34;&#34;&#34;
+
+    def __init__(self, block_args, global_params, image_size=None):
+        super().__init__()
+        self._block_args = block_args
+        self._bn_mom = (
+            1 - global_params.batch_norm_momentum
+        )  # pytorch&#39;s difference from tensorflow
+        self._bn_eps = global_params.batch_norm_epsilon
+        self.has_se = (self._block_args.se_ratio is not None) and (
+            0 &lt; self._block_args.se_ratio &lt;= 1
+        )
+        self.id_skip = (
+            block_args.id_skip
+        )  # whether to use skip connection and drop connect
+
+        # Expansion phase (Inverted Bottleneck)
+        inp = self._block_args.input_filters  # number of input channels
+        oup = (
+            self._block_args.input_filters * self._block_args.expand_ratio
+        )  # number of output channels
+        if self._block_args.expand_ratio != 1:
+            Conv2d = get_same_padding_conv2d(image_size=image_size)
+            self._expand_conv = Conv2d(
+                in_channels=inp, out_channels=oup, kernel_size=1, bias=False
+            )
+            self._bn0 = nn.BatchNorm2d(
+                num_features=oup, momentum=self._bn_mom, eps=self._bn_eps
+            )
+            # image_size = calculate_output_image_size(image_size, 1) &lt;-- this wouldn&#39;t modify image_size
+
+        # Depthwise convolution phase
+        k = self._block_args.kernel_size
+        s = self._block_args.stride
+        Conv2d = get_same_padding_conv2d(image_size=image_size)
+        self._depthwise_conv = Conv2d(
+            in_channels=oup,
+            out_channels=oup,
+            groups=oup,  # groups makes it depthwise
+            kernel_size=k,
+            stride=s,
+            bias=False,
+        )
+        self._bn1 = nn.BatchNorm2d(
+            num_features=oup, momentum=self._bn_mom, eps=self._bn_eps
+        )
+        image_size = calculate_output_image_size(image_size, s)
+
+        # Squeeze and Excitation layer, if desired
+        if self.has_se:
+            Conv2d = get_same_padding_conv2d(image_size=(1, 1))
+            num_squeezed_channels = max(
+                1, int(self._block_args.input_filters * self._block_args.se_ratio)
+            )
+            self._se_reduce = Conv2d(
+                in_channels=oup, out_channels=num_squeezed_channels, kernel_size=1
+            )
+            self._se_expand = Conv2d(
+                in_channels=num_squeezed_channels, out_channels=oup, kernel_size=1
+            )
+
+        # Pointwise convolution phase
+        final_oup = self._block_args.output_filters
+        Conv2d = get_same_padding_conv2d(image_size=image_size)
+        self._project_conv = Conv2d(
+            in_channels=oup, out_channels=final_oup, kernel_size=1, bias=False
+        )
+        self._bn2 = nn.BatchNorm2d(
+            num_features=final_oup, momentum=self._bn_mom, eps=self._bn_eps
+        )
+        self._swish = MemoryEfficientSwish()
+
+    def forward(self, inputs, drop_connect_rate=None):
+        &#34;&#34;&#34;MBConvBlock&#39;s forward function.
+
+        Args:
+            inputs (tensor): Input tensor.
+            drop_connect_rate (bool): Drop connect rate (float, between 0 and 1).
+
+        Returns:
+            Output of this block after processing.
+        &#34;&#34;&#34;
+
+        # Expansion and Depthwise Convolution
+        x = inputs
+        if self._block_args.expand_ratio != 1:
+            x = self._expand_conv(inputs)
+            x = self._bn0(x)
+            x = self._swish(x)
+
+        x = self._depthwise_conv(x)
+        x = self._bn1(x)
+        x = self._swish(x)
+
+        # Squeeze and Excitation
+        if self.has_se:
+            x_squeezed = F.adaptive_avg_pool2d(x, 1)
+            x_squeezed = self._se_reduce(x_squeezed)
+            x_squeezed = self._swish(x_squeezed)
+            x_squeezed = self._se_expand(x_squeezed)
+            x = torch.sigmoid(x_squeezed) * x
+
+        # Pointwise Convolution
+        x = self._project_conv(x)
+        x = self._bn2(x)
+
+        # Skip connection and drop connect
+        input_filters, output_filters = (
+            self._block_args.input_filters,
+            self._block_args.output_filters,
+        )
+        if (
+            self.id_skip
+            and self._block_args.stride == 1
+            and input_filters == output_filters
+        ):
+            # The combination of skip connection and drop connect brings about stochastic depth.
+            if drop_connect_rate:
+                x = drop_connect(x, p=drop_connect_rate, training=self.training)
+            x = x + inputs  # skip connection
+        return x
+
+    def set_swish(self, memory_efficient=True):
+        &#34;&#34;&#34;Sets swish function as memory efficient (for training) or standard (for export).
+
+        Args:
+            memory_efficient (bool): Whether to use memory-efficient version of swish.
+        &#34;&#34;&#34;
+        self._swish = MemoryEfficientSwish() if memory_efficient else Swish()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, inputs, drop_connect_rate=None) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>MBConvBlock's forward function.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>inputs</code></strong> :&ensp;<code>tensor</code></dt>
+<dd>Input tensor.</dd>
+<dt><strong><code>drop_connect_rate</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Drop connect rate (float, between 0 and 1).</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Output of this block after processing.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, inputs, drop_connect_rate=None):
+    &#34;&#34;&#34;MBConvBlock&#39;s forward function.
+
+    Args:
+        inputs (tensor): Input tensor.
+        drop_connect_rate (bool): Drop connect rate (float, between 0 and 1).
+
+    Returns:
+        Output of this block after processing.
+    &#34;&#34;&#34;
+
+    # Expansion and Depthwise Convolution
+    x = inputs
+    if self._block_args.expand_ratio != 1:
+        x = self._expand_conv(inputs)
+        x = self._bn0(x)
+        x = self._swish(x)
+
+    x = self._depthwise_conv(x)
+    x = self._bn1(x)
+    x = self._swish(x)
+
+    # Squeeze and Excitation
+    if self.has_se:
+        x_squeezed = F.adaptive_avg_pool2d(x, 1)
+        x_squeezed = self._se_reduce(x_squeezed)
+        x_squeezed = self._swish(x_squeezed)
+        x_squeezed = self._se_expand(x_squeezed)
+        x = torch.sigmoid(x_squeezed) * x
+
+    # Pointwise Convolution
+    x = self._project_conv(x)
+    x = self._bn2(x)
+
+    # Skip connection and drop connect
+    input_filters, output_filters = (
+        self._block_args.input_filters,
+        self._block_args.output_filters,
+    )
+    if (
+        self.id_skip
+        and self._block_args.stride == 1
+        and input_filters == output_filters
+    ):
+        # The combination of skip connection and drop connect brings about stochastic depth.
+        if drop_connect_rate:
+            x = drop_connect(x, p=drop_connect_rate, training=self.training)
+        x = x + inputs  # skip connection
+    return x</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock.set_swish"><code class="name flex">
+<span>def <span class="ident">set_swish</span></span>(<span>self, memory_efficient=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets swish function as memory efficient (for training) or standard (for export).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>memory_efficient</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Whether to use memory-efficient version of swish.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_swish(self, memory_efficient=True):
+    &#34;&#34;&#34;Sets swish function as memory efficient (for training) or standard (for export).
+
+    Args:
+        memory_efficient (bool): Whether to use memory-efficient version of swish.
+    &#34;&#34;&#34;
+    self._swish = MemoryEfficientSwish() if memory_efficient else Swish()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="carvekit.ml.arch.tracerb7" href="index.html">carvekit.ml.arch.tracerb7</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7">EfficientEncoderB7</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.forward" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.forward">forward</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.get_blocks" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.get_blocks">get_blocks</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.initial_conv" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientEncoderB7.initial_conv">initial_conv</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientNet">EfficientNet</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet.extract_endpoints" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientNet.extract_endpoints">extract_endpoints</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.efficientnet.EfficientNet.set_swish" href="#carvekit.ml.arch.tracerb7.efficientnet.EfficientNet.set_swish">set_swish</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock" href="#carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock">MBConvBlock</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock.forward" href="#carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock.forward">forward</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock.set_swish" href="#carvekit.ml.arch.tracerb7.efficientnet.MBConvBlock.set_swish">set_swish</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

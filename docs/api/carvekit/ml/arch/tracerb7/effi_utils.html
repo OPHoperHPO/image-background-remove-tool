@@ -1,0 +1,2066 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>carvekit.ml.arch.tracerb7.effi_utils API documentation</title>
+<meta name="description" content="Original author: lukemelas (github username)
+Github repo: https://github.com/lukemelas/EfficientNet-PyTorch
+With adjustments and added comments by …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>carvekit.ml.arch.tracerb7.effi_utils</code></h1>
+</header>
+<section id="section-intro">
+<p>Original author: lukemelas (github username)
+Github repo: <a href="https://github.com/lukemelas/EfficientNet-PyTorch">https://github.com/lukemelas/EfficientNet-PyTorch</a>
+With adjustments and added comments by workingcoder (github username).
+License: Apache License 2.0
+Reimplemented: Min Seok Lee and Wooseok Shin</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Original author: lukemelas (github username)
+Github repo: https://github.com/lukemelas/EfficientNet-PyTorch
+With adjustments and added comments by workingcoder (github username).
+License: Apache License 2.0
+Reimplemented: Min Seok Lee and Wooseok Shin
+&#34;&#34;&#34;
+
+import collections
+import re
+from functools import partial
+
+import math
+import torch
+from torch import nn
+from torch.nn import functional as F
+
+# Parameters for the entire model (stem, all blocks, and head)
+GlobalParams = collections.namedtuple(
+    &#34;GlobalParams&#34;,
+    [
+        &#34;width_coefficient&#34;,
+        &#34;depth_coefficient&#34;,
+        &#34;image_size&#34;,
+        &#34;dropout_rate&#34;,
+        &#34;num_classes&#34;,
+        &#34;batch_norm_momentum&#34;,
+        &#34;batch_norm_epsilon&#34;,
+        &#34;drop_connect_rate&#34;,
+        &#34;depth_divisor&#34;,
+        &#34;min_depth&#34;,
+        &#34;include_top&#34;,
+    ],
+)
+
+# Parameters for an individual model block
+BlockArgs = collections.namedtuple(
+    &#34;BlockArgs&#34;,
+    [
+        &#34;num_repeat&#34;,
+        &#34;kernel_size&#34;,
+        &#34;stride&#34;,
+        &#34;expand_ratio&#34;,
+        &#34;input_filters&#34;,
+        &#34;output_filters&#34;,
+        &#34;se_ratio&#34;,
+        &#34;id_skip&#34;,
+    ],
+)
+
+# Set GlobalParams and BlockArgs&#39;s defaults
+GlobalParams.__new__.__defaults__ = (None,) * len(GlobalParams._fields)
+BlockArgs.__new__.__defaults__ = (None,) * len(BlockArgs._fields)
+
+
+# An ordinary implementation of Swish function
+class Swish(nn.Module):
+    def forward(self, x):
+        return x * torch.sigmoid(x)
+
+
+# A memory-efficient implementation of Swish function
+class SwishImplementation(torch.autograd.Function):
+    @staticmethod
+    def forward(ctx, i):
+        result = i * torch.sigmoid(i)
+        ctx.save_for_backward(i)
+        return result
+
+    @staticmethod
+    def backward(ctx, grad_output):
+        i = ctx.saved_tensors[0]
+        sigmoid_i = torch.sigmoid(i)
+        return grad_output * (sigmoid_i * (1 + i * (1 - sigmoid_i)))
+
+
+class MemoryEfficientSwish(nn.Module):
+    def forward(self, x):
+        return SwishImplementation.apply(x)
+
+
+def round_filters(filters, global_params):
+    &#34;&#34;&#34;Calculate and round number of filters based on width multiplier.
+       Use width_coefficient, depth_divisor and min_depth of global_params.
+
+    Args:
+        filters (int): Filters number to be calculated.
+        global_params (namedtuple): Global params of the model.
+
+    Returns:
+        new_filters: New filters number after calculating.
+    &#34;&#34;&#34;
+    multiplier = global_params.width_coefficient
+    if not multiplier:
+        return filters
+    divisor = global_params.depth_divisor
+    min_depth = global_params.min_depth
+    filters *= multiplier
+    min_depth = min_depth or divisor  # pay attention to this line when using min_depth
+    # follow the formula transferred from official TensorFlow implementation
+    new_filters = max(min_depth, int(filters + divisor / 2) // divisor * divisor)
+    if new_filters &lt; 0.9 * filters:  # prevent rounding by more than 10%
+        new_filters += divisor
+    return int(new_filters)
+
+
+def round_repeats(repeats, global_params):
+    &#34;&#34;&#34;Calculate module&#39;s repeat number of a block based on depth multiplier.
+       Use depth_coefficient of global_params.
+
+    Args:
+        repeats (int): num_repeat to be calculated.
+        global_params (namedtuple): Global params of the model.
+
+    Returns:
+        new repeat: New repeat number after calculating.
+    &#34;&#34;&#34;
+    multiplier = global_params.depth_coefficient
+    if not multiplier:
+        return repeats
+    # follow the formula transferred from official TensorFlow implementation
+    return int(math.ceil(multiplier * repeats))
+
+
+def drop_connect(inputs, p, training):
+    &#34;&#34;&#34;Drop connect.
+
+    Args:
+        input (tensor: BCWH): Input of this structure.
+        p (float: 0.0~1.0): Probability of drop connection.
+        training (bool): The running mode.
+
+    Returns:
+        output: Output after drop connection.
+    &#34;&#34;&#34;
+    assert 0 &lt;= p &lt;= 1, &#34;p must be in range of [0,1]&#34;
+
+    if not training:
+        return inputs
+
+    batch_size = inputs.shape[0]
+    keep_prob = 1 - p
+
+    # generate binary_tensor mask according to probability (p for 0, 1-p for 1)
+    random_tensor = keep_prob
+    random_tensor += torch.rand(
+        [batch_size, 1, 1, 1], dtype=inputs.dtype, device=inputs.device
+    )
+    binary_tensor = torch.floor(random_tensor)
+
+    output = inputs / keep_prob * binary_tensor
+    return output
+
+
+def get_width_and_height_from_size(x):
+    &#34;&#34;&#34;Obtain height and width from x.
+
+    Args:
+        x (int, tuple or list): Data size.
+
+    Returns:
+        size: A tuple or list (H,W).
+    &#34;&#34;&#34;
+    if isinstance(x, int):
+        return x, x
+    if isinstance(x, list) or isinstance(x, tuple):
+        return x
+    else:
+        raise TypeError()
+
+
+def calculate_output_image_size(input_image_size, stride):
+    &#34;&#34;&#34;Calculates the output image size when using Conv2dSamePadding with a stride.
+       Necessary for static padding. Thanks to mannatsingh for pointing this out.
+
+    Args:
+        input_image_size (int, tuple or list): Size of input image.
+        stride (int, tuple or list): Conv2d operation&#39;s stride.
+
+    Returns:
+        output_image_size: A list [H,W].
+    &#34;&#34;&#34;
+    if input_image_size is None:
+        return None
+    image_height, image_width = get_width_and_height_from_size(input_image_size)
+    stride = stride if isinstance(stride, int) else stride[0]
+    image_height = int(math.ceil(image_height / stride))
+    image_width = int(math.ceil(image_width / stride))
+    return [image_height, image_width]
+
+
+# Note:
+# The following &#39;SamePadding&#39; functions make output size equal ceil(input size/stride).
+# Only when stride equals 1, can the output size be the same as input size.
+# Don&#39;t be confused by their function names ! ! !
+
+
+def get_same_padding_conv2d(image_size=None):
+    &#34;&#34;&#34;Chooses static padding if you have specified an image size, and dynamic padding otherwise.
+       Static padding is necessary for ONNX exporting of models.
+
+    Args:
+        image_size (int or tuple): Size of the image.
+
+    Returns:
+        Conv2dDynamicSamePadding or Conv2dStaticSamePadding.
+    &#34;&#34;&#34;
+    if image_size is None:
+        return Conv2dDynamicSamePadding
+    else:
+        return partial(Conv2dStaticSamePadding, image_size=image_size)
+
+
+class Conv2dDynamicSamePadding(nn.Conv2d):
+    &#34;&#34;&#34;2D Convolutions like TensorFlow, for a dynamic image size.
+    The padding is operated in forward function by calculating dynamically.
+    &#34;&#34;&#34;
+
+    # Tips for &#39;SAME&#39; mode padding.
+    #     Given the following:
+    #         i: width or height
+    #         s: stride
+    #         k: kernel size
+    #         d: dilation
+    #         p: padding
+    #     Output after Conv2d:
+    #         o = floor((i+p-((k-1)*d+1))/s+1)
+    # If o equals i, i = floor((i+p-((k-1)*d+1))/s+1),
+    # =&gt; p = (i-1)*s+((k-1)*d+1)-i
+
+    def __init__(
+        self,
+        in_channels,
+        out_channels,
+        kernel_size,
+        stride=1,
+        dilation=1,
+        groups=1,
+        bias=True,
+    ):
+        super().__init__(
+            in_channels, out_channels, kernel_size, stride, 0, dilation, groups, bias
+        )
+        self.stride = self.stride if len(self.stride) == 2 else [self.stride[0]] * 2
+
+    def forward(self, x):
+        ih, iw = x.size()[-2:]
+        kh, kw = self.weight.size()[-2:]
+        sh, sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(
+            iw / sw
+        )  # change the output size according to stride ! ! !
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h &gt; 0 or pad_w &gt; 0:
+            x = F.pad(
+                x, [pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2]
+            )
+        return F.conv2d(
+            x,
+            self.weight,
+            self.bias,
+            self.stride,
+            self.padding,
+            self.dilation,
+            self.groups,
+        )
+
+
+class Conv2dStaticSamePadding(nn.Conv2d):
+    &#34;&#34;&#34;2D Convolutions like TensorFlow&#39;s &#39;SAME&#39; mode, with the given input image size.
+    The padding mudule is calculated in construction function, then used in forward.
+    &#34;&#34;&#34;
+
+    # With the same calculation as Conv2dDynamicSamePadding
+
+    def __init__(
+        self,
+        in_channels,
+        out_channels,
+        kernel_size,
+        stride=1,
+        image_size=None,
+        **kwargs
+    ):
+        super().__init__(in_channels, out_channels, kernel_size, stride, **kwargs)
+        self.stride = self.stride if len(self.stride) == 2 else [self.stride[0]] * 2
+
+        # Calculate padding based on image size and save it
+        assert image_size is not None
+        ih, iw = (image_size, image_size) if isinstance(image_size, int) else image_size
+        kh, kw = self.weight.size()[-2:]
+        sh, sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(iw / sw)
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h &gt; 0 or pad_w &gt; 0:
+            self.static_padding = nn.ZeroPad2d(
+                (pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2)
+            )
+        else:
+            self.static_padding = nn.Identity()
+
+    def forward(self, x):
+        x = self.static_padding(x)
+        x = F.conv2d(
+            x,
+            self.weight,
+            self.bias,
+            self.stride,
+            self.padding,
+            self.dilation,
+            self.groups,
+        )
+        return x
+
+
+def get_same_padding_maxPool2d(image_size=None):
+    &#34;&#34;&#34;Chooses static padding if you have specified an image size, and dynamic padding otherwise.
+       Static padding is necessary for ONNX exporting of models.
+
+    Args:
+        image_size (int or tuple): Size of the image.
+
+    Returns:
+        MaxPool2dDynamicSamePadding or MaxPool2dStaticSamePadding.
+    &#34;&#34;&#34;
+    if image_size is None:
+        return MaxPool2dDynamicSamePadding
+    else:
+        return partial(MaxPool2dStaticSamePadding, image_size=image_size)
+
+
+class MaxPool2dDynamicSamePadding(nn.MaxPool2d):
+    &#34;&#34;&#34;2D MaxPooling like TensorFlow&#39;s &#39;SAME&#39; mode, with a dynamic image size.
+    The padding is operated in forward function by calculating dynamically.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        kernel_size,
+        stride,
+        padding=0,
+        dilation=1,
+        return_indices=False,
+        ceil_mode=False,
+    ):
+        super().__init__(
+            kernel_size, stride, padding, dilation, return_indices, ceil_mode
+        )
+        self.stride = [self.stride] * 2 if isinstance(self.stride, int) else self.stride
+        self.kernel_size = (
+            [self.kernel_size] * 2
+            if isinstance(self.kernel_size, int)
+            else self.kernel_size
+        )
+        self.dilation = (
+            [self.dilation] * 2 if isinstance(self.dilation, int) else self.dilation
+        )
+
+    def forward(self, x):
+        ih, iw = x.size()[-2:]
+        kh, kw = self.kernel_size
+        sh, sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(iw / sw)
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h &gt; 0 or pad_w &gt; 0:
+            x = F.pad(
+                x, [pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2]
+            )
+        return F.max_pool2d(
+            x,
+            self.kernel_size,
+            self.stride,
+            self.padding,
+            self.dilation,
+            self.ceil_mode,
+            self.return_indices,
+        )
+
+
+class MaxPool2dStaticSamePadding(nn.MaxPool2d):
+    &#34;&#34;&#34;2D MaxPooling like TensorFlow&#39;s &#39;SAME&#39; mode, with the given input image size.
+    The padding mudule is calculated in construction function, then used in forward.
+    &#34;&#34;&#34;
+
+    def __init__(self, kernel_size, stride, image_size=None, **kwargs):
+        super().__init__(kernel_size, stride, **kwargs)
+        self.stride = [self.stride] * 2 if isinstance(self.stride, int) else self.stride
+        self.kernel_size = (
+            [self.kernel_size] * 2
+            if isinstance(self.kernel_size, int)
+            else self.kernel_size
+        )
+        self.dilation = (
+            [self.dilation] * 2 if isinstance(self.dilation, int) else self.dilation
+        )
+
+        # Calculate padding based on image size and save it
+        assert image_size is not None
+        ih, iw = (image_size, image_size) if isinstance(image_size, int) else image_size
+        kh, kw = self.kernel_size
+        sh, sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(iw / sw)
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h &gt; 0 or pad_w &gt; 0:
+            self.static_padding = nn.ZeroPad2d(
+                (pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2)
+            )
+        else:
+            self.static_padding = nn.Identity()
+
+    def forward(self, x):
+        x = self.static_padding(x)
+        x = F.max_pool2d(
+            x,
+            self.kernel_size,
+            self.stride,
+            self.padding,
+            self.dilation,
+            self.ceil_mode,
+            self.return_indices,
+        )
+        return x
+
+
+class BlockDecoder(object):
+    &#34;&#34;&#34;Block Decoder for readability,
+    straight from the official TensorFlow repository.
+    &#34;&#34;&#34;
+
+    @staticmethod
+    def _decode_block_string(block_string):
+        &#34;&#34;&#34;Get a block through a string notation of arguments.
+
+        Args:
+            block_string (str): A string notation of arguments.
+                                Examples: &#39;r1_k3_s11_e1_i32_o16_se0.25_noskip&#39;.
+
+        Returns:
+            BlockArgs: The namedtuple defined at the top of this file.
+        &#34;&#34;&#34;
+        assert isinstance(block_string, str)
+
+        ops = block_string.split(&#34;_&#34;)
+        options = {}
+        for op in ops:
+            splits = re.split(r&#34;(\d.*)&#34;, op)
+            if len(splits) &gt;= 2:
+                key, value = splits[:2]
+                options[key] = value
+
+        # Check stride
+        assert (&#34;s&#34; in options and len(options[&#34;s&#34;]) == 1) or (
+            len(options[&#34;s&#34;]) == 2 and options[&#34;s&#34;][0] == options[&#34;s&#34;][1]
+        )
+
+        return BlockArgs(
+            num_repeat=int(options[&#34;r&#34;]),
+            kernel_size=int(options[&#34;k&#34;]),
+            stride=[int(options[&#34;s&#34;][0])],
+            expand_ratio=int(options[&#34;e&#34;]),
+            input_filters=int(options[&#34;i&#34;]),
+            output_filters=int(options[&#34;o&#34;]),
+            se_ratio=float(options[&#34;se&#34;]) if &#34;se&#34; in options else None,
+            id_skip=(&#34;noskip&#34; not in block_string),
+        )
+
+    @staticmethod
+    def _encode_block_string(block):
+        &#34;&#34;&#34;Encode a block to a string.
+
+        Args:
+            block (namedtuple): A BlockArgs type argument.
+
+        Returns:
+            block_string: A String form of BlockArgs.
+        &#34;&#34;&#34;
+        args = [
+            &#34;r%d&#34; % block.num_repeat,
+            &#34;k%d&#34; % block.kernel_size,
+            &#34;s%d%d&#34; % (block.strides[0], block.strides[1]),
+            &#34;e%s&#34; % block.expand_ratio,
+            &#34;i%d&#34; % block.input_filters,
+            &#34;o%d&#34; % block.output_filters,
+        ]
+        if 0 &lt; block.se_ratio &lt;= 1:
+            args.append(&#34;se%s&#34; % block.se_ratio)
+        if block.id_skip is False:
+            args.append(&#34;noskip&#34;)
+        return &#34;_&#34;.join(args)
+
+    @staticmethod
+    def decode(string_list):
+        &#34;&#34;&#34;Decode a list of string notations to specify blocks inside the network.
+
+        Args:
+            string_list (list[str]): A list of strings, each string is a notation of block.
+
+        Returns:
+            blocks_args: A list of BlockArgs namedtuples of block args.
+        &#34;&#34;&#34;
+        assert isinstance(string_list, list)
+        blocks_args = []
+        for block_string in string_list:
+            blocks_args.append(BlockDecoder._decode_block_string(block_string))
+        return blocks_args
+
+    @staticmethod
+    def encode(blocks_args):
+        &#34;&#34;&#34;Encode a list of BlockArgs to a list of strings.
+
+        Args:
+            blocks_args (list[namedtuples]): A list of BlockArgs namedtuples of block args.
+
+        Returns:
+            block_strings: A list of strings, each string is a notation of block.
+        &#34;&#34;&#34;
+        block_strings = []
+        for block in blocks_args:
+            block_strings.append(BlockDecoder._encode_block_string(block))
+        return block_strings
+
+
+def create_block_args(
+    width_coefficient=None,
+    depth_coefficient=None,
+    image_size=None,
+    dropout_rate=0.2,
+    drop_connect_rate=0.2,
+    num_classes=1000,
+    include_top=True,
+):
+    &#34;&#34;&#34;Create BlockArgs and GlobalParams for efficientnet model.
+
+    Args:
+        width_coefficient (float)
+        depth_coefficient (float)
+        image_size (int)
+        dropout_rate (float)
+        drop_connect_rate (float)
+        num_classes (int)
+
+        Meaning as the name suggests.
+
+    Returns:
+        blocks_args, global_params.
+    &#34;&#34;&#34;
+
+    # Blocks args for the whole model(efficientnet-b0 by default)
+    # It will be modified in the construction of EfficientNet Class according to model
+    blocks_args = [
+        &#34;r1_k3_s11_e1_i32_o16_se0.25&#34;,
+        &#34;r2_k3_s22_e6_i16_o24_se0.25&#34;,
+        &#34;r2_k5_s22_e6_i24_o40_se0.25&#34;,
+        &#34;r3_k3_s22_e6_i40_o80_se0.25&#34;,
+        &#34;r3_k5_s11_e6_i80_o112_se0.25&#34;,
+        &#34;r4_k5_s22_e6_i112_o192_se0.25&#34;,
+        &#34;r1_k3_s11_e6_i192_o320_se0.25&#34;,
+    ]
+    blocks_args = BlockDecoder.decode(blocks_args)
+
+    global_params = GlobalParams(
+        width_coefficient=width_coefficient,
+        depth_coefficient=depth_coefficient,
+        image_size=image_size,
+        dropout_rate=dropout_rate,
+        num_classes=num_classes,
+        batch_norm_momentum=0.99,
+        batch_norm_epsilon=1e-3,
+        drop_connect_rate=drop_connect_rate,
+        depth_divisor=8,
+        min_depth=None,
+        include_top=include_top,
+    )
+
+    return blocks_args, global_params</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.calculate_output_image_size"><code class="name flex">
+<span>def <span class="ident">calculate_output_image_size</span></span>(<span>input_image_size, stride)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the output image size when using Conv2dSamePadding with a stride.
+Necessary for static padding. Thanks to mannatsingh for pointing this out.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_image_size</code></strong> :&ensp;<code>int, tuple</code> or <code>list</code></dt>
+<dd>Size of input image.</dd>
+<dt><strong><code>stride</code></strong> :&ensp;<code>int, tuple</code> or <code>list</code></dt>
+<dd>Conv2d operation's stride.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>output_image_size</code></dt>
+<dd>A list [H,W].</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_output_image_size(input_image_size, stride):
+    &#34;&#34;&#34;Calculates the output image size when using Conv2dSamePadding with a stride.
+       Necessary for static padding. Thanks to mannatsingh for pointing this out.
+
+    Args:
+        input_image_size (int, tuple or list): Size of input image.
+        stride (int, tuple or list): Conv2d operation&#39;s stride.
+
+    Returns:
+        output_image_size: A list [H,W].
+    &#34;&#34;&#34;
+    if input_image_size is None:
+        return None
+    image_height, image_width = get_width_and_height_from_size(input_image_size)
+    stride = stride if isinstance(stride, int) else stride[0]
+    image_height = int(math.ceil(image_height / stride))
+    image_width = int(math.ceil(image_width / stride))
+    return [image_height, image_width]</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.create_block_args"><code class="name flex">
+<span>def <span class="ident">create_block_args</span></span>(<span>width_coefficient=None, depth_coefficient=None, image_size=None, dropout_rate=0.2, drop_connect_rate=0.2, num_classes=1000, include_top=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create BlockArgs and GlobalParams for efficientnet model.</p>
+<h2 id="args">Args</h2>
+<p>width_coefficient (float)
+depth_coefficient (float)
+image_size (int)
+dropout_rate (float)
+drop_connect_rate (float)
+num_classes (int)</p>
+<p>Meaning as the name suggests.</p>
+<h2 id="returns">Returns</h2>
+<p>blocks_args, global_params.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_block_args(
+    width_coefficient=None,
+    depth_coefficient=None,
+    image_size=None,
+    dropout_rate=0.2,
+    drop_connect_rate=0.2,
+    num_classes=1000,
+    include_top=True,
+):
+    &#34;&#34;&#34;Create BlockArgs and GlobalParams for efficientnet model.
+
+    Args:
+        width_coefficient (float)
+        depth_coefficient (float)
+        image_size (int)
+        dropout_rate (float)
+        drop_connect_rate (float)
+        num_classes (int)
+
+        Meaning as the name suggests.
+
+    Returns:
+        blocks_args, global_params.
+    &#34;&#34;&#34;
+
+    # Blocks args for the whole model(efficientnet-b0 by default)
+    # It will be modified in the construction of EfficientNet Class according to model
+    blocks_args = [
+        &#34;r1_k3_s11_e1_i32_o16_se0.25&#34;,
+        &#34;r2_k3_s22_e6_i16_o24_se0.25&#34;,
+        &#34;r2_k5_s22_e6_i24_o40_se0.25&#34;,
+        &#34;r3_k3_s22_e6_i40_o80_se0.25&#34;,
+        &#34;r3_k5_s11_e6_i80_o112_se0.25&#34;,
+        &#34;r4_k5_s22_e6_i112_o192_se0.25&#34;,
+        &#34;r1_k3_s11_e6_i192_o320_se0.25&#34;,
+    ]
+    blocks_args = BlockDecoder.decode(blocks_args)
+
+    global_params = GlobalParams(
+        width_coefficient=width_coefficient,
+        depth_coefficient=depth_coefficient,
+        image_size=image_size,
+        dropout_rate=dropout_rate,
+        num_classes=num_classes,
+        batch_norm_momentum=0.99,
+        batch_norm_epsilon=1e-3,
+        drop_connect_rate=drop_connect_rate,
+        depth_divisor=8,
+        min_depth=None,
+        include_top=include_top,
+    )
+
+    return blocks_args, global_params</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.drop_connect"><code class="name flex">
+<span>def <span class="ident">drop_connect</span></span>(<span>inputs, p, training)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Drop connect.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt>input (tensor: BCWH): Input of this structure.</dt>
+<dt>p (float: 0.0~1.0): Probability of drop connection.</dt>
+<dt><strong><code>training</code></strong> :&ensp;<code>bool</code></dt>
+<dd>The running mode.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>output</code></dt>
+<dd>Output after drop connection.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def drop_connect(inputs, p, training):
+    &#34;&#34;&#34;Drop connect.
+
+    Args:
+        input (tensor: BCWH): Input of this structure.
+        p (float: 0.0~1.0): Probability of drop connection.
+        training (bool): The running mode.
+
+    Returns:
+        output: Output after drop connection.
+    &#34;&#34;&#34;
+    assert 0 &lt;= p &lt;= 1, &#34;p must be in range of [0,1]&#34;
+
+    if not training:
+        return inputs
+
+    batch_size = inputs.shape[0]
+    keep_prob = 1 - p
+
+    # generate binary_tensor mask according to probability (p for 0, 1-p for 1)
+    random_tensor = keep_prob
+    random_tensor += torch.rand(
+        [batch_size, 1, 1, 1], dtype=inputs.dtype, device=inputs.device
+    )
+    binary_tensor = torch.floor(random_tensor)
+
+    output = inputs / keep_prob * binary_tensor
+    return output</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.get_same_padding_conv2d"><code class="name flex">
+<span>def <span class="ident">get_same_padding_conv2d</span></span>(<span>image_size=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Chooses static padding if you have specified an image size, and dynamic padding otherwise.
+Static padding is necessary for ONNX exporting of models.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>image_size</code></strong> :&ensp;<code>int</code> or <code>tuple</code></dt>
+<dd>Size of the image.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Conv2dDynamicSamePadding or Conv2dStaticSamePadding.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_same_padding_conv2d(image_size=None):
+    &#34;&#34;&#34;Chooses static padding if you have specified an image size, and dynamic padding otherwise.
+       Static padding is necessary for ONNX exporting of models.
+
+    Args:
+        image_size (int or tuple): Size of the image.
+
+    Returns:
+        Conv2dDynamicSamePadding or Conv2dStaticSamePadding.
+    &#34;&#34;&#34;
+    if image_size is None:
+        return Conv2dDynamicSamePadding
+    else:
+        return partial(Conv2dStaticSamePadding, image_size=image_size)</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.get_same_padding_maxPool2d"><code class="name flex">
+<span>def <span class="ident">get_same_padding_maxPool2d</span></span>(<span>image_size=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Chooses static padding if you have specified an image size, and dynamic padding otherwise.
+Static padding is necessary for ONNX exporting of models.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>image_size</code></strong> :&ensp;<code>int</code> or <code>tuple</code></dt>
+<dd>Size of the image.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>MaxPool2dDynamicSamePadding or MaxPool2dStaticSamePadding.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_same_padding_maxPool2d(image_size=None):
+    &#34;&#34;&#34;Chooses static padding if you have specified an image size, and dynamic padding otherwise.
+       Static padding is necessary for ONNX exporting of models.
+
+    Args:
+        image_size (int or tuple): Size of the image.
+
+    Returns:
+        MaxPool2dDynamicSamePadding or MaxPool2dStaticSamePadding.
+    &#34;&#34;&#34;
+    if image_size is None:
+        return MaxPool2dDynamicSamePadding
+    else:
+        return partial(MaxPool2dStaticSamePadding, image_size=image_size)</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.get_width_and_height_from_size"><code class="name flex">
+<span>def <span class="ident">get_width_and_height_from_size</span></span>(<span>x)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Obtain height and width from x.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int, tuple</code> or <code>list</code></dt>
+<dd>Data size.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>size</code></dt>
+<dd>A tuple or list (H,W).</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_width_and_height_from_size(x):
+    &#34;&#34;&#34;Obtain height and width from x.
+
+    Args:
+        x (int, tuple or list): Data size.
+
+    Returns:
+        size: A tuple or list (H,W).
+    &#34;&#34;&#34;
+    if isinstance(x, int):
+        return x, x
+    if isinstance(x, list) or isinstance(x, tuple):
+        return x
+    else:
+        raise TypeError()</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.round_filters"><code class="name flex">
+<span>def <span class="ident">round_filters</span></span>(<span>filters, global_params)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate and round number of filters based on width multiplier.
+Use width_coefficient, depth_divisor and min_depth of global_params.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filters</code></strong> :&ensp;<code>int</code></dt>
+<dd>Filters number to be calculated.</dd>
+<dt><strong><code>global_params</code></strong> :&ensp;<code>namedtuple</code></dt>
+<dd>Global params of the model.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>new_filters</code></dt>
+<dd>New filters number after calculating.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def round_filters(filters, global_params):
+    &#34;&#34;&#34;Calculate and round number of filters based on width multiplier.
+       Use width_coefficient, depth_divisor and min_depth of global_params.
+
+    Args:
+        filters (int): Filters number to be calculated.
+        global_params (namedtuple): Global params of the model.
+
+    Returns:
+        new_filters: New filters number after calculating.
+    &#34;&#34;&#34;
+    multiplier = global_params.width_coefficient
+    if not multiplier:
+        return filters
+    divisor = global_params.depth_divisor
+    min_depth = global_params.min_depth
+    filters *= multiplier
+    min_depth = min_depth or divisor  # pay attention to this line when using min_depth
+    # follow the formula transferred from official TensorFlow implementation
+    new_filters = max(min_depth, int(filters + divisor / 2) // divisor * divisor)
+    if new_filters &lt; 0.9 * filters:  # prevent rounding by more than 10%
+        new_filters += divisor
+    return int(new_filters)</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.round_repeats"><code class="name flex">
+<span>def <span class="ident">round_repeats</span></span>(<span>repeats, global_params)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate module's repeat number of a block based on depth multiplier.
+Use depth_coefficient of global_params.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>repeats</code></strong> :&ensp;<code>int</code></dt>
+<dd>num_repeat to be calculated.</dd>
+<dt><strong><code>global_params</code></strong> :&ensp;<code>namedtuple</code></dt>
+<dd>Global params of the model.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>new repeat</code></dt>
+<dd>New repeat number after calculating.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def round_repeats(repeats, global_params):
+    &#34;&#34;&#34;Calculate module&#39;s repeat number of a block based on depth multiplier.
+       Use depth_coefficient of global_params.
+
+    Args:
+        repeats (int): num_repeat to be calculated.
+        global_params (namedtuple): Global params of the model.
+
+    Returns:
+        new repeat: New repeat number after calculating.
+    &#34;&#34;&#34;
+    multiplier = global_params.depth_coefficient
+    if not multiplier:
+        return repeats
+    # follow the formula transferred from official TensorFlow implementation
+    return int(math.ceil(multiplier * repeats))</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs"><code class="flex name class">
+<span>class <span class="ident">BlockArgs</span></span>
+<span>(</span><span>num_repeat=None, kernel_size=None, stride=None, expand_ratio=None, input_filters=None, output_filters=None, se_ratio=None, id_skip=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>BlockArgs(num_repeat, kernel_size, stride, expand_ratio, input_filters, output_filters, se_ratio, id_skip)</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.tuple</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.expand_ratio"><code class="name">var <span class="ident">expand_ratio</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 3</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.id_skip"><code class="name">var <span class="ident">id_skip</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 7</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.input_filters"><code class="name">var <span class="ident">input_filters</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 4</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.kernel_size"><code class="name">var <span class="ident">kernel_size</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 1</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.num_repeat"><code class="name">var <span class="ident">num_repeat</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 0</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.output_filters"><code class="name">var <span class="ident">output_filters</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 5</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.se_ratio"><code class="name">var <span class="ident">se_ratio</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 6</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.stride"><code class="name">var <span class="ident">stride</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 2</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder"><code class="flex name class">
+<span>class <span class="ident">BlockDecoder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Block Decoder for readability,
+straight from the official TensorFlow repository.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BlockDecoder(object):
+    &#34;&#34;&#34;Block Decoder for readability,
+    straight from the official TensorFlow repository.
+    &#34;&#34;&#34;
+
+    @staticmethod
+    def _decode_block_string(block_string):
+        &#34;&#34;&#34;Get a block through a string notation of arguments.
+
+        Args:
+            block_string (str): A string notation of arguments.
+                                Examples: &#39;r1_k3_s11_e1_i32_o16_se0.25_noskip&#39;.
+
+        Returns:
+            BlockArgs: The namedtuple defined at the top of this file.
+        &#34;&#34;&#34;
+        assert isinstance(block_string, str)
+
+        ops = block_string.split(&#34;_&#34;)
+        options = {}
+        for op in ops:
+            splits = re.split(r&#34;(\d.*)&#34;, op)
+            if len(splits) &gt;= 2:
+                key, value = splits[:2]
+                options[key] = value
+
+        # Check stride
+        assert (&#34;s&#34; in options and len(options[&#34;s&#34;]) == 1) or (
+            len(options[&#34;s&#34;]) == 2 and options[&#34;s&#34;][0] == options[&#34;s&#34;][1]
+        )
+
+        return BlockArgs(
+            num_repeat=int(options[&#34;r&#34;]),
+            kernel_size=int(options[&#34;k&#34;]),
+            stride=[int(options[&#34;s&#34;][0])],
+            expand_ratio=int(options[&#34;e&#34;]),
+            input_filters=int(options[&#34;i&#34;]),
+            output_filters=int(options[&#34;o&#34;]),
+            se_ratio=float(options[&#34;se&#34;]) if &#34;se&#34; in options else None,
+            id_skip=(&#34;noskip&#34; not in block_string),
+        )
+
+    @staticmethod
+    def _encode_block_string(block):
+        &#34;&#34;&#34;Encode a block to a string.
+
+        Args:
+            block (namedtuple): A BlockArgs type argument.
+
+        Returns:
+            block_string: A String form of BlockArgs.
+        &#34;&#34;&#34;
+        args = [
+            &#34;r%d&#34; % block.num_repeat,
+            &#34;k%d&#34; % block.kernel_size,
+            &#34;s%d%d&#34; % (block.strides[0], block.strides[1]),
+            &#34;e%s&#34; % block.expand_ratio,
+            &#34;i%d&#34; % block.input_filters,
+            &#34;o%d&#34; % block.output_filters,
+        ]
+        if 0 &lt; block.se_ratio &lt;= 1:
+            args.append(&#34;se%s&#34; % block.se_ratio)
+        if block.id_skip is False:
+            args.append(&#34;noskip&#34;)
+        return &#34;_&#34;.join(args)
+
+    @staticmethod
+    def decode(string_list):
+        &#34;&#34;&#34;Decode a list of string notations to specify blocks inside the network.
+
+        Args:
+            string_list (list[str]): A list of strings, each string is a notation of block.
+
+        Returns:
+            blocks_args: A list of BlockArgs namedtuples of block args.
+        &#34;&#34;&#34;
+        assert isinstance(string_list, list)
+        blocks_args = []
+        for block_string in string_list:
+            blocks_args.append(BlockDecoder._decode_block_string(block_string))
+        return blocks_args
+
+    @staticmethod
+    def encode(blocks_args):
+        &#34;&#34;&#34;Encode a list of BlockArgs to a list of strings.
+
+        Args:
+            blocks_args (list[namedtuples]): A list of BlockArgs namedtuples of block args.
+
+        Returns:
+            block_strings: A list of strings, each string is a notation of block.
+        &#34;&#34;&#34;
+        block_strings = []
+        for block in blocks_args:
+            block_strings.append(BlockDecoder._encode_block_string(block))
+        return block_strings</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder.decode"><code class="name flex">
+<span>def <span class="ident">decode</span></span>(<span>string_list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decode a list of string notations to specify blocks inside the network.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string_list</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of strings, each string is a notation of block.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>blocks_args</code></dt>
+<dd>A list of BlockArgs namedtuples of block args.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def decode(string_list):
+    &#34;&#34;&#34;Decode a list of string notations to specify blocks inside the network.
+
+    Args:
+        string_list (list[str]): A list of strings, each string is a notation of block.
+
+    Returns:
+        blocks_args: A list of BlockArgs namedtuples of block args.
+    &#34;&#34;&#34;
+    assert isinstance(string_list, list)
+    blocks_args = []
+    for block_string in string_list:
+        blocks_args.append(BlockDecoder._decode_block_string(block_string))
+    return blocks_args</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder.encode"><code class="name flex">
+<span>def <span class="ident">encode</span></span>(<span>blocks_args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Encode a list of BlockArgs to a list of strings.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>blocks_args</code></strong> :&ensp;<code>list[namedtuples]</code></dt>
+<dd>A list of BlockArgs namedtuples of block args.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>block_strings</code></dt>
+<dd>A list of strings, each string is a notation of block.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def encode(blocks_args):
+    &#34;&#34;&#34;Encode a list of BlockArgs to a list of strings.
+
+    Args:
+        blocks_args (list[namedtuples]): A list of BlockArgs namedtuples of block args.
+
+    Returns:
+        block_strings: A list of strings, each string is a notation of block.
+    &#34;&#34;&#34;
+    block_strings = []
+    for block in blocks_args:
+        block_strings.append(BlockDecoder._encode_block_string(block))
+    return block_strings</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.Conv2dDynamicSamePadding"><code class="flex name class">
+<span>class <span class="ident">Conv2dDynamicSamePadding</span></span>
+<span>(</span><span>in_channels, out_channels, kernel_size, stride=1, dilation=1, groups=1, bias=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>2D Convolutions like TensorFlow, for a dynamic image size.
+The padding is operated in forward function by calculating dynamically.</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Conv2dDynamicSamePadding(nn.Conv2d):
+    &#34;&#34;&#34;2D Convolutions like TensorFlow, for a dynamic image size.
+    The padding is operated in forward function by calculating dynamically.
+    &#34;&#34;&#34;
+
+    # Tips for &#39;SAME&#39; mode padding.
+    #     Given the following:
+    #         i: width or height
+    #         s: stride
+    #         k: kernel size
+    #         d: dilation
+    #         p: padding
+    #     Output after Conv2d:
+    #         o = floor((i+p-((k-1)*d+1))/s+1)
+    # If o equals i, i = floor((i+p-((k-1)*d+1))/s+1),
+    # =&gt; p = (i-1)*s+((k-1)*d+1)-i
+
+    def __init__(
+        self,
+        in_channels,
+        out_channels,
+        kernel_size,
+        stride=1,
+        dilation=1,
+        groups=1,
+        bias=True,
+    ):
+        super().__init__(
+            in_channels, out_channels, kernel_size, stride, 0, dilation, groups, bias
+        )
+        self.stride = self.stride if len(self.stride) == 2 else [self.stride[0]] * 2
+
+    def forward(self, x):
+        ih, iw = x.size()[-2:]
+        kh, kw = self.weight.size()[-2:]
+        sh, sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(
+            iw / sw
+        )  # change the output size according to stride ! ! !
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h &gt; 0 or pad_w &gt; 0:
+            x = F.pad(
+                x, [pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2]
+            )
+        return F.conv2d(
+            x,
+            self.weight,
+            self.bias,
+            self.stride,
+            self.padding,
+            self.dilation,
+            self.groups,
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.conv.Conv2d</li>
+<li>torch.nn.modules.conv._ConvNd</li>
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.Conv2dDynamicSamePadding.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x):
+    ih, iw = x.size()[-2:]
+    kh, kw = self.weight.size()[-2:]
+    sh, sw = self.stride
+    oh, ow = math.ceil(ih / sh), math.ceil(
+        iw / sw
+    )  # change the output size according to stride ! ! !
+    pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+    pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+    if pad_h &gt; 0 or pad_w &gt; 0:
+        x = F.pad(
+            x, [pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2]
+        )
+    return F.conv2d(
+        x,
+        self.weight,
+        self.bias,
+        self.stride,
+        self.padding,
+        self.dilation,
+        self.groups,
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.Conv2dStaticSamePadding"><code class="flex name class">
+<span>class <span class="ident">Conv2dStaticSamePadding</span></span>
+<span>(</span><span>in_channels, out_channels, kernel_size, stride=1, image_size=None, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>2D Convolutions like TensorFlow's 'SAME' mode, with the given input image size.
+The padding mudule is calculated in construction function, then used in forward.</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Conv2dStaticSamePadding(nn.Conv2d):
+    &#34;&#34;&#34;2D Convolutions like TensorFlow&#39;s &#39;SAME&#39; mode, with the given input image size.
+    The padding mudule is calculated in construction function, then used in forward.
+    &#34;&#34;&#34;
+
+    # With the same calculation as Conv2dDynamicSamePadding
+
+    def __init__(
+        self,
+        in_channels,
+        out_channels,
+        kernel_size,
+        stride=1,
+        image_size=None,
+        **kwargs
+    ):
+        super().__init__(in_channels, out_channels, kernel_size, stride, **kwargs)
+        self.stride = self.stride if len(self.stride) == 2 else [self.stride[0]] * 2
+
+        # Calculate padding based on image size and save it
+        assert image_size is not None
+        ih, iw = (image_size, image_size) if isinstance(image_size, int) else image_size
+        kh, kw = self.weight.size()[-2:]
+        sh, sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(iw / sw)
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h &gt; 0 or pad_w &gt; 0:
+            self.static_padding = nn.ZeroPad2d(
+                (pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2)
+            )
+        else:
+            self.static_padding = nn.Identity()
+
+    def forward(self, x):
+        x = self.static_padding(x)
+        x = F.conv2d(
+            x,
+            self.weight,
+            self.bias,
+            self.stride,
+            self.padding,
+            self.dilation,
+            self.groups,
+        )
+        return x</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.conv.Conv2d</li>
+<li>torch.nn.modules.conv._ConvNd</li>
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.Conv2dStaticSamePadding.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x):
+    x = self.static_padding(x)
+    x = F.conv2d(
+        x,
+        self.weight,
+        self.bias,
+        self.stride,
+        self.padding,
+        self.dilation,
+        self.groups,
+    )
+    return x</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams"><code class="flex name class">
+<span>class <span class="ident">GlobalParams</span></span>
+<span>(</span><span>width_coefficient=None, depth_coefficient=None, image_size=None, dropout_rate=None, num_classes=None, batch_norm_momentum=None, batch_norm_epsilon=None, drop_connect_rate=None, depth_divisor=None, min_depth=None, include_top=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>GlobalParams(width_coefficient, depth_coefficient, image_size, dropout_rate, num_classes, batch_norm_momentum, batch_norm_epsilon, drop_connect_rate, depth_divisor, min_depth, include_top)</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.tuple</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.batch_norm_epsilon"><code class="name">var <span class="ident">batch_norm_epsilon</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 6</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.batch_norm_momentum"><code class="name">var <span class="ident">batch_norm_momentum</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 5</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.depth_coefficient"><code class="name">var <span class="ident">depth_coefficient</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 1</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.depth_divisor"><code class="name">var <span class="ident">depth_divisor</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 8</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.drop_connect_rate"><code class="name">var <span class="ident">drop_connect_rate</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 7</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.dropout_rate"><code class="name">var <span class="ident">dropout_rate</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 3</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.image_size"><code class="name">var <span class="ident">image_size</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 2</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.include_top"><code class="name">var <span class="ident">include_top</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 10</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.min_depth"><code class="name">var <span class="ident">min_depth</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 9</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.num_classes"><code class="name">var <span class="ident">num_classes</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 4</p></div>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.width_coefficient"><code class="name">var <span class="ident">width_coefficient</span></code></dt>
+<dd>
+<div class="desc"><p>Alias for field number 0</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dDynamicSamePadding"><code class="flex name class">
+<span>class <span class="ident">MaxPool2dDynamicSamePadding</span></span>
+<span>(</span><span>kernel_size, stride, padding=0, dilation=1, return_indices=False, ceil_mode=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>2D MaxPooling like TensorFlow's 'SAME' mode, with a dynamic image size.
+The padding is operated in forward function by calculating dynamically.</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MaxPool2dDynamicSamePadding(nn.MaxPool2d):
+    &#34;&#34;&#34;2D MaxPooling like TensorFlow&#39;s &#39;SAME&#39; mode, with a dynamic image size.
+    The padding is operated in forward function by calculating dynamically.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        kernel_size,
+        stride,
+        padding=0,
+        dilation=1,
+        return_indices=False,
+        ceil_mode=False,
+    ):
+        super().__init__(
+            kernel_size, stride, padding, dilation, return_indices, ceil_mode
+        )
+        self.stride = [self.stride] * 2 if isinstance(self.stride, int) else self.stride
+        self.kernel_size = (
+            [self.kernel_size] * 2
+            if isinstance(self.kernel_size, int)
+            else self.kernel_size
+        )
+        self.dilation = (
+            [self.dilation] * 2 if isinstance(self.dilation, int) else self.dilation
+        )
+
+    def forward(self, x):
+        ih, iw = x.size()[-2:]
+        kh, kw = self.kernel_size
+        sh, sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(iw / sw)
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h &gt; 0 or pad_w &gt; 0:
+            x = F.pad(
+                x, [pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2]
+            )
+        return F.max_pool2d(
+            x,
+            self.kernel_size,
+            self.stride,
+            self.padding,
+            self.dilation,
+            self.ceil_mode,
+            self.return_indices,
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.pooling.MaxPool2d</li>
+<li>torch.nn.modules.pooling._MaxPoolNd</li>
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dDynamicSamePadding.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x):
+    ih, iw = x.size()[-2:]
+    kh, kw = self.kernel_size
+    sh, sw = self.stride
+    oh, ow = math.ceil(ih / sh), math.ceil(iw / sw)
+    pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+    pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+    if pad_h &gt; 0 or pad_w &gt; 0:
+        x = F.pad(
+            x, [pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2]
+        )
+    return F.max_pool2d(
+        x,
+        self.kernel_size,
+        self.stride,
+        self.padding,
+        self.dilation,
+        self.ceil_mode,
+        self.return_indices,
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dStaticSamePadding"><code class="flex name class">
+<span>class <span class="ident">MaxPool2dStaticSamePadding</span></span>
+<span>(</span><span>kernel_size, stride, image_size=None, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>2D MaxPooling like TensorFlow's 'SAME' mode, with the given input image size.
+The padding mudule is calculated in construction function, then used in forward.</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MaxPool2dStaticSamePadding(nn.MaxPool2d):
+    &#34;&#34;&#34;2D MaxPooling like TensorFlow&#39;s &#39;SAME&#39; mode, with the given input image size.
+    The padding mudule is calculated in construction function, then used in forward.
+    &#34;&#34;&#34;
+
+    def __init__(self, kernel_size, stride, image_size=None, **kwargs):
+        super().__init__(kernel_size, stride, **kwargs)
+        self.stride = [self.stride] * 2 if isinstance(self.stride, int) else self.stride
+        self.kernel_size = (
+            [self.kernel_size] * 2
+            if isinstance(self.kernel_size, int)
+            else self.kernel_size
+        )
+        self.dilation = (
+            [self.dilation] * 2 if isinstance(self.dilation, int) else self.dilation
+        )
+
+        # Calculate padding based on image size and save it
+        assert image_size is not None
+        ih, iw = (image_size, image_size) if isinstance(image_size, int) else image_size
+        kh, kw = self.kernel_size
+        sh, sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(iw / sw)
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h &gt; 0 or pad_w &gt; 0:
+            self.static_padding = nn.ZeroPad2d(
+                (pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2)
+            )
+        else:
+            self.static_padding = nn.Identity()
+
+    def forward(self, x):
+        x = self.static_padding(x)
+        x = F.max_pool2d(
+            x,
+            self.kernel_size,
+            self.stride,
+            self.padding,
+            self.dilation,
+            self.ceil_mode,
+            self.return_indices,
+        )
+        return x</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.pooling.MaxPool2d</li>
+<li>torch.nn.modules.pooling._MaxPoolNd</li>
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dStaticSamePadding.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x):
+    x = self.static_padding(x)
+    x = F.max_pool2d(
+        x,
+        self.kernel_size,
+        self.stride,
+        self.padding,
+        self.dilation,
+        self.ceil_mode,
+        self.return_indices,
+    )
+    return x</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.MemoryEfficientSwish"><code class="flex name class">
+<span>class <span class="ident">MemoryEfficientSwish</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MemoryEfficientSwish(nn.Module):
+    def forward(self, x):
+        return SwishImplementation.apply(x)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.MemoryEfficientSwish.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x):
+    return SwishImplementation.apply(x)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.Swish"><code class="flex name class">
+<span>class <span class="ident">Swish</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As per the example above, an <code>__init__()</code> call to the parent class
+must be made before assignment on the child.</p>
+</div>
+<p>:ivar training: Boolean represents whether this module is in training or
+evaluation mode.
+:vartype training: bool</p>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Swish(nn.Module):
+    def forward(self, x):
+        return x * torch.sigmoid(x)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.Swish.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x):
+    return x * torch.sigmoid(x)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation"><code class="flex name class">
+<span>class <span class="ident">SwishImplementation</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class to create custom <code>autograd.Function</code></p>
+<p>To create a custom <code>autograd.Function</code>, subclass this class and implement
+the :meth:<code>forward</code> and :meth:<code>backward</code> static methods. Then, to use your custom
+op in the forward pass, call the class method <code>apply</code>. Do not call
+:meth:<code>forward</code> directly.</p>
+<p>To ensure correctness and best performance, make sure you are calling the
+correct methods on <code>ctx</code> and validating your backward function using
+:func:<code>torch.autograd.gradcheck</code>.</p>
+<p>See :ref:<code>extending-autograd</code> for more details on how to use this class.</p>
+<p>Examples::</p>
+<pre><code>&gt;&gt;&gt; class Exp(Function):
+&gt;&gt;&gt;     @staticmethod
+&gt;&gt;&gt;     def forward(ctx, i):
+&gt;&gt;&gt;         result = i.exp()
+&gt;&gt;&gt;         ctx.save_for_backward(result)
+&gt;&gt;&gt;         return result
+&gt;&gt;&gt;
+&gt;&gt;&gt;     @staticmethod
+&gt;&gt;&gt;     def backward(ctx, grad_output):
+&gt;&gt;&gt;         result, = ctx.saved_tensors
+&gt;&gt;&gt;         return grad_output * result
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Use it by calling the apply method:
+&gt;&gt;&gt; output = Exp.apply(input)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SwishImplementation(torch.autograd.Function):
+    @staticmethod
+    def forward(ctx, i):
+        result = i * torch.sigmoid(i)
+        ctx.save_for_backward(i)
+        return result
+
+    @staticmethod
+    def backward(ctx, grad_output):
+        i = ctx.saved_tensors[0]
+        sigmoid_i = torch.sigmoid(i)
+        return grad_output * (sigmoid_i * (1 + i * (1 - sigmoid_i)))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.autograd.function.Function</li>
+<li>torch._C._FunctionBase</li>
+<li>torch.autograd.function.FunctionCtx</li>
+<li>torch.autograd.function._HookMixin</li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation.backward"><code class="name flex">
+<span>def <span class="ident">backward</span></span>(<span>ctx, grad_output)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a formula for differentiating the operation with backward mode
+automatic differentiation (alias to the vjp function).</p>
+<p>This function is to be overridden by all subclasses.</p>
+<p>It must accept a context :attr:<code>ctx</code> as the first argument, followed by
+as many outputs as the :func:<code>forward</code> returned (None will be passed in
+for non tensor outputs of the forward function),
+and it should return as many tensors, as there were inputs to
+:func:<code>forward</code>. Each argument is the gradient w.r.t the given output,
+and each returned value should be the gradient w.r.t. the
+corresponding input. If an input is not a Tensor or is a Tensor not
+requiring grads, you can just pass None as a gradient for that input.</p>
+<p>The context can be used to retrieve tensors saved during the forward
+pass. It also has an attribute :attr:<code>ctx.needs_input_grad</code> as a tuple
+of booleans representing whether each input needs gradient. E.g.,
+:func:<code>backward</code> will have <code>ctx.needs_input_grad[0] = True</code> if the
+first input to :func:<code>forward</code> needs gradient computated w.r.t. the
+output.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def backward(ctx, grad_output):
+    i = ctx.saved_tensors[0]
+    sigmoid_i = torch.sigmoid(i)
+    return grad_output * (sigmoid_i * (1 + i * (1 - sigmoid_i)))</code></pre>
+</details>
+</dd>
+<dt id="carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>ctx, i)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs the operation.</p>
+<p>This function is to be overridden by all subclasses.</p>
+<p>It must accept a context ctx as the first argument, followed by any
+number of arguments (tensors or other types).</p>
+<p>The context can be used to store arbitrary data that can be then
+retrieved during the backward pass. Tensors should not be stored
+directly on <code>ctx</code> (though this is not currently enforced for
+backward compatibility). Instead, tensors should be saved either with
+:func:<code>ctx.save_for_backward</code> if they are intended to be used in
+<code>backward</code> (equivalently, <code>vjp</code>) or :func:<code>ctx.save_for_forward</code>
+if they are intended to be used for in <code>jvp</code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def forward(ctx, i):
+    result = i * torch.sigmoid(i)
+    ctx.save_for_backward(i)
+    return result</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="carvekit.ml.arch.tracerb7" href="index.html">carvekit.ml.arch.tracerb7</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.calculate_output_image_size" href="#carvekit.ml.arch.tracerb7.effi_utils.calculate_output_image_size">calculate_output_image_size</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.create_block_args" href="#carvekit.ml.arch.tracerb7.effi_utils.create_block_args">create_block_args</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.drop_connect" href="#carvekit.ml.arch.tracerb7.effi_utils.drop_connect">drop_connect</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.get_same_padding_conv2d" href="#carvekit.ml.arch.tracerb7.effi_utils.get_same_padding_conv2d">get_same_padding_conv2d</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.get_same_padding_maxPool2d" href="#carvekit.ml.arch.tracerb7.effi_utils.get_same_padding_maxPool2d">get_same_padding_maxPool2d</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.get_width_and_height_from_size" href="#carvekit.ml.arch.tracerb7.effi_utils.get_width_and_height_from_size">get_width_and_height_from_size</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.round_filters" href="#carvekit.ml.arch.tracerb7.effi_utils.round_filters">round_filters</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.round_repeats" href="#carvekit.ml.arch.tracerb7.effi_utils.round_repeats">round_repeats</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs">BlockArgs</a></code></h4>
+<ul class="two-column">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.expand_ratio" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.expand_ratio">expand_ratio</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.id_skip" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.id_skip">id_skip</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.input_filters" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.input_filters">input_filters</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.kernel_size" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.kernel_size">kernel_size</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.num_repeat" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.num_repeat">num_repeat</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.output_filters" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.output_filters">output_filters</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.se_ratio" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.se_ratio">se_ratio</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.stride" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockArgs.stride">stride</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder">BlockDecoder</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder.decode" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder.decode">decode</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder.encode" href="#carvekit.ml.arch.tracerb7.effi_utils.BlockDecoder.encode">encode</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.Conv2dDynamicSamePadding" href="#carvekit.ml.arch.tracerb7.effi_utils.Conv2dDynamicSamePadding">Conv2dDynamicSamePadding</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.Conv2dDynamicSamePadding.forward" href="#carvekit.ml.arch.tracerb7.effi_utils.Conv2dDynamicSamePadding.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.Conv2dStaticSamePadding" href="#carvekit.ml.arch.tracerb7.effi_utils.Conv2dStaticSamePadding">Conv2dStaticSamePadding</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.Conv2dStaticSamePadding.forward" href="#carvekit.ml.arch.tracerb7.effi_utils.Conv2dStaticSamePadding.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams">GlobalParams</a></code></h4>
+<ul class="two-column">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.batch_norm_epsilon" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.batch_norm_epsilon">batch_norm_epsilon</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.batch_norm_momentum" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.batch_norm_momentum">batch_norm_momentum</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.depth_coefficient" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.depth_coefficient">depth_coefficient</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.depth_divisor" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.depth_divisor">depth_divisor</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.drop_connect_rate" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.drop_connect_rate">drop_connect_rate</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.dropout_rate" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.dropout_rate">dropout_rate</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.image_size" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.image_size">image_size</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.include_top" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.include_top">include_top</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.min_depth" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.min_depth">min_depth</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.num_classes" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.num_classes">num_classes</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.width_coefficient" href="#carvekit.ml.arch.tracerb7.effi_utils.GlobalParams.width_coefficient">width_coefficient</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dDynamicSamePadding" href="#carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dDynamicSamePadding">MaxPool2dDynamicSamePadding</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dDynamicSamePadding.forward" href="#carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dDynamicSamePadding.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dStaticSamePadding" href="#carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dStaticSamePadding">MaxPool2dStaticSamePadding</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dStaticSamePadding.forward" href="#carvekit.ml.arch.tracerb7.effi_utils.MaxPool2dStaticSamePadding.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.MemoryEfficientSwish" href="#carvekit.ml.arch.tracerb7.effi_utils.MemoryEfficientSwish">MemoryEfficientSwish</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.MemoryEfficientSwish.forward" href="#carvekit.ml.arch.tracerb7.effi_utils.MemoryEfficientSwish.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.Swish" href="#carvekit.ml.arch.tracerb7.effi_utils.Swish">Swish</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.Swish.forward" href="#carvekit.ml.arch.tracerb7.effi_utils.Swish.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation" href="#carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation">SwishImplementation</a></code></h4>
+<ul class="">
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation.backward" href="#carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation.backward">backward</a></code></li>
+<li><code><a title="carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation.forward" href="#carvekit.ml.arch.tracerb7.effi_utils.SwishImplementation.forward">forward</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

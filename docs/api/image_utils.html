@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>image_utils API documentation</title>
+<meta name="description" content="Source url: https://github.com/OPHoperHPO/image-background-remove-tool …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>image_utils</code></h1>
+</header>
+<section id="section-intro">
+<p>Source url: <a href="https://github.com/OPHoperHPO/image-background-remove-tool">https://github.com/OPHoperHPO/image-background-remove-tool</a></p>
+<p>Author: Nikita Selin (OPHoperHPO)[<a href="https://github.com/OPHoperHPO].">https://github.com/OPHoperHPO].</a></p>
+<p>License: Apache License 2.0</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+
+    Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+
+    License: Apache License 2.0
+&#34;&#34;&#34;
+
+import pathlib
+from typing import Union, Any, Tuple
+
+import PIL.Image
+import numpy as np
+import torch
+
+ALLOWED_SUFFIXES = [&#34;.jpg&#34;, &#34;.jpeg&#34;, &#34;.bmp&#34;, &#34;.png&#34;, &#34;.webp&#34;]
+
+
+def to_tensor(x: Any) -&gt; torch.Tensor:
+    &#34;&#34;&#34;
+    Returns a PIL.Image.Image as torch tensor without swap tensor dims.
+
+    Args:
+        x (PIL.Image.Image): image
+
+    Returns:
+        torch.Tensor: image as torch tensor
+    &#34;&#34;&#34;
+    return torch.tensor(np.array(x, copy=True))
+
+
+def load_image(file: Union[str, pathlib.Path, PIL.Image.Image]) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;Returns a `PIL.Image.Image` class by string path or `pathlib.Path` or `PIL.Image.Image` instance
+
+    Args:
+        file (Union[str, pathlib.Path, PIL.Image.Image]): File path or `PIL.Image.Image` instance
+
+    Returns:
+        PIL.Image.Image: image instance loaded from `file` location
+
+    Raises:
+        ValueError: If file not exists or file is directory or file isn&#39;t an image or file is not correct PIL Image
+
+    &#34;&#34;&#34;
+    if isinstance(file, str) and is_image_valid(pathlib.Path(file)):
+        return PIL.Image.open(file)
+    elif isinstance(file, PIL.Image.Image):
+        return file
+    elif isinstance(file, pathlib.Path) and is_image_valid(file):
+        return PIL.Image.open(str(file))
+    else:
+        raise ValueError(&#34;Unknown input file type&#34;)
+
+
+def convert_image(image: PIL.Image.Image, mode=&#34;RGB&#34;) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;Performs image conversion to correct color mode
+
+    Args:
+        image (PIL.Image.Image): `PIL.Image.Image` instance
+        mode (str, default=RGB): Color mode to convert
+
+    Returns:
+        PIL.Image.Image: converted image
+
+    Raises:
+        ValueError: If image hasn&#39;t convertable color mode, or it is too small
+    &#34;&#34;&#34;
+    if is_image_valid(image):
+        return image.convert(mode)
+
+
+def is_image_valid(image: Union[pathlib.Path, PIL.Image.Image]) -&gt; bool:
+    &#34;&#34;&#34;This function performs image validation.
+
+    Args:
+        image (Union[pathlib.Path, PIL.Image.Image]): Path to the image or `PIL.Image.Image` instance being checked.
+
+    Returns:
+        bool: True if image is valid, False otherwise.
+
+    Raises:
+        ValueError: If file not a valid image path or image hasn&#39;t convertable color mode, or it is too small
+
+    &#34;&#34;&#34;
+    if isinstance(image, pathlib.Path):
+        if not image.exists():
+            raise ValueError(&#34;File is not exists&#34;)
+        elif image.is_dir():
+            raise ValueError(&#34;File is a directory&#34;)
+        elif image.suffix.lower() not in ALLOWED_SUFFIXES:
+            raise ValueError(
+                f&#34;Unsupported image format. Supported file formats: {&#39;, &#39;.join(ALLOWED_SUFFIXES)}&#34;
+            )
+    elif isinstance(image, PIL.Image.Image):
+        if not (image.size[0] &gt; 32 and image.size[1] &gt; 32):
+            raise ValueError(&#34;Image should be bigger then (32x32) pixels.&#34;)
+        elif image.mode not in [
+            &#34;RGB&#34;,
+            &#34;RGBA&#34;,
+            &#34;L&#34;,
+        ]:
+            raise ValueError(&#34;Wrong image color mode.&#34;)
+    else:
+        raise ValueError(&#34;Unknown input file type&#34;)
+    return True
+
+
+def transparency_paste(
+    bg_img: PIL.Image.Image, fg_img: PIL.Image.Image, box=(0, 0)
+) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;
+    Inserts an image into another image while maintaining transparency.
+
+    Args:
+        bg_img (PIL.Image.Image): background image
+        fg_img (PIL.Image.Image): foreground image
+        box (tuple[int, int]): place to paste
+
+    Returns:
+        PIL.Image.Image: Background image with pasted foreground image at point or in the specified box
+    &#34;&#34;&#34;
+    fg_img_trans = PIL.Image.new(&#34;RGBA&#34;, bg_img.size)
+    fg_img_trans.paste(fg_img, box, mask=fg_img)
+    new_img = PIL.Image.alpha_composite(bg_img, fg_img_trans)
+    return new_img
+
+
+def add_margin(
+    pil_img: PIL.Image.Image,
+    top: int,
+    right: int,
+    bottom: int,
+    left: int,
+    color: Tuple[int, int, int, int],
+) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;
+    Adds margin to the image.
+
+    Args:
+        pil_img (PIL.Image.Image): Image that needed to add margin.
+        top (int): pixels count at top side
+        right (int): pixels count at right side
+        bottom (int): pixels count at bottom side
+        left (int): pixels count at left side
+        color (Tuple[int, int, int, int]): color of margin
+
+    Returns:
+        PIL.Image.Image: Image with margin.
+    &#34;&#34;&#34;
+    width, height = pil_img.size
+    new_width = width + right + left
+    new_height = height + top + bottom
+    # noinspection PyTypeChecker
+    result = PIL.Image.new(pil_img.mode, (new_width, new_height), color)
+    result.paste(pil_img, (left, top))
+    return result</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="image_utils.add_margin"><code class="name flex">
+<span>def <span class="ident">add_margin</span></span>(<span>pil_img: PIL.Image.Image, top: int, right: int, bottom: int, left: int, color: Tuple[int, int, int, int]) ‑> PIL.Image.Image</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds margin to the image.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pil_img</code></strong> :&ensp;<code>PIL.Image.Image</code></dt>
+<dd>Image that needed to add margin.</dd>
+<dt><strong><code>top</code></strong> :&ensp;<code>int</code></dt>
+<dd>pixels count at top side</dd>
+<dt><strong><code>right</code></strong> :&ensp;<code>int</code></dt>
+<dd>pixels count at right side</dd>
+<dt><strong><code>bottom</code></strong> :&ensp;<code>int</code></dt>
+<dd>pixels count at bottom side</dd>
+<dt><strong><code>left</code></strong> :&ensp;<code>int</code></dt>
+<dd>pixels count at left side</dd>
+<dt><strong><code>color</code></strong> :&ensp;<code>Tuple[int, int, int, int]</code></dt>
+<dd>color of margin</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>PIL.Image.Image</code></dt>
+<dd>Image with margin.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_margin(
+    pil_img: PIL.Image.Image,
+    top: int,
+    right: int,
+    bottom: int,
+    left: int,
+    color: Tuple[int, int, int, int],
+) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;
+    Adds margin to the image.
+
+    Args:
+        pil_img (PIL.Image.Image): Image that needed to add margin.
+        top (int): pixels count at top side
+        right (int): pixels count at right side
+        bottom (int): pixels count at bottom side
+        left (int): pixels count at left side
+        color (Tuple[int, int, int, int]): color of margin
+
+    Returns:
+        PIL.Image.Image: Image with margin.
+    &#34;&#34;&#34;
+    width, height = pil_img.size
+    new_width = width + right + left
+    new_height = height + top + bottom
+    # noinspection PyTypeChecker
+    result = PIL.Image.new(pil_img.mode, (new_width, new_height), color)
+    result.paste(pil_img, (left, top))
+    return result</code></pre>
+</details>
+</dd>
+<dt id="image_utils.convert_image"><code class="name flex">
+<span>def <span class="ident">convert_image</span></span>(<span>image: PIL.Image.Image, mode='RGB') ‑> PIL.Image.Image</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs image conversion to correct color mode</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>PIL.Image.Image</code></dt>
+<dd><code>PIL.Image.Image</code> instance</dd>
+<dt><strong><code>mode</code></strong> :&ensp;<code>str</code>, default=<code>RGB</code></dt>
+<dd>Color mode to convert</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>PIL.Image.Image</code></dt>
+<dd>converted image</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If image hasn't convertable color mode, or it is too small</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_image(image: PIL.Image.Image, mode=&#34;RGB&#34;) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;Performs image conversion to correct color mode
+
+    Args:
+        image (PIL.Image.Image): `PIL.Image.Image` instance
+        mode (str, default=RGB): Color mode to convert
+
+    Returns:
+        PIL.Image.Image: converted image
+
+    Raises:
+        ValueError: If image hasn&#39;t convertable color mode, or it is too small
+    &#34;&#34;&#34;
+    if is_image_valid(image):
+        return image.convert(mode)</code></pre>
+</details>
+</dd>
+<dt id="image_utils.is_image_valid"><code class="name flex">
+<span>def <span class="ident">is_image_valid</span></span>(<span>image: Union[pathlib.Path, PIL.Image.Image]) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function performs image validation.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>Union[pathlib.Path, PIL.Image.Image]</code></dt>
+<dd>Path to the image or <code>PIL.Image.Image</code> instance being checked.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if image is valid, False otherwise.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If file not a valid image path or image hasn't convertable color mode, or it is too small</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_image_valid(image: Union[pathlib.Path, PIL.Image.Image]) -&gt; bool:
+    &#34;&#34;&#34;This function performs image validation.
+
+    Args:
+        image (Union[pathlib.Path, PIL.Image.Image]): Path to the image or `PIL.Image.Image` instance being checked.
+
+    Returns:
+        bool: True if image is valid, False otherwise.
+
+    Raises:
+        ValueError: If file not a valid image path or image hasn&#39;t convertable color mode, or it is too small
+
+    &#34;&#34;&#34;
+    if isinstance(image, pathlib.Path):
+        if not image.exists():
+            raise ValueError(&#34;File is not exists&#34;)
+        elif image.is_dir():
+            raise ValueError(&#34;File is a directory&#34;)
+        elif image.suffix.lower() not in ALLOWED_SUFFIXES:
+            raise ValueError(
+                f&#34;Unsupported image format. Supported file formats: {&#39;, &#39;.join(ALLOWED_SUFFIXES)}&#34;
+            )
+    elif isinstance(image, PIL.Image.Image):
+        if not (image.size[0] &gt; 32 and image.size[1] &gt; 32):
+            raise ValueError(&#34;Image should be bigger then (32x32) pixels.&#34;)
+        elif image.mode not in [
+            &#34;RGB&#34;,
+            &#34;RGBA&#34;,
+            &#34;L&#34;,
+        ]:
+            raise ValueError(&#34;Wrong image color mode.&#34;)
+    else:
+        raise ValueError(&#34;Unknown input file type&#34;)
+    return True</code></pre>
+</details>
+</dd>
+<dt id="image_utils.load_image"><code class="name flex">
+<span>def <span class="ident">load_image</span></span>(<span>file: Union[str, pathlib.Path, PIL.Image.Image]) ‑> PIL.Image.Image</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a <code>PIL.Image.Image</code> class by string path or <code>pathlib.Path</code> or <code>PIL.Image.Image</code> instance</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file</code></strong> :&ensp;<code>Union[str, pathlib.Path, PIL.Image.Image]</code></dt>
+<dd>File path or <code>PIL.Image.Image</code> instance</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>PIL.Image.Image</code></dt>
+<dd>image instance loaded from <code>file</code> location</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If file not exists or file is directory or file isn't an image or file is not correct PIL Image</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_image(file: Union[str, pathlib.Path, PIL.Image.Image]) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;Returns a `PIL.Image.Image` class by string path or `pathlib.Path` or `PIL.Image.Image` instance
+
+    Args:
+        file (Union[str, pathlib.Path, PIL.Image.Image]): File path or `PIL.Image.Image` instance
+
+    Returns:
+        PIL.Image.Image: image instance loaded from `file` location
+
+    Raises:
+        ValueError: If file not exists or file is directory or file isn&#39;t an image or file is not correct PIL Image
+
+    &#34;&#34;&#34;
+    if isinstance(file, str) and is_image_valid(pathlib.Path(file)):
+        return PIL.Image.open(file)
+    elif isinstance(file, PIL.Image.Image):
+        return file
+    elif isinstance(file, pathlib.Path) and is_image_valid(file):
+        return PIL.Image.open(str(file))
+    else:
+        raise ValueError(&#34;Unknown input file type&#34;)</code></pre>
+</details>
+</dd>
+<dt id="image_utils.to_tensor"><code class="name flex">
+<span>def <span class="ident">to_tensor</span></span>(<span>x: Any) ‑> torch.Tensor</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a PIL.Image.Image as torch tensor without swap tensor dims.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>PIL.Image.Image</code></dt>
+<dd>image</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>torch.Tensor</code></dt>
+<dd>image as torch tensor</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_tensor(x: Any) -&gt; torch.Tensor:
+    &#34;&#34;&#34;
+    Returns a PIL.Image.Image as torch tensor without swap tensor dims.
+
+    Args:
+        x (PIL.Image.Image): image
+
+    Returns:
+        torch.Tensor: image as torch tensor
+    &#34;&#34;&#34;
+    return torch.tensor(np.array(x, copy=True))</code></pre>
+</details>
+</dd>
+<dt id="image_utils.transparency_paste"><code class="name flex">
+<span>def <span class="ident">transparency_paste</span></span>(<span>bg_img: PIL.Image.Image, fg_img: PIL.Image.Image, box=(0, 0)) ‑> PIL.Image.Image</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Inserts an image into another image while maintaining transparency.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>bg_img</code></strong> :&ensp;<code>PIL.Image.Image</code></dt>
+<dd>background image</dd>
+<dt><strong><code>fg_img</code></strong> :&ensp;<code>PIL.Image.Image</code></dt>
+<dd>foreground image</dd>
+<dt><strong><code>box</code></strong> :&ensp;<code>tuple[int, int]</code></dt>
+<dd>place to paste</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>PIL.Image.Image</code></dt>
+<dd>Background image with pasted foreground image at point or in the specified box</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def transparency_paste(
+    bg_img: PIL.Image.Image, fg_img: PIL.Image.Image, box=(0, 0)
+) -&gt; PIL.Image.Image:
+    &#34;&#34;&#34;
+    Inserts an image into another image while maintaining transparency.
+
+    Args:
+        bg_img (PIL.Image.Image): background image
+        fg_img (PIL.Image.Image): foreground image
+        box (tuple[int, int]): place to paste
+
+    Returns:
+        PIL.Image.Image: Background image with pasted foreground image at point or in the specified box
+    &#34;&#34;&#34;
+    fg_img_trans = PIL.Image.new(&#34;RGBA&#34;, bg_img.size)
+    fg_img_trans.paste(fg_img, box, mask=fg_img)
+    new_img = PIL.Image.alpha_composite(bg_img, fg_img_trans)
+    return new_img</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="image_utils.add_margin" href="#image_utils.add_margin">add_margin</a></code></li>
+<li><code><a title="image_utils.convert_image" href="#image_utils.convert_image">convert_image</a></code></li>
+<li><code><a title="image_utils.is_image_valid" href="#image_utils.is_image_valid">is_image_valid</a></code></li>
+<li><code><a title="image_utils.load_image" href="#image_utils.load_image">load_image</a></code></li>
+<li><code><a title="image_utils.to_tensor" href="#image_utils.to_tensor">to_tensor</a></code></li>
+<li><code><a title="image_utils.transparency_paste" href="#image_utils.transparency_paste">transparency_paste</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

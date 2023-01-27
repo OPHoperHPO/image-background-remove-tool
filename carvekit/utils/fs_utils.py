@@ -1,6 +1,8 @@
 """
 Source url: https://github.com/OPHoperHPO/image-background-remove-tool
+
 Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
+
 License: Apache License 2.0
 """
 from pathlib import Path
@@ -14,9 +16,9 @@ def save_file(output: Optional[Path], input_path: Path, image: Image.Image):
     Saves an image to the file system
 
     Args:
-        output: Output path [dir or end file]
-        input_path: Input path of the image
-        image: Image to be saved.
+        output (Optional[pathlib.Path]): Output path [dir or end file]
+        input_path (pathlib.Path): Input path of the image
+        image (Image.Image): Image to be saved.
     """
     if isinstance(output, Path) and str(output) != "none":
         if output.is_dir() and output.exists():
