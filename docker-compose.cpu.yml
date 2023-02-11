@@ -6,14 +6,17 @@ services:
     environment:
       - CARVEKIT_PORT=5000
       - CARVEKIT_HOST=0.0.0.0
-      - CARVEKIT_SEGMENTATION_NETWORK=tracer_b7  # can be u2net, tracer_b7, basnet, deeplabv3
-      - CARVEKIT_PREPROCESSING_METHOD=none # can be none, stub
-      - CARVEKIT_POSTPROCESSING_METHOD=fba # can be none, fba
+      - CARVEKIT_SEGMENTATION_NETWORK=tracer_b7  # can be u2net, tracer_b7, basnet, deeplabv3, isnet
+      - CARVEKIT_PREPROCESSING_METHOD=none # can be none, stub, autoscene, auto
+      - CARVEKIT_POSTPROCESSING_METHOD=cascade_fba # can be none, fba, cascade_fba
       - CARVEKIT_DEVICE=cpu # can be cuda (req. cuda docker image), cpu
+      - CARVEKIT_BATCH_SIZE_PRE=5 # Number of images processed per one preprocessing method call. NOT USED IF WEB API IS USED
       - CARVEKIT_BATCH_SIZE_SEG=5 #  Number of images processed per one segmentation nn call. NOT USED IF WEB API IS USED
       - CARVEKIT_BATCH_SIZE_MATTING=1  # Number of images processed per one matting nn call. NOT USED IF WEB API IS USED
+      - CARVEKIT_BATCH_SIZE_REFINE=1  # Number of images processed per one refine nn call. NOT USED IF WEB API IS USED
       - CARVEKIT_SEG_MASK_SIZE=640  # The size of the input image for the segmentation neural network.
       - CARVEKIT_MATTING_MASK_SIZE=2048   # The size of the input image for the matting neural network.
+      - CARVEKIT_REFINE_MASK_SIZE=900   # The size of the input image for the refine neural network.
       - CARVEKIT_FP16=0 # Enables FP16 mode (Only CUDA at the moment)
       - CARVEKIT_TRIMAP_PROB_THRESHOLD=231  # Probability threshold at which the prob_filter and prob_as_unknown_area operations will be applied
       - CARVEKIT_TRIMAP_DILATION=30  # The size of the offset radius from the object mask in pixels when forming an unknown area

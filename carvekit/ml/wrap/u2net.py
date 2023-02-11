@@ -4,6 +4,8 @@ Author: Nikita Selin (OPHoperHPO)[https://github.com/OPHoperHPO].
 License: Apache License 2.0
 """
 import pathlib
+import warnings
+
 from typing import List, Union
 import PIL.Image
 import numpy as np
@@ -43,6 +45,8 @@ class U2NET(U2NETArchitecture):
 
         """
         super(U2NET, self).__init__(cfg_type=layers_cfg, out_ch=1)
+        if fp16:
+            warnings.warn("FP16 is not supported at this moment for U2NET model")
         self.device = device
         self.batch_size = batch_size
         if isinstance(input_image_size, list):
@@ -54,6 +58,7 @@ class U2NET(U2NETArchitecture):
             self.load_state_dict(
                 torch.load(u2net_full_pretrained(), map_location=self.device)
             )
+
         self.eval()
 
     def data_preprocessing(self, data: PIL.Image.Image) -> torch.FloatTensor:
@@ -121,11 +126,11 @@ class U2NET(U2NETArchitecture):
         """
         collect_masks = []
         for image_batch in batch_generator(images, self.batch_size):
-            images = thread_pool_processing(
+            converted_images = thread_pool_processing(
                 lambda x: convert_image(load_image(x)), image_batch
             )
             batches = torch.vstack(
-                thread_pool_processing(self.data_preprocessing, images)
+                thread_pool_processing(self.data_preprocessing, converted_images)
             )
             with torch.no_grad():
                 batches = batches.to(self.device)
@@ -133,8 +138,8 @@ class U2NET(U2NETArchitecture):
                 masks_cpu = masks.cpu()
                 del d2, d3, d4, d5, d6, d7, batches, masks
             masks = thread_pool_processing(
-                lambda x: self.data_postprocessing(masks_cpu[x], images[x]),
-                range(len(images)),
+                lambda x: self.data_postprocessing(masks_cpu[x], converted_images[x]),
+                range(len(converted_images)),
             )
             collect_masks += masks
         return collect_masks

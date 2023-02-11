@@ -16,6 +16,7 @@ from carvekit.ml.files.models_loc import (
     checkpoints_dir,
     downloader,
     tracer_b7_pretrained,
+    scene_classifier_pretrained,
 )
 from carvekit.utils.models_utils import fix_seed, suppress_warnings
 
@@ -70,3 +71,4 @@ def test_check_for_exists():
     assert deeplab_pretrained().exists()
     assert basnet_pretrained().exists()
     assert tracer_b7_pretrained().exists()
+    assert scene_classifier_pretrained().exists()

@@ -68,9 +68,7 @@ class MattingMethod:
         alpha = self.matting_module(images=images, trimaps=trimaps)
         return list(
             map(
-                lambda x: apply_mask(
-                    image=images[x], mask=alpha[x], device=self.device
-                ),
+                lambda x: apply_mask(image=images[x], mask=alpha[x]),
                 range(len(images)),
             )
         )

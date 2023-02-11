@@ -41,12 +41,7 @@ def test_preprocessing(fba_model, converted_pil_image, black_image_pil, image_ma
             )
             is True
         )
-    fba_model = FBAMatting(
-        device="cuda" if torch.cuda.is_available() else "cpu",
-        input_tensor_size=1024,
-        batch_size=1,
-        load_pretrained=True,
-    )
+    fba_model.batch_size = 2
     assert (
         isinstance(
             fba_model.data_preprocessing(converted_pil_image)[0], torch.FloatTensor

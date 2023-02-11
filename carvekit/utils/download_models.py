@@ -45,10 +45,25 @@ MODELS_URLS = {
         "revision": "d8a8fd9e7b3fa0d2f1506fe7242966b34381e9c5",
         "filename": "tracer_b7.pth",
     },
-    "tracer_hair.pth": {
-        "repository": "Carve/tracer_b7",
-        "revision": "d8a8fd9e7b3fa0d2f1506fe7242966b34381e9c5",
-        "filename": "tracer_b7.pth",  # TODO don't forget change this link!!
+    "scene_classifier.pth": {
+        "repository": "Carve/scene_classifier",
+        "revision": "71c8e4c771dd5a20ff0c5c9e3c8f1c9cf8082740",
+        "filename": "scene_classifier.pth",
+    },
+    "yolov4_coco_with_classes.pth": {
+        "repository": "Carve/yolov4_coco",
+        "revision": "e3fc9cd22f86e456d2749d1ae148400f2f950fb3",
+        "filename": "yolov4_coco_with_classes.pth",
+    },
+    "cascadepsp.pth": {
+        "repository": "Carve/cascadepsp",
+        "revision": "3ca1e5e432344b1277bc88d1c6d4265c46cff62f",
+        "filename": "cascadepsp.pth",
+    },
+    "isnet.pth": {
+        "repository": "Carve/isnet",
+        "revision": "91475fcb280243259a551653597c4702eabe9ff1",
+        "filename": "isnet.pth",
     },
 }
 
@@ -63,8 +78,14 @@ MODELS_CHECKSUMS = {
     "bea1533fda5ee70a909b934a9bd495b432cef89d629f00a07858a517742476fa8b346de24f7",
     "tracer_b7.pth": "c439c5c12d4d43d5f9be9ec61e68b2e54658a541bccac2577ef5a54fb252b6e8415d41f7e"
     "c2487033d0c02b4dd08367958e4e62091318111c519f93e2632be7b",
-    "tracer_hair.pth": "5c2fb9973fc42fa6208920ffa9ac233cc2ea9f770b24b4a96969d3449aed7ac89e6d37e"
-    "e486a13e63be5499f2df6ccef1109e9e8797d1326207ac89b2f39a7cf",
+    "scene_classifier.pth": "6d8692510abde453b406a1fea557afdea62fd2a2a2677283a3ecc2"
+    "341a4895ee99ed65cedcb79b80775db14c3ffcfc0aad2caec1d85140678852039d2d4e76b4",
+    "yolov4_coco_with_classes.pth": "44b6ec2dd35dc3802bf8c512002f76e00e97bfbc86bc7af6de2fafce229a41b4ca"
+    "12c6f3d7589278c71cd4ddd62df80389b148c19b84fa03216905407a107fff",
+    "cascadepsp.pth": "3f895f5126d80d6f73186f045557ea7c8eab4dfa3d69a995815bb2c03d564573f36c474f0"
+    "4d7bf0022a27829f583a1a793b036adf801cb423e41a4831b830122",
+    "isnet.pth": "e996b95c78aefe4573950ce1ed2eec20fa3c869381e9b5233c361a8e1dff09f"
+    "844f6c054c9cfa55377ae16a4cf55e727926599df0b1b8af65de478eccfac4708",
 }
 
 

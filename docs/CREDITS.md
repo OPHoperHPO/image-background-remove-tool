@@ -13,14 +13,17 @@ All images are copyrighted by their authors.
 
 ## References:
 1. https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/
-2. https://github.com/NathanUA/U-2-Net
-3. https://github.com/NathanUA/BASNet
-4. https://github.com/MarcoForte/FBA_Matting
-5. https://arxiv.org/abs/1706.05587
-6. https://arxiv.org/pdf/2005.09007.pdf
-7. http://openaccess.thecvf.com/content_CVPR_2019/html/Qin_BASNet_Boundary-Aware_Salient_Object_Detection_CVPR_2019_paper.html
-8. https://arxiv.org/abs/2003.07711
-9. https://arxiv.org/abs/1506.01497
-10. https://arxiv.org/abs/1703.06870
-11. https://github.com/Karel911/TRACER
-12. https://arxiv.org/abs/2112.07380
+2. https://github.com/xuebinqin/DIS
+3. https://github.com/NathanUA/U-2-Net
+4. https://github.com/NathanUA/BASNet
+5. https://github.com/MarcoForte/FBA_Matting
+6. https://arxiv.org/abs/1706.05587
+7. https://arxiv.org/pdf/2005.09007.pdf
+8. http://openaccess.thecvf.com/content_CVPR_2019/html/Qin_BASNet_Boundary-Aware_Salient_Object_Detection_CVPR_2019_paper.html
+9. https://arxiv.org/abs/2003.07711
+10. https://arxiv.org/abs/1506.01497
+11. https://arxiv.org/abs/1703.06870
+12. https://github.com/Karel911/TRACER
+13. https://arxiv.org/abs/2112.07380
+14. https://github.com/hkchengrex/CascadePSP
+

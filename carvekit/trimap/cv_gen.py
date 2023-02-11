@@ -54,10 +54,10 @@ class CV2TrimapGenerator:
 
         dilation = cv2.dilate(erode, kernel, iterations=1)
 
-        dilation = np.where(dilation == 255, 127, dilation)  # WHITE to GRAY
-        trimap = np.where(erode > 127, 200, dilation)  # mark the tumor inside GRAY
+        dilation = np.where(dilation == 255, 128, dilation)  # WHITE to GRAY
+        trimap = np.where(erode > 128, 200, dilation)  # mark the tumor inside GRAY
 
-        trimap = np.where(trimap < 127, 0, trimap)  # Embelishment
+        trimap = np.where(trimap < 128, 0, trimap)  # Embelishment
         trimap = np.where(trimap > 200, 0, trimap)  # Embelishment
         trimap = np.where(trimap == 200, 255, trimap)  # GRAY to WHITE
 
