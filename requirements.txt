@@ -5,7 +5,7 @@ typing~=3.7.4.3
 torchvision~=0.12.0
 opencv-python~=4.5.5.64
 numpy~=1.22.4
-loguru~=0.6.0
+loguru~=0.7.0
 uvicorn~=0.17.6
 fastapi==0.103.1
 pydantic==2.3.0
