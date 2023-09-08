@@ -1,7 +1,7 @@
 import re
 from typing import Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 from typing_extensions import Literal
 
 
@@ -24,8 +24,8 @@ class Parameters(BaseModel):
     bg_color: Optional[str] = ""
     bg_image_url: Optional[str] = ""
 
-    @validator("crop_margin")
-    def crop_margin_validator(cls, value):
+    @field_validator("crop_margin")
+    def crop_margin_validator(cls, value: Optional[str]):
         if not re.match(r"[0-9]+(px|%)$", value):
             raise ValueError(
                 "crop_margin paramter is not valid"
@@ -34,8 +34,8 @@ class Parameters(BaseModel):
             raise ValueError("crop_margin mast be in range between 0% and 100%")
         return value
 
-    @validator("scale")
-    def scale_validator(cls, value):
+    @field_validator("scale")
+    def scale_validator(cls, value: Optional[str]):
         if value != "original" and (
             not re.match(r"[0-9]+%$", value)
             or not int(value[:-1]) <= 100
@@ -48,8 +48,8 @@ class Parameters(BaseModel):
 
         return int(value[:-1])
 
-    @validator("position")
-    def position_validator(cls, value, values):
+    @field_validator("position")
+    def position_validator(cls, value: Optional[str]):
         if len(value.split(" ")) > 2:
             raise ValueError(
                 "Position must be a value from 0 to 100 "
@@ -63,9 +63,9 @@ class Parameters(BaseModel):
         else:
             return [int(value.split(" ")[0][:-1]), int(value.split(" ")[1][:-1])]
 
-    @validator("bg_color")
-    def bg_color_validator(cls, value):
-        if not re.match(r"(#{0,1}[0-9a-f]{3}){0,2}$", value):
+    @field_validator("bg_color")
+    def bg_color_validator(cls, value: Optional[str]):
+        if not re.match(r"(#?[0-9a-f]{3}){0,2}$", value):
             raise ValueError("bg_color is not in hex")
         if len(value) and value[0] != "#":
             value = "#" + value

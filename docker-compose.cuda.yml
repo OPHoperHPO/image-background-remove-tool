@@ -2,9 +2,9 @@ services:
   carvekit_api:
     image: anodev/carvekit:latest-cuda
     ports:
-      - "5000:5000"  # 5000
+      - "5001:5001"  # 5000
     environment:
-      - CARVEKIT_PORT=5000
+      - CARVEKIT_PORT=5001
       - CARVEKIT_HOST=0.0.0.0
       - CARVEKIT_SEGMENTATION_NETWORK=tracer_b7  # can be u2net, tracer_b7, basnet, deeplabv3
       - CARVEKIT_PREPROCESSING_METHOD=none # can be none, stub

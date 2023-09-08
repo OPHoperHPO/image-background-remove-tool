@@ -7,9 +7,8 @@ opencv-python~=4.5.5.64
 numpy~=1.22.4
 loguru~=0.6.0
 uvicorn~=0.17.6
-fastapi~=0.78.0
-starlette~=0.19.1
-pydantic~=1.9.1
+fastapi==0.103.1
+pydantic==2.3.0
 click~=8.1.3
 tqdm~=4.64.0
 setuptools~=62.3.2

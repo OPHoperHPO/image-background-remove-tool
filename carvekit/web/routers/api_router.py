@@ -1,5 +1,4 @@
 import base64
-import http
 import io
 import time
 from json import JSONDecodeError
@@ -7,7 +6,7 @@ from typing import Optional
 
 import requests
 from PIL import Image
-from fastapi import Header, Depends, Form, File, Request, APIRouter, UploadFile
+from fastapi import Header, Depends, Form, File, Request, APIRouter
 from fastapi.openapi.models import Response
 from pydantic import ValidationError
 from starlette.responses import JSONResponse
@@ -172,7 +171,7 @@ async def removebg(
                 content=error_dict("Error download image!"), status_code=400
             )
 
-    job_id = ml_processor.job_create([parameters.dict(), image, bg, False])
+    job_id = ml_processor.job_create([parameters.model_dump(), image, bg, False])
 
     while ml_processor.job_status(job_id) != "finished":
         if ml_processor.job_status(job_id) == "not_found":
@@ -217,6 +216,6 @@ def status(auth: str = Depends(Authenticate)):
         return JSONResponse(
             content=error_dict("Authentication failed"), status_code=403
         )
-    resp = JSONResponse(content=config.json(), status_code=200)
+    resp = JSONResponse(content=config.model_dump_json(), status_code=200)
     resp.headers["X-Credits-Charged"] = "0"
     return resp
