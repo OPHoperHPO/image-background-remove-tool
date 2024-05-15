@@ -186,6 +186,12 @@ Options:
 
 
 ````
+
+## 🤗 Running on [Huggingface Web App](https://leonelhs-carvekit.hf.space/)
+<p align="center"> 
+<img src="docs/imgs/screenshot/hg_carvekit.jpg">
+</p>
+
 ## 📦 Running the Framework / FastAPI HTTP API server via Docker:
 Using the API via docker is a **fast** and non-complex way to have a working API.
 > **Our docker images are available on [Docker Hub](https://hub.docker.com/r/anodev/carvekit).** \

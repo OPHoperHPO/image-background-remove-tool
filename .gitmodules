@@ -1,0 +1,3 @@
+[submodule "hugginface"]
+	path = hugginface
+	url = https://huggingface.co/spaces/leonelhs/carvekit
